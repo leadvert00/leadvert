@@ -33,7 +33,7 @@ const BlogCard = ({ blog }: any) => {
 
         <Link
           href={`/blog?q=${tag.fields.label.toLowerCase()}`}
-          className="absolute bottom-0 bg-white px-2 py-1 text-primary
+          className="absolute bottom-0 bg-white px-2 py-1 text-primary m-0.5
                 font-semibold text-sm hover:underline border tracking-wider"
         >
           {tag.fields.label}

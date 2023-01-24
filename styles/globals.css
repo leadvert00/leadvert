@@ -131,6 +131,13 @@ html {
     padding: 3rem 1rem;
   }
 }
+@media only screen and (min-width: 768px) and (max-width: 880px) {
+  .stm {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
 
 .service-container {
   width: 100%;

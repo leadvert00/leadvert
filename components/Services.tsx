@@ -45,7 +45,7 @@ const Services = () => {
   return (
     <div className="service-container  space-y-4 md:space-y-6 bg-white">
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 ">
-        <div className="w-full md:w-3/12 tm">
+        <div className="w-full md:w-3/12 stm">
           <sup className="text-secondary font-medium tracking-wider text-lg">
             Why Choose Us?
           </sup>
