@@ -52,7 +52,7 @@ const RICHTEXT_OPTIONS = {
       );
     },
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
-      return <p className="mb-4 mt-2">{children}</p>;
+      return <p className="mb-4 mt-2 break-words">{children}</p>;
     }
   }
 };

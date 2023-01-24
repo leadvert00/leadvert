@@ -20,12 +20,11 @@ const BlogCard = ({ blog }: any) => {
       href={`/blog/${slug}`}
       className="rounded blog-card border md:border-0 shadow md:shadow-transparent my-4
                   md:my-0 md:border-transparent 
-                  hover:shadow-2xl
-                  hover:border-gray-200
+                  md:hover:shadow-2xl
+                  md:hover:border-gray-200
                   transform transition duration-500"
     >
       <Image
-        className="hover:scale-100"
         src={`https:${heroImage.fields.file.url}`}
         width={400}
         height={400}
@@ -35,7 +34,7 @@ const BlogCard = ({ blog }: any) => {
       <div className="px-4 py-3 space-y-1 flex flex-col">
         <span
           className="text-primary block uppercase tracking-wide 
-                     text-sm "
+                      text-sm "
         >
           {tag.fields.label}
         </span>
