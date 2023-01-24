@@ -31,7 +31,7 @@ function Blog({ blogs, tags }: any) {
       console.log('return..');
       router.push('/blog');
     } else {
-      console.log('whyyy');
+      console.log('whyy..');
       router.push(`/blog?q=${tag.trim().toLowerCase()}`);
     }
   };
