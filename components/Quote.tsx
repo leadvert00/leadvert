@@ -14,8 +14,8 @@ const Quote = () => {
             Everything is theoretically impossible, until it is done.
           </h1>
         </div>
-        <div className="w-full md:w-10/12 flex flex-col space-y-6 md:space-y-8">
-          <p className="md:text-center text-base md:px-8">
+        <div className="w-full md:w-11/12 flex flex-col space-y-6 md:space-y-8">
+          <p className="md:text-center text-base md:text-lg md:px-8">
             We have progressively made a difference in academia over the last
             two years. We believe that the only way to find opportunities in
             life is to be curious and eager to explore the unknown. Our experts
