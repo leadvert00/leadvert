@@ -202,7 +202,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
 
       {/* *** DESIGN FOR MOBILE HERE****** */}
 
-      <div className="flex md:hidden mt-20 flex flex-col space-y-0">
+      <div className="flex md:hidden mt-16 pt-1 flex flex-col space-y-2">
         <div className="bg-gray-50  slug-container">
           <div className="py-1 overflow-x-auto w-full flex ">
             {tags.map((t: any, index: any) => (
@@ -222,13 +222,13 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             ))}
           </div>
         </div>
-        <div className="slug-container flex flex-col space-y-2">
+        <div className="slug-container flex flex-col space-y-4">
           <h1 className="text-3xl font-medium">{title}</h1>
           <div className="uppercase text-sm tracking-wide text-primary">
             {tag.fields.label}
           </div>
         </div>
-        <div>
+        <div className="slug-hero-image">
           <Image
             className="w-full"
             src={`https:${heroImage.fields.file.url}`}

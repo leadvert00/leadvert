@@ -185,7 +185,14 @@ html {
   object-fit: cover;
   object-position: center center;
 }
-
+@media only screen and (max-width: 768px) {
+  .slug-hero-image img {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    object-position: center center;
+  }
+}
 .slug-hero {
   position: relative;
   display: flex;
