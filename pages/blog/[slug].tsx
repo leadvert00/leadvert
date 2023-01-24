@@ -53,6 +53,13 @@ const RICHTEXT_OPTIONS = {
     },
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
       return <p className="mb-4 mt-2 break-words">{children}</p>;
+    },
+    [BLOCKS.EMBEDDED_ASSET]: (node: any, children: any) => {
+      return (
+        <div className="my-8">
+          <img src={node.data.target.fields.file.url} />
+        </div>
+      );
     }
   }
 };

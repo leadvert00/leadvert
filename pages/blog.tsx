@@ -1,8 +1,6 @@
 import { createClient } from 'contentful';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import BlogItem from '@/components/BlogItem';
 import BlogCard from '@/components/BlogCard';
 
 export async function getStaticProps() {
@@ -16,7 +14,6 @@ export async function getStaticProps() {
   const resT = await client.getEntries({
     content_type: 'tags'
   });
-  // console.log(res);
   return {
     props: { blogs: res.items, tags: resT.items },
     revalidate: 2
