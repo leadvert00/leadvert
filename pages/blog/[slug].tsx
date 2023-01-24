@@ -1,7 +1,17 @@
+import React, { ReactNode } from 'react';
+import {
+  Block,
+  BLOCKS,
+  Document,
+  Inline,
+  INLINES,
+  MARKS,
+  Text
+} from '@contentful/rich-text-types';
+
 import { createClient } from 'contentful';
 import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
-import { BLOCKS, INLINES } from '@contentful/rich-text-types';
 import Skeleton from '@/components/Skeleton';
 import Moment from 'react-moment';
 import Link from 'next/link';
@@ -17,50 +27,52 @@ const client = createClient({
 const RICHTEXT_OPTIONS = {
   // lg:max-w-md
   renderNode: {
-    [BLOCKS.HEADING_1]: (node: any, children: any) => {
-      return <h1 className="text-2xl  mt-6 mb-1 font-bold">{children}</h1>;
-    },
-    [BLOCKS.HEADING_2]: (node: any, children: any) => {
-      return (
-        <h2 className="text-xl md:text-2xl  mt-6 mb-1 font-bold">{children}</h2>
-      );
-    },
-    [BLOCKS.HEADING_3]: (node: any, children: any) => {
-      return (
-        <h3 className="text-xl md:text-2xl   mt-6 mb-1 font-bold">
-          {children}
-        </h3>
-      );
-    },
-    [BLOCKS.HEADING_4]: (node: any, children: any) => {
-      return (
-        <h4 className="text-xl md:text-2xl   mt-6 mb-1 font-bold">
-          {children}
-        </h4>
-      );
-    },
-    [BLOCKS.HEADING_5]: (node: any, children: any) => {
-      return (
-        <h5 className="text-xl md:text-2xl   mt-6 mb-1 font-bold">
-          {children}
-        </h5>
-      );
-    },
-    [BLOCKS.HEADING_5]: (node: any, children: any) => {
-      return (
-        <h6 className="text-xl md:text-2xl  mt-6 mb-1 font-bold">{children}</h6>
-      );
-    },
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => {
-      return <p className="mb-4 mt-2 break-words">{children}</p>;
-    },
+    [BLOCKS.DOCUMENT]: (node: any, children: any) => children,
+    [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
+      <p className="py-2">{children}</p>
+    ),
+    [BLOCKS.HEADING_1]: (node: any, children: any) => (
+      <h1 className="font-medium text-5xl">{children}</h1>
+    ),
+    [BLOCKS.HEADING_2]: (node: any, children: any) => (
+      <h2 className=" font-medium text-4xl">{children}</h2>
+    ),
+    [BLOCKS.HEADING_3]: (node: any, children: any) => (
+      <h3 className=" font-medium text-3xl">{children}</h3>
+    ),
+    [BLOCKS.HEADING_4]: (node: any, children: any) => (
+      <h4 className=" font-medium text-2xl">{children}</h4>
+    ),
+    [BLOCKS.HEADING_5]: (node: any, children: any) => (
+      <h5 className=" font-medium text-xl">{children}</h5>
+    ),
+    [BLOCKS.HEADING_6]: (node: any, children: any) => (
+      <h6 className=" font-medium text-lg">{children}</h6>
+    ),
     [BLOCKS.EMBEDDED_ASSET]: (node: any, children: any) => {
       return (
-        <div className="my-8">
-          <img src={node.data.target.fields.file.url} />
+        <div className="my-4 w-full">
+          <Image
+            src={node.data.target.fields.file.url}
+            alt={node.data.target.fields.title}
+            width={500}
+            height={500}
+          />
         </div>
       );
-    }
+    },
+    [BLOCKS.UL_LIST]: (node: any, children: any) => (
+      <ul className="list-disc px-4">{children}</ul>
+    ),
+    [BLOCKS.OL_LIST]: (node: any, children: any) => (
+      <ol className="list-decimal px-4">{children}</ol>
+    ),
+    [BLOCKS.LIST_ITEM]: (node: any, children: any) => <li>{children}</li>,
+
+    [BLOCKS.QUOTE]: (node: any, children: any) => (
+      <blockquote>{children}</blockquote>
+    ),
+    [BLOCKS.HR]: () => <hr />
   }
 };
 
@@ -197,7 +209,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
           </div>
         </div>
         <div className="flex w-full space-x-12  pt-8">
-          <div className="slug-1">
+          <div className="slug-1 slug-con">
             <div>{documentToReactComponents(body, RICHTEXT_OPTIONS)}</div>
           </div>
           <div className="slug-2 mt-6 space-y-16">
@@ -245,7 +257,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             alt=""
           />{' '}
         </div>
-        <div className="slug-container">
+        <div className="slug-container  slug-con">
           <div>{documentToReactComponents(body, RICHTEXT_OPTIONS)}</div>
         </div>
         <div className="slug-container">

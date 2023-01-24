@@ -211,9 +211,10 @@ html {
   object-fit: cover;
   object-position: center center;
 }
-.slug-body p {
-  font-size: inherit;
-  line-height: 1.6rem;
+
+.slug-con a {
+  color: #370070;
+  font-weight: 400;
 }
 .service-card {
   width: 30%;
