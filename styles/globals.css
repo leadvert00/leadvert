@@ -216,6 +216,9 @@ html {
   color: #370070;
   font-weight: 400;
 }
+.slug-con a:hover {
+  text-decoration: underline;
+}
 .service-card {
   width: 30%;
 }
