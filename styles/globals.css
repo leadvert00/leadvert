@@ -336,9 +336,11 @@ html {
 @media only screen and (max-width: 768px) {
   .blog-card {
     width: 100%;
+    margin-top: 0rem;
   }
   .blog-card:hover {
     width: 100%;
+    margin-top: 0rem;
   }
 }
 
