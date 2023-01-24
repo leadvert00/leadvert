@@ -206,8 +206,9 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
         <div className="bg-gray-50  slug-container">
           <div className="py-1 overflow-x-auto w-full flex ">
             {tags.map((t: any, index: any) => (
-              <button
+              <Link
                 key={index}
+                href={`/blog?q=${t.fields.label.trim().toLowerCase()}`}
                 className={`px-4 py-2 mr-2 rounded-full font-medium tracking-wider border
                           hover:border-secondary text-sm
                           ${
@@ -218,7 +219,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                           }`}
               >
                 {t.fields.label}
-              </button>
+              </Link>
             ))}
           </div>
         </div>
