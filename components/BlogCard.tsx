@@ -22,7 +22,7 @@ const BlogCard = ({ blog }: any) => {
                   md:my-0 md:border-transparent 
                   md:hover:shadow-2xl
                   md:hover:border-gray-200
-                  transform transition duration-500"
+                  md:transform md:transition md:duration-500"
     >
       <Image
         src={`https:${heroImage.fields.file.url}`}
