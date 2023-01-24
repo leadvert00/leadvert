@@ -166,7 +166,7 @@ html {
 }
 @media only screen and (max-width: 768px) {
   .slug-container {
-    padding: 1rem 1rem;
+    padding: 0.5rem 1rem;
   }
 }
 .slug-1 {
@@ -320,6 +320,7 @@ html {
     padding: 3rem 1rem;
   }
 }
+
 .bc img {
   height: 13rem !important;
   object-fit: cover;

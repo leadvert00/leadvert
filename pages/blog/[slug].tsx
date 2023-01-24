@@ -123,6 +123,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
   );
   console.log(otherBlogs);
   console.log(otherTags);
+  console.log(tag.fields.label.toLowerCase());
   return (
     <>
       <div className="w-full hidden md:flex flex-col space-y-10 slug-container flex mt-16">
@@ -184,31 +185,31 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
 
       {/* *** DESIGN FOR MOBILE HERE****** */}
 
-      <div className="flex md:hidden mt-16 flex flex-col space-y-0">
+      <div className="flex md:hidden mt-20 flex flex-col space-y-0">
         <div className="bg-gray-50  slug-container">
           <div className="py-1 overflow-x-auto w-full flex ">
-            {tags.map((tag: any, index: any) => (
+            {tags.map((t: any, index: any) => (
               <button
                 key={index}
                 className={`px-4 py-2 mr-2 rounded-full font-medium tracking-wider border
                           hover:border-secondary text-sm
                           ${
-                            tag.fields.label.trim().toLowerCase() ===
-                            tag.fields.label.toLowerCase()
+                            t.fields.label.trim().toLowerCase() ===
+                            tag.fields.label.trim().toLowerCase()
                               ? 'bg-primary text-white'
                               : 'bg-gray-200'
                           }`}
               >
-                {tag.fields.label}
+                {t.fields.label}
               </button>
             ))}
           </div>
         </div>
-        <div className="slug-container flex flex-col space-y-4">
+        <div className="slug-container flex flex-col space-y-2">
           <h1 className="text-3xl font-medium">{title}</h1>
-          <p className="uppercase font-semibold">
-            <span>{tag.fields.label}</span>
-          </p>
+          <div className="uppercase text-sm tracking-wide text-primary">
+            {tag.fields.label}
+          </div>
         </div>
         <div>
           <Image

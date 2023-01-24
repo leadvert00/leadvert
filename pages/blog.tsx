@@ -59,7 +59,7 @@ function Blog({ blogs, tags }: any) {
 
   // console.log(blogsList);
   return (
-    <div className="bp-container mt-8 md:mt-0 flex flex-col space-y-1 md:space-y-8">
+    <div className="bp-container mt-8 md:mt-0 flex flex-col space-y-2 md:space-y-8">
       <div className="space-y-2">
         <div className="flex">
           {tags.map((tag: any, index: any) => {
