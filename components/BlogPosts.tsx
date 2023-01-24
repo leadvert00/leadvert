@@ -49,7 +49,7 @@ export default function BlogPosts({ blogs }: any) {
         </div>
         <div>
           <div className="relative bc">
-            <div className="grid md:grid-cols-4 gap-4  grid-flow-row  auto-rows-min ">
+            <div className="w-full flex flex-col md:flex-row flex-wrap md:gap-8 auto-rows-min  ">
               {blogs.slice(0, 4).map((blog: any, index: any) => {
                 return <BlogCard key={index} blog={blog} />;
               })}
