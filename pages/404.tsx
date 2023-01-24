@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
+import Link from "next/link";
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 const NotFound = () => {
   const router = useRouter();
   useEffect(() => {
     setTimeout(() => {
-      router.push('/');
+      router.push("/");
     }, 4000);
-  }, []);
+  }, [router]);
   return (
     <div className="not-found">
       <h1>Not Found</h1>

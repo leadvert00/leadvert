@@ -19,7 +19,7 @@ export default function BlogPosts({ blogs }: any) {
             Each post is handpicked for the most relevant and actionable tips,
             tricks, hacks, and hacks. Students, researchers, and academia across
             the world have found educational inspiration in our site because
-            it's written by educators who know what they're talking about.
+            it&quot;s written by educators who know what they are talking about.
           </div>
           <div>
             <CircleButtonLink icon={<BsArrowRight />} to="/blog">

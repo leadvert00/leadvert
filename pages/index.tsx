@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import { Inter } from '@next/font/google';
-import Hero from '@/components/Hero';
-import Quote from '@/components/Quote';
-import Services from '@/components/Services';
-import { createClient } from 'contentful';
-import BlogPosts from '@/components/BlogPosts';
+import Head from "next/head";
+import { Inter } from "@next/font/google";
+import Hero from "@/components/Hero";
+import Quote from "@/components/Quote";
+import Services from "@/components/Services";
+import { createClient } from "contentful";
+import BlogPosts from "@/components/BlogPosts";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export async function getStaticProps() {
   const client = createClient({
@@ -14,7 +14,7 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!
   });
   const res = await client.getEntries({
-    content_type: 'blogPost'
+    content_type: "blogPost"
   });
   console.log(res);
   return {
