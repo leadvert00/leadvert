@@ -261,7 +261,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
           </div>
         </div>
         <div className="slug-container">
-          <div className='h-12'></div>
+          <div className="h-12"></div>
           <div className="relative bc">
             <div className="grid md:grid-cols-4 gap-4  grid-flow-row  auto-rows-min ">
               {otherBlogs.slice(0, 4).map((blog: any, index: any) => {
