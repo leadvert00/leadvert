@@ -1,6 +1,6 @@
-import React from "react";
-import CircleButtonLink from "./CircleButtonLink";
-import { BsArrowRight } from "react-icons/bs";
+import React from 'react';
+import CircleButtonLink from './CircleButtonLink';
+import { BsArrowRight } from 'react-icons/bs';
 
 const Quote = () => {
   return (

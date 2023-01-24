@@ -21,7 +21,7 @@ const BlogCard = ({ blog }: any) => {
             md:hover:scale-100"
     >
       <div className="relative">
-        <Link href={slug}>
+        <Link href={`/blog/${slug}`}>
           <Image
             className="hover:scale-100"
             src={`https:${heroImage.fields.file.url}`}
@@ -44,7 +44,7 @@ const BlogCard = ({ blog }: any) => {
           <Moment format="MMMM Do, YYYY">{publishDate}</Moment>
         </div>
         <Link
-          href={slug}
+          href={`/blog/${slug}`}
           className="text-black   line-clamp-2 hover:underline
                     text-base font-bold"
         >

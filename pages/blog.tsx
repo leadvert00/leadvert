@@ -1,9 +1,9 @@
-import { createClient } from "contentful";
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import BlogItem from "@/components/BlogItem";
-import BlogCard from "@/components/BlogCard";
+import { createClient } from 'contentful';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import BlogItem from '@/components/BlogItem';
+import BlogCard from '@/components/BlogCard';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -11,10 +11,10 @@ export async function getStaticProps() {
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!
   });
   const res = await client.getEntries({
-    content_type: "blogPost"
+    content_type: 'blogPost'
   });
   const resT = await client.getEntries({
-    content_type: "tags"
+    content_type: 'tags'
   });
   // console.log(res);
   return {
@@ -23,20 +23,18 @@ export async function getStaticProps() {
   };
 }
 
-
 function Blog({ blogs, tags }: any) {
   console.log(tags);
-  function sendTag (q: any, tag: any) {
-  
+  function sendTag(q: any, tag: any) {
     console.log(q, tag);
     if (q === tag.trim().toLowerCase()) {
-      console.log("return..");
-      router.push("/blog");
+      console.log('return..');
+      router.push('/blog');
     } else {
-      console.log("whyy..");
+      console.log('whyy..');
       router.push(`/blog?q=${tag.trim().toLowerCase()}`);
     }
-  };
+  }
 
   const [blogsList, setBlogsList] = useState<any[]>([]);
   const router = useRouter();
@@ -57,8 +55,7 @@ function Blog({ blogs, tags }: any) {
     } else {
       setBlogsList(blogs);
     }
-    
-  }, [q,blogs]);
+  }, [q, blogs]);
 
   // console.log(blogsList);
   return (
@@ -79,8 +76,8 @@ function Blog({ blogs, tags }: any) {
                           hover:border-secondary text-sm 
                           ${
                             tag.fields.label.trim().toLowerCase() === q
-                              ? "bg-primary text-white"
-                              : "bg-gray-200"
+                              ? 'bg-primary text-white'
+                              : 'bg-gray-200'
                           }`}
                 >
                   {tag.fields.label}
