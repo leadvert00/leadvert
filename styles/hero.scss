@@ -1,0 +1,64 @@
+.scrolling-words-container {
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .scrolling-words-box {
+    height: 5rem;
+    overflow: hidden;
+    ul {
+      animation: scrollUp 8s infinite;
+      li {
+        display: flex;
+        height: 5rem;
+        list-style: none;
+      }
+    }
+  }
+  
+  // Variables
+  $item-count: 5;
+  
+  @keyframes scrollUp {
+    @for $i from 1 through ($item-count - 1) {
+      #{($i * 25) - 10%},
+      #{$i * 25%} {
+        transform: translateY((-100% / $item-count) * $i);
+      }
+    }
+  }
+  
+  .hero-content {
+    display: flex;
+    padding-top: 10rem;
+    padding-left: 4rem;
+    min-height: 20rem;
+  }
+  
+  .hero-media img {
+    height: 40rem;
+    width: 100%;
+    object-fit: cover;
+  }
+  
+  @media only screen and (max-width: 768px) {
+    .hero-content {
+      display: flex;
+      padding: 0 1rem;
+      padding-top: 7rem;
+      min-height: 20rem;
+    }
+    .scrolling-words-box {
+      height: 3rem;
+    }
+  
+    .hero-media img {
+      height: 18rem;
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+  

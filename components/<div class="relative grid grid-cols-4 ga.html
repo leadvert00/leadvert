@@ -1,0 +1,308 @@
+<div
+  class="relative grid grid-cols-4 gap-x-4 md:grid-cols-8 lg:grid-cols-12 lg:gap-x-6 mx-auto max-w-7xl gap-y-16"
+>
+  <div class="col-span-4">
+    <div class="relative w-full">
+      <a
+        class="group peer relative block w-full focus:outline-none"
+        href="/blog/usememo-and-usecallback"
+        ><div class="aspect-h-4 aspect-w-3 rounded-lg">
+          <img
+            src="data:image/webp;base64,UklGRhgDAABXRUJQVlA4WAoAAAAgAAAAYwAAQgAASUNDUDACAAAAAAIwQURCRQIQAABtbnRyUkdCIFhZWiAHzwAGAAMAAAAAAABhY3NwQVBQTAAAAABub25lAAAAAAAAAAAAAAAAAAAAAAAA9tYAAQAAAADTLUFEQkUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAApjcHJ0AAAA/AAAADJkZXNjAAABMAAAAGt3dHB0AAABnAAAABRia3B0AAABsAAAABRyVFJDAAABxAAAAA5nVFJDAAAB1AAAAA5iVFJDAAAB5AAAAA5yWFlaAAAB9AAAABRnWFlaAAACCAAAABRiWFlaAAACHAAAABR0ZXh0AAAAAENvcHlyaWdodCAxOTk5IEFkb2JlIFN5c3RlbXMgSW5jb3Jwb3JhdGVkAAAAZGVzYwAAAAAAAAARQWRvYmUgUkdCICgxOTk4KQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAWFlaIAAAAAAAAPNRAAEAAAABFsxYWVogAAAAAAAAAAAAAAAAAAAAAGN1cnYAAAAAAAAAAQIzAABjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAFhZWiAAAAAAAACcGAAAT6UAAAT8WFlaIAAAAAAAADSNAACgLAAAD5VYWVogAAAAAAAAJjEAABAvAAC+nFZQOCDCAAAAEAcAnQEqZABDAD6dSJ1KOK+soaoUalMQE4lpBvjnhsoqkbZkLPsZbQI7x+ZjpA2NTxVcwMCywYvDRr2gfYmpA4AA/n97J94pV1A4E2SK8MZ0zjLGfqfclMxup7wZb7OBBgFh0k4C7iEFs/gYGB+e4p8UC/cx26fjQgAFfhdrKhIZFai7bS+v89KMpeQbEUhhojvtrTKF8o33cMGXXQBrPXACV8fBNT1dirGbJmrCEgqv9ok1pqX98/8dOxSlxbsAAAA="
+            class="focus-ring w-full rounded-lg object-cover object-center transition"
+            alt="by Jp Valery"
+          />
+          <div
+            class="focus-ring w-full rounded-lg object-cover object-center transition backdrop-blur-xl"
+          ></div>
+          <img
+            title="When to useMemo and useCallback"
+            alt="by Jp Valery"
+            src="https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_955,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f"
+            srcset="
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_280,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f   280w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f   560w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f   840w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1100,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f 1100w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1300,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f 1300w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1650,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f 1650w
+            "
+            sizes="(max-width:639px) 80vw, (min-width:640px) and (max-width:1023px) 40vw, (min-width:1024px) and (max-width:1620px) 25vw, 420px"
+            crossorigin="anonymous"
+            class="focus-ring w-full rounded-lg object-cover object-center transition transition-opacity"
+            loading="lazy"
+          /><noscript
+            ><img
+              title="When to useMemo and useCallback"
+              alt="by Jp Valery"
+              src="https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_955,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f"
+              srcset="
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_280,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f   280w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f   560w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f   840w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1100,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f 1100w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1300,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f 1300w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1650,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1554672723-b208dc85134f 1650w
+              "
+              sizes="(max-width:639px) 80vw, (min-width:640px) and (max-width:1023px) 40vw, (min-width:1024px) and (max-width:1620px) 25vw, 420px"
+              crossorigin="anonymous"
+              class="focus-ring w-full rounded-lg object-cover object-center transition"
+              loading="lazy"
+          /></noscript>
+        </div>
+        <div class="mt-8 text-xl font-medium text-slate-500">
+          June 4th, 2019<!-- -->
+          —
+          <!-- -->13 min read
+        </div>
+        <div
+          class="text-2xl font-medium md:text-3xl text-black dark:text-white mt-4"
+        >
+          When to useMemo and useCallback
+        </div></a
+      ><button
+        class="whitespace-nowrap rounded-lg bg-white p-3 text-lg font-medium text-black shadow ring-team-current transition hover:opacity-100 hover:shadow-md hover:ring-4 focus:opacity-100 focus:outline-none focus:ring-4 group-hover:opacity-100 peer-hover:opacity-100 peer-focus:opacity-100 lg:opacity-0 lg:px-8 lg:py-4 absolute left-6 top-6 z-10"
+      >
+        <span class="hidden lg:inline">Click to copy url</span
+        ><span class="inline lg:hidden"
+          ><svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M6.5 15.25V15.25C5.5335 15.25 4.75 14.4665 4.75 13.5V6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H13.5C14.4665 4.75 15.25 5.5335 15.25 6.5V6.5"
+            ></path>
+            <rect
+              width="10.5"
+              height="10.5"
+              x="8.75"
+              y="8.75"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              rx="2"
+            ></rect></svg
+        ></span>
+      </button>
+    </div>
+  </div>
+  <div class="col-span-4">
+    <div class="relative w-full">
+      <a
+        class="group peer relative block w-full focus:outline-none"
+        href="/blog/use-react-error-boundary-to-handle-errors-in-react"
+        ><div class="aspect-h-4 aspect-w-3 rounded-lg">
+          <img
+            src="data:image/webp;base64,UklGRhIBAABXRUJQVlA4IAYBAABwCQCdASpkAEMAPrlSnku4P7AnrbVbm/AXCWMGgyUXnmQJl9DXzNixtcfFxvMsV7jEto8F/heo736SzSz9X7kTHU07MjRHa9DwQbl7YbWjmjXuvGAA/unVPM7Lh5f/lK/+N3+FI6+1f2p+VnmrBksLlwUCgwo8gO6d8wQF0bbQpqnIPoXeAMiCeL5bz9XCHnkNmETylmdJ0ROhPqMdG+g/PaHwaKAKVeWFYoHHyky+Cvgx8R2hISHWv0ST3UFet5BDd1JvAHFU5HbTa7V1xbqsQRV8nBRNLvIz7e5DgzrZ9oINzvWW5O/8pYMmq/uHHVIye4+wShmh16MUbxR6B3Hsid1BAAAA"
+            class="focus-ring w-full rounded-lg object-cover object-center transition"
+            alt="by Debora Cardenas"
+          />
+          <div
+            class="focus-ring w-full rounded-lg object-cover object-center transition backdrop-blur-xl"
+          ></div>
+          <img
+            title="Use react-error-boundary to handle errors in React"
+            alt="by Debora Cardenas"
+            src="https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_955,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner"
+            srcset="
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_280,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner   280w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner   560w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner   840w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1100,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner 1100w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1300,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner 1300w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1650,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner 1650w
+            "
+            sizes="(max-width:639px) 80vw, (min-width:640px) and (max-width:1023px) 40vw, (min-width:1024px) and (max-width:1620px) 25vw, 420px"
+            crossorigin="anonymous"
+            class="focus-ring w-full rounded-lg object-cover object-center transition transition-opacity"
+            loading="lazy"
+          /><noscript
+            ><img
+              title="Use react-error-boundary to handle errors in React"
+              alt="by Debora Cardenas"
+              src="https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_955,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner"
+              srcset="
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_280,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner   280w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner   560w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner   840w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1100,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner 1100w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1300,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner 1300w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1650,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/kentcdodds.com/content/blog/use-react-error-boundary-to-handle-errors-in-react/banner 1650w
+              "
+              sizes="(max-width:639px) 80vw, (min-width:640px) and (max-width:1023px) 40vw, (min-width:1024px) and (max-width:1620px) 25vw, 420px"
+              crossorigin="anonymous"
+              class="focus-ring w-full rounded-lg object-cover object-center transition"
+              loading="lazy"
+          /></noscript>
+        </div>
+        <div class="mt-8 text-xl font-medium text-slate-500">
+          July 20th, 2020<!-- -->
+          —
+          <!-- -->8 min read
+        </div>
+        <div
+          class="text-2xl font-medium md:text-3xl text-black dark:text-white mt-4"
+        >
+          Use react-error-boundary to handle errors in React
+        </div></a
+      ><link
+        rel="prefetch"
+        as="fetch"
+        href="/blog/use-react-error-boundary-to-handle-errors-in-react?_data=routes%2Fblog.%24slug"
+      /><link
+        rel="modulepreload"
+        href="/build/routes/blog.$slug-HNIBJME3.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-NMNWHI5Y.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-W7VEGQGZ.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-WWYPCIUR.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-QYKS7KRI.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-IA3UC6LT.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-NEAGXB5A.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-IPCABCS3.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-JCWG3GLE.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-LBXDCQPQ.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-SJ325QDX.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-BMDIH2PM.js"
+      /><link
+        rel="modulepreload"
+        href="/build/_shared/chunk-E6UGQ7RR.js"
+      /><button
+        class="whitespace-nowrap rounded-lg bg-white p-3 text-lg font-medium text-black shadow ring-team-current transition hover:opacity-100 hover:shadow-md hover:ring-4 focus:opacity-100 focus:outline-none focus:ring-4 group-hover:opacity-100 peer-hover:opacity-100 peer-focus:opacity-100 lg:opacity-0 lg:px-8 lg:py-4 absolute left-6 top-6 z-10"
+      >
+        <span class="hidden lg:inline">Click to copy url</span
+        ><span class="inline lg:hidden"
+          ><svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M6.5 15.25V15.25C5.5335 15.25 4.75 14.4665 4.75 13.5V6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H13.5C14.4665 4.75 15.25 5.5335 15.25 6.5V6.5"
+            ></path>
+            <rect
+              width="10.5"
+              height="10.5"
+              x="8.75"
+              y="8.75"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              rx="2"
+            ></rect></svg
+        ></span>
+      </button>
+    </div>
+  </div>
+  <div class="col-span-4 hidden lg:block">
+    <div class="relative w-full">
+      <a
+        class="group peer relative block w-full focus:outline-none"
+        href="/blog/why-i-avoid-nesting-closures"
+        ><div class="aspect-h-4 aspect-w-3 rounded-lg">
+          <img
+            src="data:image/webp;base64,UklGRjoBAABXRUJQVlA4IC4BAAAQDACdASpkAEMAPrlSn0o/v62hr5S7i/AXCWcGcAzm01kERSJZEZroyy3XY8GtUoGgIbHqrAxs2QT4khYVhWDcKOjgtvOGQgQStVHNhwgnajhldxs+bGfYEpAc2FFxpR9uq/sh4dLVo0AA/u47oFrWZw9cXNyJUTu2xripe5QXEw0ioeur2Ka+LKhfdDp/qfE+OjL6C054uwxErqNCjYaBgInNXfQxzaiVXLEXTFfZCYo5HNGlGS5DUQfDirDsJcrJ1fb/SljbZur07UXpdTx+tzBNE7rXjwpMcVwcBtZ3GPMtlJ+wAuKsDnWUmbDV0Lohdf5Qm9yeY2ecSFeRBBlDDf6ZVQAv3uGlTk1Ll1oamf/8CHjvDb1atYHAW85pa7sxLZd9Mh+osYQL/fSQAA=="
+            class="focus-ring w-full rounded-lg object-cover object-center transition"
+            alt="by Anna Sjöblom"
+          />
+          <div
+            class="focus-ring w-full rounded-lg object-cover object-center transition backdrop-blur-xl"
+          ></div>
+          <img
+            title="Why I avoid nesting closures"
+            alt="by Anna Sjöblom"
+            src="https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_955,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952"
+            srcset="
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_280,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952   280w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952   560w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952   840w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1100,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952 1100w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1300,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952 1300w,
+              https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1650,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952 1650w
+            "
+            sizes="(max-width:639px) 80vw, (min-width:640px) and (max-width:1023px) 40vw, (min-width:1024px) and (max-width:1620px) 25vw, 420px"
+            crossorigin="anonymous"
+            class="focus-ring w-full rounded-lg object-cover object-center transition transition-opacity"
+            loading="lazy"
+          /><noscript
+            ><img
+              title="Why I avoid nesting closures"
+              alt="by Anna Sjöblom"
+              src="https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_955,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952"
+              srcset="
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_280,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952   280w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_560,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952   560w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_840,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952   840w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1100,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952 1100w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1300,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952 1300w,
+                https://res.cloudinary.com/kentcdodds-com/image/upload/c_fill,w_1650,ar_3:4,q_auto,f_auto,b_rgb:e6e9ee/unsplash/photo-1562692655-5e76a32fb952 1650w
+              "
+              sizes="(max-width:639px) 80vw, (min-width:640px) and (max-width:1023px) 40vw, (min-width:1024px) and (max-width:1620px) 25vw, 420px"
+              crossorigin="anonymous"
+              class="focus-ring w-full rounded-lg object-cover object-center transition"
+              loading="lazy"
+          /></noscript>
+        </div>
+        <div class="mt-8 text-xl font-medium text-slate-500">
+          December 13th, 2019<!-- -->
+          —
+          <!-- -->4 min read
+        </div>
+        <div
+          class="text-2xl font-medium md:text-3xl text-black dark:text-white mt-4"
+        >
+          Why I avoid nesting closures
+        </div></a
+      ><button
+        class="whitespace-nowrap rounded-lg bg-white p-3 text-lg font-medium text-black shadow ring-team-current transition hover:opacity-100 hover:shadow-md hover:ring-4 focus:opacity-100 focus:outline-none focus:ring-4 group-hover:opacity-100 peer-hover:opacity-100 peer-focus:opacity-100 lg:opacity-0 lg:px-8 lg:py-4 absolute left-6 top-6 z-10"
+      >
+        <span class="hidden lg:inline">Click to copy url</span
+        ><span class="inline lg:hidden"
+          ><svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              d="M6.5 15.25V15.25C5.5335 15.25 4.75 14.4665 4.75 13.5V6.75C4.75 5.64543 5.64543 4.75 6.75 4.75H13.5C14.4665 4.75 15.25 5.5335 15.25 6.5V6.5"
+            ></path>
+            <rect
+              width="10.5"
+              height="10.5"
+              x="8.75"
+              y="8.75"
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="1.5"
+              rx="2"
+            ></rect></svg
+        ></span>
+      </button>
+    </div>
+  </div>
+</div>
