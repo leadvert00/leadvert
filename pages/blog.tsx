@@ -59,36 +59,33 @@ function Blog({ blogs, tags }: any) {
 
   // console.log(blogsList);
   return (
-    <div className="container mt-8 md:mt-6 flex flex-col space-y-8">
-      <div className="space-y-4">
-        <h1 className="text-2xl md:text-3xl font-semibold w-full">
-          {/* Please feel free to find the most recent of our writings here.. */}
-        </h1>
-        <div className="space-y-2">
-          <p className="font-medium text-lg">Search blog by Topics</p>
-          <div className="flex">
-            {tags.map((tag: any, index: any) => {
-              return (
-                <button
-                  key={index}
-                  onClick={() => sendTag(q, `${tag.fields.label}`)}
-                  className={`px-4 py-2 mr-3 rounded-full font-medium tracking-wider border
-                          hover:border-secondary text-sm 
+    <div className="bp-container mt-8 md:mt-0 flex flex-col space-y-1 md:space-y-8">
+      <div className="space-y-2">
+        <div className="flex">
+          {tags.map((tag: any, index: any) => {
+            return (
+              <button
+                key={index}
+                onClick={() => sendTag(q, `${tag.fields.label}`)}
+                className={`px-4 py-2 mr-3 rounded-full font-semibold tracking-wider border
+                          hover:border-secondary text-sm
                           ${
                             tag.fields.label.trim().toLowerCase() === q
                               ? 'bg-primary text-white'
                               : 'bg-gray-200'
                           }`}
-                >
-                  {tag.fields.label}
-                </button>
-              );
-            })}
-          </div>
+              >
+                {tag.fields.label}
+              </button>
+            );
+          })}
         </div>
+        <h1 className="text-2xl md:text-3xl font-semibold w-full b-heading">
+          <span className="">Most Recent writings here..</span>
+        </h1>
       </div>
       <div className="relative bc">
-        <div className="grid md:grid-cols-4 gap-4  grid-flow-row  auto-rows-min ">
+        <div className="w-full flex flex-col md:flex-row flex-wrap md:gap-8 auto-rows-min ">
           {blogsList.map((blog: any, index: any) => {
             return <BlogCard key={index} blog={blog} />;
           })}

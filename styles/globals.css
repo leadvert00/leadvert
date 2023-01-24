@@ -159,7 +159,55 @@ html {
     padding: 2rem 1rem;
   }
 }
+.slug-container {
+  width: 100%;
+  padding: 4rem 4rem;
+  position: relative;
+}
+@media only screen and (max-width: 768px) {
+  .slug-container {
+    padding: 1rem 1rem;
+  }
+}
+.slug-1 {
+  width: 65%;
+}
+.slug-2 {
+  width: 35%;
+}
 
+.slug-hero-image {
+  width: 100%;
+}
+.slug-hero-image img {
+  width: 100%;
+  height: 25em;
+  object-fit: cover;
+  object-position: center center;
+}
+
+.slug-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.slug-hero .slug-in {
+  width: 70%;
+  padding: 2rem 0rem;
+  margin-top: -3rem;
+}
+.slug-hero img {
+  width: 100%;
+  height: 35rem;
+  object-fit: cover;
+  object-position: center center;
+}
+.slug-body p {
+  font-size: inherit;
+  line-height: 1.6rem;
+}
 .service-card {
   width: 30%;
 }
@@ -250,9 +298,46 @@ html {
   background-color: transparent;
   background-image: linear-gradient(270deg, #ffffff 0%, #f6f7fcfb 100%);
 }
+.b-heading span {
+  background-image: linear-gradient(
+    -180deg,
+    transparent 0%,
+    transparent 64%,
+    rgb(255, 216, 95) 64%,
+    rgb(255, 216, 95) 87%,
+    transparent 87%,
+    transparent 100%
+  );
+}
+.bp-container {
+  width: 100%;
+  padding: 4rem 8rem;
+  padding-top: 6rem;
+}
+@media only screen and (max-width: 768px) {
+  .bp-container {
+    width: 100%;
+    padding: 3rem 1rem;
+  }
+}
 .bc img {
-  height: 10rem !important;
+  height: 13rem !important;
   object-fit: cover;
+}
+.blog-card {
+  width: 30%;
+  transition: all 0.2s ease-in-out;
+}
+.blog-card:hover {
+  margin-top: -0.1rem;
+  width: 30%;
+  transition: all 0.2s ease-in-out;
+}
+@media only screen and (max-width: 768px) {
+  .blog-card {
+    width: 100%;
+    transition: all 0.2s ease-in-out;
+  }
 }
 
 .slug {

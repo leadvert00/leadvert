@@ -16,43 +16,45 @@ const BlogCard = ({ blog }: any) => {
   } = blog.fields;
   console.log(blog.fields);
   return (
-    <div
-      className="rounded shadow border  hover:opacity-90 hover:shadow-xl transform transition duration-500 
-            md:hover:scale-100"
+    <Link
+      href={`/blog/${slug}`}
+      className="rounded blog-card border md:border-0 shadow md:shadow-transparent my-4
+                  md:my-0 md:border-transparent 
+                  hover:shadow-2xl
+                  hover:border-gray-200
+                  transform transition duration-500"
     >
-      <div className="relative">
-        <Link href={`/blog/${slug}`}>
-          <Image
-            className="hover:scale-100"
-            src={`https:${heroImage.fields.file.url}`}
-            width={400}
-            height={400}
-            alt=""
-          />
-        </Link>
+      <Image
+        className="hover:scale-100"
+        src={`https:${heroImage.fields.file.url}`}
+        width={400}
+        height={400}
+        alt=""
+      />
 
-        <Link
-          href={`/blog?q=${tag.fields.label.toLowerCase()}`}
-          className="absolute bottom-0 bg-white px-2 py-1 text-primary m-0.5
-                font-semibold text-sm hover:underline border tracking-wider"
+      <div className="px-4 py-3 space-y-1 flex flex-col">
+        <span
+          className="text-primary block uppercase tracking-wide 
+                     text-sm "
         >
           {tag.fields.label}
-        </Link>
-      </div>
-      <div className="p-3 space-y-2">
-        <div className="text-slate-600 font-medium text-sm">
-          <Moment format="MMMM Do, YYYY">{publishDate}</Moment>
-        </div>
-        <Link
-          href={`/blog/${slug}`}
-          className="text-black   line-clamp-2 hover:underline
-                    text-base font-bold"
+        </span>
+
+        <div
+          className="text-black  hover:text-primary leading-relaxed
+                    text-lg md:text-xl  font-medium"
         >
-          {title}
-        </Link>
-        <div className="text-xs italic">By {author.fields.name}</div>
+          <span className="line-clamp-2 hover:underline">{title}</span>
+        </div>
+        <div className="flex items-center space-x-2 ">
+          <div className="text-sm ">
+            <Moment format="MMMM D, YYYY">{publishDate}</Moment>
+          </div>
+          <div className="text-slate-600">*</div>
+          <div className="text-sm ">By {author.fields.name}</div>
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
