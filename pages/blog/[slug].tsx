@@ -163,11 +163,28 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
               </div>
               <div className="flex flex-col space-y-2">
                 <div className="uppercase tracking-wider text-sm">Category</div>
-                <div className="capitalize">{tag.fields.label}</div>
+                <Link
+                  href={`/blog?q=${tag.fields.label.toLowerCase()}`}
+                  className="capitalize hover:underline text-purple-700"
+                >
+                  {tag.fields.label}
+                </Link>
               </div>
               <div className="flex flex-col  space-y-2">
                 <div className="uppercase tracking-wider text-sm">Topics</div>
-                <div className="flex"></div>
+                <div className="flex">
+                  {otherTags.map((ot: any, index: any) => (
+                    <Link
+                      href={`/blog?q=${ot.fields.label.toLowerCase()}`}
+                      key={index}
+                      className="px-4 py-2 mr-2 bg-gray-200 rounded-full font-medium 
+                        tracking-wider border capitalize
+                        hover:border-secondary text-sm"
+                    >
+                      {ot.fields.label}
+                    </Link>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
@@ -227,10 +244,10 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
           <div className="text-sm uppercase mb-4 tracking-wide">Topics</div>
           {otherTags.map((ot: any, index: any) => (
             <Link
-              href={`/blog/${ot.fields.label.toLowerCase()}`}
+              href={`/blog?q=${ot.fields.label.toLowerCase()}`}
               key={index}
               className="px-4 py-2 mr-2 bg-gray-200 rounded-full font-medium 
-                        tracking-wider border
+                        tracking-wider border 
                         hover:border-secondary text-sm"
             >
               {ot.fields.label}
