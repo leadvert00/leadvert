@@ -6,7 +6,7 @@ const Layout = ({ children }: any) => {
     <div>
       <Nav />
       {children}
-      <footer className="fixed bottom-0 left-0 right-0">..</footer>
+      <footer>..</footer>
     </div>
   );
 };
