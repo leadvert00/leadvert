@@ -47,8 +47,8 @@ const Services = () => {
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 ">
         <m.div
           initial={{ opacity: 0 }}
-          whileInView={{ y: [50, 0], opacity: 1 }}
-          transition={{ duration: 0.7 }}
+          whileInView={{ y: [30, 0], opacity: 1 }}
+          transition={{ duration: 0.7, ease: 'easeOut' }}
           className="w-full md:w-3/12 stm"
         >
           <sup className="text-secondary font-medium tracking-wider text-lg">
