@@ -37,7 +37,7 @@ const RICHTEXT_OPTIONS = {
   renderNode: {
     [BLOCKS.DOCUMENT]: (node: any, children: any) => children,
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
-      <p className="mb-2 md:mb-4">{children}</p>
+      <p className="break-words mb-2 md:mb-4">{children}</p>
     ),
     [BLOCKS.HEADING_1]: (node: any, children: any) => (
       <h1 className="font-medium text-2xl md:text-3xl mt-6 md:mt-8  ">
@@ -72,9 +72,11 @@ const RICHTEXT_OPTIONS = {
         <div className="mb-6 w-full">
           <Image
             src={node.data.target.fields.file.url}
-            alt={node.data.target.fields.title}
             width={500}
             height={500}
+            alt={`Image for ${node.data.target.fields.title}`}
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
+            placeholder="blur"
           />
         </div>
       );
@@ -211,11 +213,12 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             <div className="slug-1 ">
               <div className="slug-hero-image">
                 <Image
-                  className=""
                   src={`https:${heroImage.fields.file.url}`}
                   width={heroImage.fields.file.details.image.width}
                   height={heroImage.fields.file.details.image.height}
-                  alt=""
+                  alt={`Image for ${title}`}
+                  blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
+                  placeholder="blur"
                 />{' '}
               </div>
             </div>
@@ -313,7 +316,9 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             src={`https:${heroImage.fields.file.url}`}
             width={heroImage.fields.file.details.image.width}
             height={heroImage.fields.file.details.image.height}
-            alt=""
+            alt={`Image for ${title}`}
+            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
+            placeholder="blur"
           />{' '}
         </div>
         <div className="slug-container space-y-8">

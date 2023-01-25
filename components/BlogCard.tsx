@@ -28,7 +28,9 @@ const BlogCard = ({ blog }: any) => {
         src={`https:${heroImage.fields.file.url}`}
         width={400}
         height={400}
-        alt=""
+        alt={`Image for ${title}`}
+        blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
+        placeholder="blur"
       />
 
       <div className="px-4 py-3 space-y-1 flex flex-col">
