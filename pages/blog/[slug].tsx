@@ -364,7 +364,6 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
       <div className="md:hidden">
         <div className="bg-gray-50  tag-container">
           <Select
-            instanceId={useId()}
             classNames={{
               control: (state) =>
                 state.isFocused
