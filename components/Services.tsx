@@ -7,7 +7,7 @@ import { GiTeacher } from 'react-icons/gi';
 import { RiGuideLine } from 'react-icons/ri';
 import CircleButtonLink from './CircleButtonLink';
 import { BsArrowRight } from 'react-icons/bs';
-
+import { motion as m } from 'framer-motion';
 const arr = [
   {
     title: 'Academic Writing',
@@ -45,17 +45,25 @@ const Services = () => {
   return (
     <div className="service-container  space-y-4 md:space-y-6 bg-white">
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 ">
-        <div className="w-full md:w-3/12 stm">
+        <m.div
+          initial={{ opacity: 0 }}
+          whileInView={{ y: [50, 0], opacity: 1 }}
+          transition={{ duration: 0.7 }}
+          className="w-full md:w-3/12 stm"
+        >
           <sup className="text-secondary font-medium tracking-wider text-lg">
             Why Choose Us?
           </sup>
           <h2 className="text-2xl md:text-5xl font-semibold w-full ">
             We are connected because...
           </h2>
-        </div>
+        </m.div>
         <div className="w-full md:w-9/12 flex space-y-4 md:space-y-0 flex-wrap md:gap-4 md:gap-y-5">
           {arr.map((x, index) => (
-            <div
+            <m.div
+              initial={{ opacity: 0 }}
+              whileInView={{ y: [50, 0], opacity: 1 }}
+              transition={{ duration: 1 }}
               className="service-card hover:opacity-80 py-4 px-2 space-y-2 shadow-md border flex flex-col items-center 
               justify-center m-1"
               key={index}
@@ -66,7 +74,7 @@ const Services = () => {
               </div>
               <h3 className="text-xl text-center font-semibold">{x.title}</h3>
               <p className="text-center ">{x.description}</p>
-            </div>
+            </m.div>
           ))}
         </div>
       </div>

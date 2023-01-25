@@ -1,10 +1,30 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useAnimation, motion as m } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import CircleButtonLink from './CircleButtonLink';
 import { BsArrowRight } from 'react-icons/bs';
 
+const squareVariants = {
+  visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
+  hidden: { opacity: 0, scale: 1 }
+};
+
 const Quote = () => {
+  const controls = useAnimation();
+  const [ref, inView] = useInView();
+  useEffect(() => {
+    if (inView) {
+      controls.start('visible');
+    }
+  }, [controls, inView]);
   return (
-    <div className="quote-container flex flex-col space-y-4 md:spave-y-6 items-center">
+    <m.div
+      ref={ref}
+      initial={{ opacity: 0 }}
+      whileInView={{ y: [80, 0], opacity: 1 }}
+      transition={{ duration: 0.7 }}
+      className="quote-container relative flex flex-col space-y-4 md:spave-y-6 items-center"
+    >
       <div className="text-center w-full flex flex-col space-y-4  items-center">
         <div className="flex flex-col md:w-9/12 items-center space-y-0 md:space-y-2">
           <sup className="flex-none w-36 text-sm  bg-purple-100 p-1 tracking-wide">
@@ -36,7 +56,7 @@ const Quote = () => {
           Move along with us
         </CircleButtonLink>
       </div>
-    </div>
+    </m.div>
   );
 };
 

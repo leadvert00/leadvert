@@ -1,12 +1,18 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { motion as m } from 'framer-motion';
 
 const Hero = () => {
   const heroImageUrl =
     'https://images.unsplash.com/photo-1609348445429-8cf379ff9bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80';
   return (
-    <div className="hero w-full flex flex-col space-y-8 md:space-y-0 md:flex-row">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.95, ease: 'easeOut' }}
+      className="hero w-full flex flex-col space-y-8 md:space-y-0 md:flex-row"
+    >
       <div className="hero-content w-full md:w-3/5 flex flex-col space-y-4 mb-3 md:mb-0 md:space-y-8">
         <div>
           <h1 className="flex flex-col text-3xl md:text-6xl font-bold space-y-3 md:space-y-4">
@@ -52,7 +58,7 @@ const Hero = () => {
           src={heroImageUrl}
         />
       </div>
-    </div>
+    </m.div>
   );
 };
 

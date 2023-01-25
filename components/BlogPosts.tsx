@@ -1,11 +1,17 @@
 import { BsArrowRight } from 'react-icons/bs';
 import BlogCard from './BlogCard';
 import CircleButtonLink from './CircleButtonLink';
+import { motion as m } from 'framer-motion';
 export default function BlogPosts({ blogs }: any) {
   // console.log(BlogPosts);
   return (
     <div className="blog-container   bg-white space-y-6 md:space-y-12 ">
-      <div className="flex py-24  blog-post  flex-col md:flex-row space-y-2">
+      <m.div
+        initial={{ opacity: 0 }}
+        whileInView={{ y: [50, 0], opacity: 1 }}
+        transition={{ duration: 0.7 }}
+        className="flex py-24  blog-post  flex-col md:flex-row space-y-2"
+      >
         <div className="w-full md:w-3/12 ">
           <h2 className="text-2xl md:text-5xl font-semibold w-full ">
             Leadvert Blog
@@ -27,7 +33,7 @@ export default function BlogPosts({ blogs }: any) {
             </CircleButtonLink>
           </div>
         </div>
-      </div>
+      </m.div>
 
       <div className=" bg-white flex flex-col space-y-12">
         <div className="flex flex-col md:flex-row md:justify-between items-center">
