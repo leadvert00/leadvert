@@ -19,7 +19,6 @@ const Quote = () => {
   }, [controls, inView]);
   return (
     <m.div
-      ref={ref}
       initial={{ opacity: 0 }}
       whileInView={{ y: [30, 0], opacity: 1 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}

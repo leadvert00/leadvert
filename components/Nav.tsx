@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { BiMenuAltRight, BiX } from 'react-icons/bi';
 import { TfiClose } from 'react-icons/tfi';
 import Link from 'next/link';
+import { motion as m } from 'framer-motion';
 const Nav = () => {
   const [sideBar, setSideBar] = useState<boolean>(false);
   let linksData = [
@@ -10,7 +11,12 @@ const Nav = () => {
     { title: 'Write For Us', link: '/' }
   ];
   return (
-    <nav className="nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md">
+    <m.nav
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.95, ease: 'easeOut' }}
+      className="nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md"
+    >
       <Link
         className="navbar-brand text-2xl"
         href="/"
@@ -87,7 +93,7 @@ const Nav = () => {
           </div>
         </div>
       )}
-    </nav>
+    </m.nav>
   );
 };
 

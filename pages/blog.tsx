@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import BlogCard from '@/components/BlogCard';
 import Link from 'next/link';
 import { motion as m } from 'framer-motion';
+import Select from 'react-select';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -23,6 +24,14 @@ export async function getStaticProps() {
 }
 
 function Blog({ blogs, tags }: any) {
+  const selectTags = tags.map((t: any) => {
+    return {
+      value: t.fields.label.trim().toLowerCase(),
+      label: t.fields.label
+    };
+  });
+  selectTags.push({ value: '/', label: 'Blog Home' });
+
   console.log(tags);
   function sendTag(q: any, tag: any) {
     console.log(q, tag);
@@ -38,29 +47,29 @@ function Blog({ blogs, tags }: any) {
   }
 
   const handleTag = (e: any) => {
-    if (e.target.value === '/') {
+    if (e.value === '/') {
       setTimeout(() => {
         router.push('/blog');
       }, 500);
     } else {
       setTimeout(() => {
-        router.push(`/blog?q=${e.target.value}`);
+        router.push(`/blog?q=${e.value}`);
       }, 500);
     }
   };
 
   const [blogsList, setBlogsList] = useState<any[]>([]);
   const router = useRouter();
+  let defaultTag = { label: '', value: '' };
   let q = router.query.q;
+  console.log(q, selectTags);
+  defaultTag = selectTags.find((slt: any) => slt.value === q);
   useEffect(() => {
-    console.log(q);
     if (q) {
       setBlogsList([]);
       blogs.map((blog: any) => {
-        console.log(blog);
         if (blog.fields.tag.fields.label) {
           if (q === blog.fields.tag.fields.label.trim().toLowerCase()) {
-            console.log(q);
             setBlogsList((blogsList) => blogsList.concat(blog));
           }
         }
@@ -68,9 +77,13 @@ function Blog({ blogs, tags }: any) {
     } else {
       setBlogsList(blogs);
     }
+    defaultTag = selectTags.map((st: any) => {
+      if (st.value === q) {
+        return st;
+      }
+    });
   }, [q, blogs]);
 
-  // console.log(blogsList);
   return (
     <m.div
       initial={{ opacity: 0 }}
@@ -105,29 +118,15 @@ function Blog({ blogs, tags }: any) {
         })}
       </div>
       <div className="md:hidden bg-gray-50  tag-container">
-        <select
-          className="w-full p-4 font-semibold tracking-wide uppercase"
+        <Select
+          classNames={{
+            control: (state) =>
+              state.isFocused ? ' h-14 tracking-wide' : ' tracking-wide h-14'
+          }}
+          options={selectTags}
           onChange={handleTag}
-        >
-          {tags.map((t: any, index: any) => (
-            <option
-              key={index}
-              className="uppercase font-medium"
-              selected={t.fields.label.trim().toLowerCase() === q}
-              value={t.fields.label.trim().toLowerCase()}
-            >
-              {' '}
-              {t.fields.label}
-            </option>
-          ))}
-          <option
-            className="uppercase font-medium"
-            value="/"
-            selected={typeof q === 'undefined'}
-          >
-            Blog Home
-          </option>
-        </select>
+          value={defaultTag}
+        ></Select>
       </div>
       <div className="slug-container flex flex-col space-y-4">
         <h1 className="text-2xl md:text-3xl font-semibold w-full b-heading">

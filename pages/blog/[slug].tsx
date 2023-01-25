@@ -8,6 +8,8 @@ import Moment from 'react-moment';
 import Link from 'next/link';
 import BlogCard from '@/components/BlogCard';
 import { useRouter } from 'next/router';
+import { motion as m } from 'framer-motion';
+import Select from 'react-select';
 
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
@@ -137,6 +139,18 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
       t.fields.label.trim().toLowerCase() !=
       tag.fields.label.trim().toLowerCase()
   );
+  const defaultTag = {
+    value: tag.fields.label.trim().toLowerCase(),
+    label: tag.fields.label
+  };
+  const selectTags = tags.map((t: any) => {
+    return {
+      value: t.fields.label.trim().toLowerCase(),
+      label: t.fields.label
+    };
+  });
+  selectTags.push({ value: '/', label: 'Blog Home' });
+  console.log(selectTags);
   console.log(blogs);
   const otherBlogs = blogs.filter(
     (bl: any) =>
@@ -145,17 +159,22 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
         tag.fields.label.trim().toLowerCase()
   );
   const handleTag = (e: any) => {
-    if (e.target.value === '/') {
+    if (e.value === '/') {
       router.push('/blog');
     } else {
-      router.push(`/blog?q=${e.target.value}`);
+      router.push(`/blog?q=${e.value}`);
     }
   };
   console.log(otherBlogs);
   console.log(otherTags);
   console.log(tag.fields.label.toLowerCase());
   return (
-    <div className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.95, ease: 'easeOut' }}
+      className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2"
+    >
       <div className="hidden md:flex md:flex-col">
         <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
           <Link
@@ -248,7 +267,12 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
               </div>
             </div>
           </div>
-          <div className="flex w-full space-x-12  pt-8">
+          <m.div
+            initial={{ opacity: 0 }}
+            whileInView={{ y: [30, 0], opacity: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="flex w-full space-x-12  pt-8"
+          >
             <div className="slug-1 space-y-12">
               <div className=" slug-con">
                 {documentToReactComponents(body, RICHTEXT_OPTIONS)}
@@ -271,7 +295,12 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                   ))}
                 </div>
               </div>
-              <div className="border-t border-b py-4 flex items-center">
+              <m.div
+                initial={{ opacity: 0 }}
+                whileInView={{ y: [30, 0], opacity: 1 }}
+                transition={{ duration: 0.5, ease: 'easeOut' }}
+                className="border-t border-b py-4 flex items-center"
+              >
                 <div className="w-2/12">
                   <Image
                     className="w-24 h-24 rounded-full"
@@ -295,13 +324,18 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                     </a>
                   </div>
                 </div>
-              </div>
+              </m.div>
             </div>
             <div className="slug-2 mt-6 space-y-16">
               <div className="w-full h-96 bg-purple-50"></div>
             </div>
-          </div>
-          <div className="flex flex-col space-y-3">
+          </m.div>
+          <m.div
+            initial={{ opacity: 0 }}
+            whileInView={{ y: [30, 0], opacity: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="flex flex-col space-y-3"
+          >
             <h3 className="text-4xl uppercase font-semibold w-full b-heading">
               <span className="">Discover more Blog..</span>
             </h3>
@@ -312,33 +346,21 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                 })}
               </div>
             </div>
-          </div>
+          </m.div>
         </div>
       </div>
 
       <div className="md:hidden">
         <div className="bg-gray-50  tag-container">
-          <select
-            className="w-full p-4 font-semibold tracking-wide uppercase"
+          <Select
+            classNames={{
+              control: (state) =>
+                state.isFocused ? ' h-14 tracking-wide' : ' tracking-wide h-14'
+            }}
+            options={selectTags}
             onChange={handleTag}
-          >
-            {tags.map((t: any, index: any) => (
-              <option
-                key={index}
-                selected={
-                  t.fields.label.trim().toLowerCase() ===
-                  tag.fields.label.trim().toLowerCase()
-                }
-                value={t.fields.label.trim().toLowerCase()}
-              >
-                {' '}
-                {t.fields.label}
-              </option>
-            ))}
-            <option className="uppercase font-medium" value="/">
-              Blog Home
-            </option>
-          </select>
+            value={defaultTag}
+          ></Select>
         </div>
         <div className="slug-container">
           <div className="flex flex-col space-y-2">
@@ -416,6 +438,6 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
           </div>
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }

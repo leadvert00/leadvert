@@ -4,17 +4,7 @@ import React from 'react';
 import Moment from 'react-moment';
 
 const BlogCard = ({ blog }: any) => {
-  const {
-    title,
-    slug,
-    tag,
-    author,
-    heroImage,
-    body,
-    description,
-    publishDate
-  } = blog.fields;
-  console.log(blog.fields);
+  const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
   return (
     <Link
       href={`/blog/${slug}`}
