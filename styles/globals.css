@@ -193,14 +193,14 @@ html {
 }
 .slug-hero-image img {
   width: 100%;
-  height: 25em;
+  height: 22em;
   object-fit: cover;
   object-position: center center;
 }
 @media only screen and (max-width: 768px) {
   .slug-hero-image img {
     width: 100%;
-    height: 15rem;
+    height: 14rem;
     object-fit: cover;
     object-position: center center;
   }
