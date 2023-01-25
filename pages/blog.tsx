@@ -62,8 +62,11 @@ function Blog({ blogs, tags }: any) {
   const router = useRouter();
   let defaultTag = { label: '', value: '' };
   let q = router.query.q;
-  console.log(q, selectTags);
-  defaultTag = selectTags.find((slt: any) => slt.value === q);
+
+  defaultTag = selectTags.find((slt: any) => slt.value === q) || {
+    value: '/',
+    label: 'Blog Home'
+  };
   useEffect(() => {
     if (q) {
       setBlogsList([]);
@@ -77,11 +80,6 @@ function Blog({ blogs, tags }: any) {
     } else {
       setBlogsList(blogs);
     }
-    defaultTag = selectTags.map((st: any) => {
-      if (st.value === q) {
-        return st;
-      }
-    });
   }, [q, blogs]);
 
   return (
