@@ -48,7 +48,7 @@ const Services = () => {
         <m.div
           initial={{ opacity: 0 }}
           whileInView={{ y: [30, 0], opacity: 1 }}
-          transition={{ duration: 0.7, ease: 'easeOut' }}
+          transition={{ duration: 0.5, ease: 'easeOut' }}
           className="w-full md:w-3/12 stm"
         >
           <sup className="text-secondary font-medium tracking-wider text-lg">
@@ -63,7 +63,7 @@ const Services = () => {
             <m.div
               initial={{ opacity: 0 }}
               whileInView={{ y: [30, 0], opacity: 1 }}
-              transition={{ duration: 0.7, ease: 'easeOut' }}
+              transition={{ duration: 0.5, ease: 'easeOut' }}
               className="service-card hover:opacity-80 py-4 px-2 space-y-2 shadow-md border flex flex-col items-center 
               justify-center m-1"
               key={index}

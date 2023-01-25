@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import BlogCard from '@/components/BlogCard';
 import Link from 'next/link';
-
+import { motion as m } from 'framer-motion';
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID!,
@@ -71,7 +71,12 @@ function Blog({ blogs, tags }: any) {
 
   // console.log(blogsList);
   return (
-    <div className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2">
+    <m.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.95, ease: 'easeOut' }}
+      className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2"
+    >
       <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
         <Link
           href="/blog"
@@ -136,7 +141,7 @@ function Blog({ blogs, tags }: any) {
           </div>
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }
 

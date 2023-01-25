@@ -22,7 +22,7 @@ const Quote = () => {
       ref={ref}
       initial={{ opacity: 0 }}
       whileInView={{ y: [30, 0], opacity: 1 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className="quote-container relative flex flex-col space-y-4 md:spave-y-6 items-center"
     >
       <div className="text-center w-full flex flex-col space-y-4  items-center">
