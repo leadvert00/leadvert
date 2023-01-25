@@ -62,8 +62,8 @@ const Services = () => {
           {arr.map((x, index) => (
             <m.div
               initial={{ opacity: 0 }}
-              whileInView={{ y: [50, 0], opacity: 1 }}
-              transition={{ duration: 1 }}
+              whileInView={{ y: [30, 0], opacity: 1 }}
+              transition={{ duration: 0.7, ease: 'easeOut' }}
               className="service-card hover:opacity-80 py-4 px-2 space-y-2 shadow-md border flex flex-col items-center 
               justify-center m-1"
               key={index}
