@@ -132,6 +132,7 @@ export async function getStaticProps({ params }: any) {
 }
 
 export default function BlogDetails({ blog, blogs, tags }: any) {
+  const router = useRouter();
   if (!blog) return <Skeleton />;
   const {
     title,
@@ -144,7 +145,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
     author
   } = blog.fields;
   console.log(blog);
-  const router = useRouter();
+
   const otherTags = tags.filter(
     (t: any) =>
       t.fields.label.trim().toLowerCase() !=
