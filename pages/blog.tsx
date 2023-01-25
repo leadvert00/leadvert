@@ -1,5 +1,5 @@
 import { createClient } from 'contentful';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import { useRouter } from 'next/router';
 import BlogCard from '@/components/BlogCard';
 import Link from 'next/link';
@@ -128,6 +128,7 @@ function Blog({ blogs, tags }: any) {
       </div>
       <div className="md:hidden bg-gray-50  tag-container">
         <Select
+          instanceId={useId()}
           classNames={{
             control: (state) =>
               state.isFocused

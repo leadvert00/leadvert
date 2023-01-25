@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode, useId } from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { createClient } from 'contentful';
 import Image from 'next/image';
@@ -10,7 +10,6 @@ import BlogCard from '@/components/BlogCard';
 import { useRouter } from 'next/router';
 import { motion as m } from 'framer-motion';
 import Select from 'react-select';
-
 const client = createClient({
   space: process.env.CONTENTFUL_SPACE_ID!,
   accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!
@@ -365,6 +364,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
       <div className="md:hidden">
         <div className="bg-gray-50  tag-container">
           <Select
+            instanceId={useId()}
             classNames={{
               control: (state) =>
                 state.isFocused
