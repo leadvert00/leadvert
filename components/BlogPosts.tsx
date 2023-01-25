@@ -30,7 +30,7 @@ export default function BlogPosts({ blogs }: any) {
       </div>
 
       <div className=" bg-white flex flex-col space-y-12">
-        <div className="flex flex-col md:flex-row md:justify-between">
+        <div className="flex flex-col md:flex-row md:justify-between items-center">
           <div className="space-y-2 lg:space-y-2">
             <h2 className="leading-tight text-3xl md:text-4xl text-black dark:text-white">
               Blog recommendations
