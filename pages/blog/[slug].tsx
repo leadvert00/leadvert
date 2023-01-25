@@ -171,7 +171,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
   console.log(otherTags);
   console.log(tag.fields.label.toLowerCase());
   return (
-    <div className="md:mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2">
+    <div className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2">
       <div className="hidden md:flex md:flex-col">
         <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
           <Link
