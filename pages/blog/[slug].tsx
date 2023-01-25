@@ -1,29 +1,11 @@
 import React, { ReactNode } from 'react';
-import {
-  Block,
-  BLOCKS,
-  Document,
-  Inline,
-  INLINES,
-  MARKS,
-  Text
-} from '@contentful/rich-text-types';
-
+import { BLOCKS } from '@contentful/rich-text-types';
 import { createClient } from 'contentful';
 import Image from 'next/image';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Skeleton from '@/components/Skeleton';
 import Moment from 'react-moment';
 import Link from 'next/link';
-import {
-  BiArrowBack,
-  BiArrowFromLeft,
-  BiArrowToLeft,
-  BiChevronsLeft,
-  BiChevronsRight,
-  BiRightArrow
-} from 'react-icons/bi';
-import BlogPosts from '@/components/BlogPosts';
 import BlogCard from '@/components/BlogCard';
 import { useRouter } from 'next/router';
 

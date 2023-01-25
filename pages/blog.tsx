@@ -26,19 +26,25 @@ function Blog({ blogs, tags }: any) {
   function sendTag(q: any, tag: any) {
     console.log(q, tag);
     if (q === tag.trim().toLowerCase()) {
-      console.log('return..');
-      router.push('/blog');
+      setTimeout(() => {
+        router.push('/blog');
+      }, 500);
     } else {
-      console.log('whyy..');
-      router.push(`/blog?q=${tag.trim().toLowerCase()}`);
+      setTimeout(() => {
+        router.push(`/blog?q=${tag.trim().toLowerCase()}`);
+      }, 500);
     }
   }
 
   const handleTag = (e: any) => {
     if (e.target.value === '/') {
-      router.push('/blog');
+      setTimeout(() => {
+        router.push('/blog');
+      }, 500);
     } else {
-      router.push(`/blog?q=${e.target.value}`);
+      setTimeout(() => {
+        router.push(`/blog?q=${e.target.value}`);
+      }, 500);
     }
   };
 

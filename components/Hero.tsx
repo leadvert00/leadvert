@@ -49,9 +49,7 @@ const Hero = () => {
           width={500}
           height={200}
           priority={true}
-          placeholder="blur"
           src={heroImageUrl}
-          blurDataURL={`/_next/image?url=${heroImageUrl}&w=16&q=1`}
         />
       </div>
     </div>
