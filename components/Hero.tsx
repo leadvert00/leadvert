@@ -3,6 +3,8 @@ import Link from 'next/link';
 import React from 'react';
 
 const Hero = () => {
+  const heroImageUrl =
+    'https://images.unsplash.com/photo-1609348445429-8cf379ff9bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80';
   return (
     <div className="hero w-full flex flex-col space-y-8 md:space-y-0 md:flex-row">
       <div className="hero-content w-full md:w-3/5 flex flex-col space-y-4 mb-3 md:mb-0 md:space-y-8">
@@ -42,11 +44,14 @@ const Hero = () => {
         </div>
       </div>
       <div className="w-full md:w-2/5 hero-media">
-        <img
-          alt="Picture of the author"
+        <Image
+          alt="hero Image"
           width={500}
           height={200}
-          src={`https://images.unsplash.com/photo-1609348445429-8cf379ff9bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80`}
+          priority={true}
+          placeholder="blur"
+          src={heroImageUrl}
+          blurDataURL={`/_next/image?url=${heroImageUrl}&w=16&q=1`}
         />
       </div>
     </div>
