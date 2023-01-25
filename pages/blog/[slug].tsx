@@ -425,7 +425,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
               <span className="">Discover more Blog..</span>
             </h3>
             <div className="relative bc">
-              <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-6 md:gap-8 auto-rows-min  ">
+              <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-4 md:gap-8 auto-rows-min  ">
                 {otherBlogs.slice(0, 4).map((blog: any, index: any) => {
                   return <BlogCard key={index} blog={blog} />;
                 })}

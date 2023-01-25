@@ -123,7 +123,7 @@ function Blog({ blogs, tags }: any) {
         </h1>
 
         <div className="relative bc">
-          <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-6 md:gap-8 auto-rows-min ">
+          <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-4 md:gap-8 auto-rows-min ">
             {blogsList.map((blog: any, index: any) => {
               return <BlogCard key={index} blog={blog} />;
             })}
