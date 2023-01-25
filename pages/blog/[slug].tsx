@@ -267,12 +267,68 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             </div>
           </div>
           <div className="flex w-full space-x-12  pt-8">
-            <div className="slug-1 slug-con">
-              <div>{documentToReactComponents(body, RICHTEXT_OPTIONS)}</div>
+            <div className="slug-1 space-y-12">
+              <div className=" slug-con">
+                {documentToReactComponents(body, RICHTEXT_OPTIONS)}
+              </div>
+              <div className="flex flex-col space-y-2">
+                <div className="text-sm uppercase mb-2 tracking-wide">
+                  Topics
+                </div>
+                <div>
+                  {otherTags.map((ot: any, index: any) => (
+                    <Link
+                      href={`/blog?q=${ot.fields.label.toLowerCase()}`}
+                      key={index}
+                      className="px-4 py-2 mr-2 bg-gray-100 rounded-full font-medium 
+                                tracking-wider border 
+                                hover:border-secondary text-sm"
+                    >
+                      {ot.fields.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <div className="border-t border-b py-4 flex items-center">
+                <div className="w-2/12">
+                  <Image
+                    className="w-24 h-24 rounded-full"
+                    src={`https:${author.fields.image.fields.file.url}`}
+                    width={heroImage.fields.file.details.image.width}
+                    height={heroImage.fields.file.details.image.height}
+                    alt=""
+                  />
+                </div>
+                <div className="w-10/12  flex flex-col space-y-2">
+                  <div className="flex flex-col justify-between  space-y-2">
+                    <h4 className="font-semibold">{author.fields.name}</h4>
+                    <p className="text-sm">{author.fields.shortBio}</p>
+                    <a
+                      target="_blank"
+                      className="tracking-wide text-xs  hover:underline"
+                      href={author.fields.linkedin}
+                      rel="noopener noreferrer"
+                    >
+                      LINKEDIN
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="slug-2 mt-6 space-y-16">
               <div className="w-full h-96 bg-purple-50"></div>
-              <div className="w-full h-96 bg-purple-50"></div>
+            </div>
+          </div>
+          <div className="flex flex-col space-y-3">
+            <h3 className="text-4xl uppercase font-semibold w-full b-heading">
+              <span className="">Discover more Blog..</span>
+            </h3>
+            <div className="relative bc">
+              <div className="w-full flex flex-col md:flex-row flex-wrap md:gap-8 auto-rows-min  ">
+                {otherBlogs.slice(0, 3).map((blog: any, index: any) => {
+                  return <BlogCard key={index} blog={blog} />;
+                })}
+              </div>
             </div>
           </div>
         </div>
@@ -354,7 +410,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                 <p className="text-sm">{author.fields.shortBio}</p>
                 <a
                   target="_blank"
-                  className="tracking-wide hover:underline"
+                  className="tracking-wide text-blue-800 hover:underline"
                   href={author.fields.linkedin}
                   rel="noopener noreferrer"
                 >
@@ -363,10 +419,13 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
               </div>
             </div>
           </div>
-          <div className="">
+          <div className="flex flex-col space-y-2">
             <div className="h-12">..</div>
+            <h3 className="text-3xl uppercase font-semibold w-full b-heading">
+              <span className="">Discover more Blog..</span>
+            </h3>
             <div className="relative bc">
-              <div className="grid md:grid-cols-4 gap-4  grid-flow-row  auto-rows-min ">
+              <div className="w-full flex flex-col md:flex-row flex-wrap md:gap-8 auto-rows-min  ">
                 {otherBlogs.slice(0, 4).map((blog: any, index: any) => {
                   return <BlogCard key={index} blog={blog} />;
                 })}
