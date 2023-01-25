@@ -282,7 +282,6 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             {tags.map((t: any, index: any) => (
               <option
                 key={index}
-                className="uppercase font-medium"
                 selected={
                   t.fields.label.trim().toLowerCase() ===
                   tag.fields.label.trim().toLowerCase()
@@ -299,7 +298,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
           </select>
         </div>
         <div className="slug-container">
-          <div className="flex flex-col space-y-8">
+          <div className="flex flex-col space-y-2">
             <h1 className="text-3xl font-medium">{title}</h1>
             <div className="uppercase text-sm tracking-wide text-primary">
               {tag.fields.label}

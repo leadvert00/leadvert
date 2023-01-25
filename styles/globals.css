@@ -34,7 +34,7 @@ html {
 @media only screen and (max-width: 768px) {
   .nav-container {
     padding-top: 0rem;
-    padding: 0 1rem;
+    padding: 0 1.2rem;
   }
   .nav-links {
     display: none;
@@ -46,7 +46,7 @@ html {
     z-index: 0;
   }
   .sidebar-container {
-    padding: 0 1rem;
+    padding: 0 1.2rem;
     background-color: transparent;
     background-image: linear-gradient(270deg, #fffffffe 0%, #e9ecff 100%);
     height: 100%;
@@ -117,7 +117,7 @@ html {
 }
 @media only screen and (max-width: 768px) {
   .container {
-    padding: 3rem 1rem;
+    padding: 3rem 1.2rem;
   }
 }
 
@@ -128,7 +128,7 @@ html {
 }
 @media only screen and (max-width: 768px) {
   .quote-container {
-    padding: 3rem 1rem;
+    padding: 3rem 1.2rem;
   }
 }
 @media only screen and (min-width: 768px) and (max-width: 880px) {
@@ -146,7 +146,7 @@ html {
 }
 @media only screen and (max-width: 768px) {
   .service-container {
-    padding: 0rem 1rem;
+    padding: 0rem 1.2rem;
   }
 }
 
@@ -156,7 +156,7 @@ html {
 }
 @media only screen and (max-width: 768px) {
   .blog-container {
-    padding: 2rem 1rem;
+    padding: 2rem 1.2rem;
   }
 }
 .tag-container {
@@ -166,7 +166,7 @@ html {
 @media only screen and (max-width: 768px) {
   .tag-container {
     width: 100%;
-    padding: 0rem 1rem;
+    padding: 0rem 1.2rem;
     padding-top: 2.5rem;
   }
 }
@@ -178,7 +178,7 @@ html {
 }
 @media only screen and (max-width: 768px) {
   .slug-container {
-    padding: 1rem 1rem;
+    padding: 1rem 1.2rem;
   }
 }
 .slug-1 {
