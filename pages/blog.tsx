@@ -2,6 +2,7 @@ import { createClient } from 'contentful';
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import BlogCard from '@/components/BlogCard';
+import Link from 'next/link';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -33,6 +34,14 @@ function Blog({ blogs, tags }: any) {
     }
   }
 
+  const handleTag = (e: any) => {
+    if (e.target.value === '/') {
+      router.push('/blog');
+    } else {
+      router.push(`/blog?q=${e.target.value}`);
+    }
+  };
+
   const [blogsList, setBlogsList] = useState<any[]>([]);
   const router = useRouter();
   let q = router.query.q;
@@ -56,36 +65,69 @@ function Blog({ blogs, tags }: any) {
 
   // console.log(blogsList);
   return (
-    <div className="bp-container mt-8 md:mt-0 flex flex-col space-y-4 md:space-y-6">
-      <div className="space-y-4">
-        <div className="flex">
-          {tags.map((tag: any, index: any) => {
-            return (
-              <button
-                key={index}
-                onClick={() => sendTag(q, `${tag.fields.label}`)}
-                className={`px-4 py-2 mr-3 rounded-full font-semibold tracking-wider border
-                          hover:border-secondary text-sm
-                          ${
-                            tag.fields.label.trim().toLowerCase() === q
-                              ? 'bg-primary text-white'
-                              : 'bg-gray-200'
-                          }`}
-              >
-                {tag.fields.label}
-              </button>
-            );
-          })}
-        </div>
+    <div className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2">
+      <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
+        <Link
+          href="/blog"
+          className={`uppercase tracking-wide  hover:text-primary
+                ${typeof q === 'undefined' ? 'underline font-medium' : ''}`}
+        >
+          Blog Home
+        </Link>
+        {tags.map((tag: any, index: any) => {
+          return (
+            <Link
+              key={index}
+              href={`/blog?q=${tag.fields.label.trim().toLowerCase()}`}
+              onClick={() => sendTag(q, `${tag.fields.label}`)}
+              className={`uppercase tracking-wide  hover:text-primary
+                ${
+                  tag.fields.label.trim().toLowerCase() === q
+                    ? 'underline font-medium'
+                    : ''
+                }`}
+            >
+              {tag.fields.label}
+            </Link>
+          );
+        })}
+      </div>
+      <div className="md:hidden bg-gray-50  tag-container">
+        <select
+          className="w-full p-4 font-semibold tracking-wide uppercase"
+          onChange={handleTag}
+        >
+          {tags.map((t: any, index: any) => (
+            <option
+              key={index}
+              className="uppercase font-medium"
+              selected={t.fields.label.trim().toLowerCase() === q}
+              value={t.fields.label.trim().toLowerCase()}
+            >
+              {' '}
+              {t.fields.label}
+            </option>
+          ))}
+          <option
+            className="uppercase font-medium"
+            value="/"
+            selected={typeof q === 'undefined'}
+          >
+            Blog Home
+          </option>
+        </select>
+      </div>
+      <div className="slug-container flex flex-col space-y-4">
         <h1 className="text-2xl md:text-3xl font-semibold w-full b-heading">
           <span className="">Most Recent writings here..</span>
         </h1>
-      </div>
-      <div className="relative bc">
-        <div className="w-full flex flex-col md:flex-row flex-wrap md:gap-8 auto-rows-min ">
-          {blogsList.map((blog: any, index: any) => {
-            return <BlogCard key={index} blog={blog} />;
-          })}
+
+        <div className="relative bc">
+          <div className="w-full flex flex-col md:flex-row flex-wrap md:gap-8 auto-rows-min ">
+            {blogsList.map((blog: any, index: any) => {
+              return <BlogCard key={index} blog={blog} />;
+            })}
+          </div>
         </div>
       </div>
     </div>
