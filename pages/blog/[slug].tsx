@@ -37,28 +37,30 @@ const RICHTEXT_OPTIONS = {
   renderNode: {
     [BLOCKS.DOCUMENT]: (node: any, children: any) => children,
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
-      <p className="mb-4 mt-2">{children}</p>
+      <p className="mb-2 md:mb-4">{children}</p>
     ),
     [BLOCKS.HEADING_1]: (node: any, children: any) => (
-      <h1 className="font-medium text-2xl md:text-3xl mt-2 mb-1">{children}</h1>
+      <h1 className="font-medium text-2xl md:text-3xl mt-6 md:mt-8  ">
+        {children}
+      </h1>
     ),
     [BLOCKS.HEADING_2]: (node: any, children: any) => (
-      <h2 className=" font-medium text-2xl md:text-3xl mt-2 mb-1">
+      <h2 className=" font-medium text-2xl md:text-3xl mt-6 md:mt-8 mb-1 md:mb-2  ">
         {children}
       </h2>
     ),
     [BLOCKS.HEADING_3]: (node: any, children: any) => (
-      <h3 className=" font-medium  text-2xl md:text-3xl mt-2 mb-1">
+      <h3 className=" font-medium  text-2xl md:text-3xl mt-6 md:mt-8 mb-1 md:mb-2  ">
         {children}
       </h3>
     ),
     [BLOCKS.HEADING_4]: (node: any, children: any) => (
-      <h4 className=" font-medium  text-2xl md:text-3xl mt-2 mb-1">
+      <h4 className=" font-medium  text-2xl md:text-3xl mt-6 md:mt-8 mb-1 md:mb-2  ">
         {children}
       </h4>
     ),
     [BLOCKS.HEADING_5]: (node: any, children: any) => (
-      <h5 className=" font-medium text-2xl md:text-3xl mt-2 mb-1">
+      <h5 className=" font-medium text-2xl md:text-3xl mt-6 md:mt-8 mb-1 md:mb-2  ">
         {children}
       </h5>
     ),
@@ -169,7 +171,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
   console.log(otherTags);
   console.log(tag.fields.label.toLowerCase());
   return (
-    <div className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2">
+    <div className="md:mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2">
       <div className="hidden md:flex md:flex-col">
         <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
           <Link
