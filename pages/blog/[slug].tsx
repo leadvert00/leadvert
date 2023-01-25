@@ -143,6 +143,18 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
     value: tag.fields.label.trim().toLowerCase(),
     label: tag.fields.label
   };
+  const styles = {
+    option: (provided: any, state: any) => ({
+      ...provided,
+      fontWeight: state.isSelected ? 'bold' : 'normal',
+      color: '#000',
+      backgroundColor: '#e2e8f0'
+    }),
+    singleValue: (provided: any, state: any) => ({
+      ...provided,
+      color: '#000'
+    })
+  };
   const selectTags = tags.map((t: any) => {
     return {
       value: t.fields.label.trim().toLowerCase(),
@@ -355,9 +367,12 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
           <Select
             classNames={{
               control: (state) =>
-                state.isFocused ? ' h-14 tracking-wide' : ' tracking-wide h-14'
+                state.isFocused
+                  ? ' h-14 tracking-wide underline underline-offset-4'
+                  : ' tracking-wide h-14  underline underline-offset-4'
             }}
             options={selectTags}
+            styles={styles}
             onChange={handleTag}
             value={defaultTag}
           ></Select>
