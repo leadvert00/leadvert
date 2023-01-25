@@ -67,7 +67,7 @@ function Blog({ blogs, tags }: any) {
       ...provided,
       fontWeight: state.isSelected ? 'bold' : 'normal',
       color: '#000',
-      backgroundColor: '#e2e8f0'
+      backgroundColor: '#f3f4f6'
     }),
     singleValue: (provided: any, state: any) => ({
       ...provided,
