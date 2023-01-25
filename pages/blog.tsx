@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import BlogCard from '@/components/BlogCard';
 import Link from 'next/link';
 import { motion as m } from 'framer-motion';
+
 export async function getStaticProps() {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_ID!,
