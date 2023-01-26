@@ -11,12 +11,7 @@ const Nav = () => {
     { title: 'Write For Us', link: '/' }
   ];
   return (
-    <m.nav
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className="nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md"
-    >
+    <nav className="nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md">
       <Link
         className="navbar-brand text-2xl"
         href="/"
@@ -93,7 +88,7 @@ const Nav = () => {
           </div>
         </div>
       )}
-    </m.nav>
+    </nav>
   );
 };
 
