@@ -98,7 +98,7 @@ export default function Proceed() {
       >
         <div className="max-w-screen-xl flex flex-col mt-16 md:mt-0 space-y-8 bg-white p-4 md:p-12 ">
           <div className="flex w-full">
-            <h1 className="leading-tight text-3xl md:text-5xl text-black dark:text-white">
+            <h1 className="leading-tight text-3xl md:text-5xl text-black">
               Some basic info to remember you.
             </h1>
           </div>

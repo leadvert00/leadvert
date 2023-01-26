@@ -54,7 +54,7 @@ export default function Home() {
           <div className="flex w-full">
             <div className="flex w-1/2">
               <div className="w-full my-16 space-y-12">
-                <h1 className="leading-tight text-3xl md:text-5xl text-black dark:text-white">
+                <h1 className="leading-tight text-3xl md:text-5xl text-black ">
                   Get Started with Leadvert
                 </h1>
                 <form className="w-full space-y-4" onSubmit={handleSubmit}>
