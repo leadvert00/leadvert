@@ -59,7 +59,7 @@ export default function Proceed() {
         router.push('/signup');
       }, 1000);
     }
-  }, [em, setEmail, setCountryArr]);
+  }, [em, setEmail, setCountryArr, router]);
 
   const handleCareer = (selectedOption: any) => {
     setCareer(selectedOption);
@@ -96,10 +96,10 @@ export default function Proceed() {
         transition={{ delay: 0.5, duration: 0.5 }}
         className=" w-full flex justify-center pt-5"
       >
-        <div className="max-w-screen-xl flex flex-col mt-16 md:mt-0 space-y-8 bg-white p-4 md:p-12 ">
+        <div className="max-w-screen-xl flex flex-col mt-4 md:mt-0 space-y-8 bg-white p-4 md:p-12 ">
           <div className="flex w-full">
             <h1 className="leading-tight text-3xl md:text-5xl text-black">
-              Some basic info to remember you.
+              Let us have some basic info to remember you.
             </h1>
           </div>
           <form
