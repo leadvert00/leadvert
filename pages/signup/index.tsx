@@ -54,9 +54,8 @@ export default function Home() {
   };
   return (
     <m.div
-      animate={{ y: '0%' }}
-      exit={{ opacity: 1 }}
-      initial={{ y: '100%' }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       className=" absolute top-0 left-0 right-0 w-full h-full signup-container
       bg-purple-50"
