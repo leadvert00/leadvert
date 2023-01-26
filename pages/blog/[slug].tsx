@@ -1,4 +1,4 @@
-import React, { ReactNode, useId } from 'react';
+import React, { ReactNode, useEffect, useId } from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { createClient } from 'contentful';
 import Image from 'next/image';
@@ -120,6 +120,13 @@ export async function getStaticProps({ params }: any) {
 
 export default function BlogDetails({ blog, blogs, tags }: any) {
   const router = useRouter();
+  useEffect(() => {
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    });
+  }, []);
   if (!blog) return <Skeleton />;
   const {
     title,
@@ -176,9 +183,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
       router.push(`/blog?q=${e.value}`);
     }
   };
-  console.log(otherBlogs);
-  console.log(otherTags);
-  console.log(tag.fields.label.toLowerCase());
+
   return (
     <m.div
       initial={{ opacity: 0 }}

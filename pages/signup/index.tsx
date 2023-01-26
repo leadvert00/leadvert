@@ -58,7 +58,7 @@ export default function Home() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
-      className=" absolute top-0 left-0 right-0 w-full h-full signup-container
+      className=" absolute top-0 left-0 right-0 w-full h-full signup-container xx
       bg-purple-50"
     >
       <main className="overflow-hidden w-full">

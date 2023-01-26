@@ -8,6 +8,7 @@ const BlogCard = ({ blog }: any) => {
   return (
     <Link
       href={`/blog/${slug}`}
+      scroll={true}
       className="rounded blog-card border md:border-0 shadow md:shadow-transparent my-4
                   md:my-0 md:border-transparent 
                   md:hover:shadow-2xl

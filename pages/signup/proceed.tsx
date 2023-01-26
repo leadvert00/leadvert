@@ -129,7 +129,7 @@ export default function Proceed() {
         duration: 0.75,
         ease: 'easeOut'
       }}
-      className=" absolute top-0 left-0 right-0 bottom-0 w-full h-full signup-container
+      className=" absolute top-0 left-0 right-0 bottom-0 w-full h-full signup-container xx
                   bg-orange-50"
     >
       <Head>
