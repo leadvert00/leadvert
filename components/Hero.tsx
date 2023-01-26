@@ -39,7 +39,7 @@ const Hero = () => {
           </p>
           <div>
             <Link
-              href=""
+              href="/signup"
               className="bg-gray-800 px-6 py-3 text-white text-lg font-semibold 
                         md:text-xl rounded
                         hover:bg-secondary"

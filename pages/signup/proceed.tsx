@@ -4,6 +4,7 @@ import Head from 'next/head';
 import Select from 'react-select';
 import React, { useEffect, useId, useState } from 'react';
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 export const container = {
   hidden: { opacity: 0 },
@@ -41,6 +42,7 @@ export default function Proceed() {
   const [research, setResearch] = useState<any>('');
   const [country, setCountry] = useState<any>('');
   const [countryArr, setCountryArr] = useState<any>([]);
+  const [done, setDone] = useState<any>(false);
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
       .then((res) => res.json())
@@ -70,9 +72,52 @@ export default function Proceed() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
-    alert('xxx');
+    let data = {
+      email,
+      name,
+      career: career.value,
+      affliation,
+      research,
+      country: country.value
+    };
+    console.log(data);
+    fetch(
+      `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca/search?email=${email}`
+    )
+      .then((resCheck) => resCheck.json())
+      .then((resCheck) => {
+        if (resCheck.length == 0) {
+          axios
+            .post(
+              `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca`,
+              data
+            )
+            .then((response: any) => {
+              console.log(response);
+              setDone(true);
+            });
+        } else {
+          axios
+            .patch(
+              `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca/email/*${email}`,
+              data
+            )
+            .then((response: any) => {
+              setDone(true);
+            });
+        }
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
+  useEffect(() => {
+    if (done) {
+      router.push('/signup/done');
+    }
+  }, [done]);
   return (
     <m.div
       animate={{ y: '0%' }}
