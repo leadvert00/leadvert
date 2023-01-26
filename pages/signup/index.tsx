@@ -24,8 +24,11 @@ export const item = {
 export default function Home() {
   const router = useRouter();
   const [email, setEmail] = useState('');
+  const [loader, setLoader] = useState(false);
+
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    setLoader(true);
     router.push(`/signup/proceed?email=${email}`);
     let data = {
       email,
@@ -84,14 +87,26 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <button
-                      type="submit"
-                      className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded 
+                    {!loader ? (
+                      <button
+                        type="submit"
+                        className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded 
                                   hover:bg-primary  text-xl md:text-xl text-white  
                                   p-4 md:px-4 md:py-2"
-                    >
-                      Submit
-                    </button>
+                      >
+                        Submit
+                      </button>
+                    ) : (
+                      <button
+                        type="submit"
+                        disabled
+                        className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded 
+                                  hover:bg-primary  text-xl md:text-xl text-white  
+                                  p-4 md:px-4 md:py-2  opacity-50"
+                      >
+                        Submitting..
+                      </button>
+                    )}
                   </div>
                 </form>
                 <m.div

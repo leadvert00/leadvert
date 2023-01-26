@@ -287,7 +287,7 @@ export default function Proceed() {
                     disabled
                     className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded
                 hover:bg-primary  text-xl md:text-xl text-white text-center 
-                p-4 md:px-4 md:py-2"
+                p-4 md:px-4 md:py-2  opacity-50"
                   >
                     Submitting ..
                   </button>
