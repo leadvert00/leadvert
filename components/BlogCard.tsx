@@ -52,5 +52,3 @@ const BlogCard = ({ blog }: any) => {
 
 export default BlogCard;
 
-// width={heroImage.fields.file.details.image.width}
-// height={heroImage.fields.file.details.image.height}

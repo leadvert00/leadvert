@@ -166,6 +166,7 @@ export default function Proceed() {
                   Last name
                 </label>
                 <input
+                  type="text"
                   onChange={(e) => setName(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
                               border-secondary"
@@ -219,6 +220,7 @@ export default function Proceed() {
                   Affiliation
                 </label>
                 <input
+                  type="text"
                   value={affliation}
                   onChange={(e) => setAffliation(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
@@ -230,6 +232,7 @@ export default function Proceed() {
                   Research Field
                 </label>
                 <input
+                  type="text"
                   value={research}
                   onChange={(e) => setResearch(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
