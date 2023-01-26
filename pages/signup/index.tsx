@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import Image from 'next/image';
 
 export const container = {
   hidden: { opacity: 0 },
@@ -62,9 +63,9 @@ export default function Home() {
     >
       <main className="overflow-hidden w-full">
         <div className=" flex flex-col space-y-4 md:space-y-6 ">
-          <div className="flex w-full">
-            <div className="flex w-1/2">
-              <div className="w-full my-16 space-y-12">
+          <div className="flex flex-col md:flex-row w-full">
+            <div className="flex w-full md:w-1/2">
+              <div className="w-full my-16  space-y-6 md:space-y-12">
                 <h1 className="leading-tight text-3xl md:text-5xl text-black ">
                   Get Started with Leadvert
                 </h1>
@@ -93,10 +94,15 @@ export default function Home() {
                     </button>
                   </div>
                 </form>
+                <div className="md:hidden">
+                  <Image alt="" width="400" height="400" src={`/reg.png`} />
+                </div>
               </div>
             </div>
 
-            <div className="w-1/2 bg-white absolute right-0 h-screen"></div>
+            <div className="w-full md:w-1/2 bg-white  right-0 md:h-screen sign">
+              {/* */}
+            </div>
           </div>
         </div>
       </main>

@@ -459,8 +459,8 @@ html {
 }
 .signup-container {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  /* top: 0;
+  bottom: 0; */
   overflow-y: hidden;
   /* height: 70vh; */
 }
@@ -468,4 +468,16 @@ html {
   .signup-container {
     overflow-y: auto;
   }
+}
+
+.sign img {
+  width: 500px;
+  height: 500px;
+}
+
+.sign {
+  background-image: url('/reg.png');
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
 }
