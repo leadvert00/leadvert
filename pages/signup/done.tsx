@@ -7,7 +7,7 @@ function Done() {
   useEffect(() => {
     setTimeout(() => {
       router.push('/');
-    }, 4000);
+    }, 5000);
   }, [router]);
   return (
     <m.div

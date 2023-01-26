@@ -43,6 +43,7 @@ export default function Proceed() {
   const [country, setCountry] = useState<any>('');
   const [countryArr, setCountryArr] = useState<any>([]);
   const [done, setDone] = useState<any>(false);
+  const [loader, setLoader] = useState(false);
   useEffect(() => {
     fetch('https://restcountries.com/v3.1/all')
       .then((res) => res.json())
@@ -72,6 +73,7 @@ export default function Proceed() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    setLoader(true);
     let data = {
       email,
       name,
@@ -212,7 +214,7 @@ export default function Proceed() {
                 value={affliation}
                 onChange={(e) => setAffliation(e.target.value)}
                 className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
-                               border-secondary"
+                                border-secondary"
               />
             </div>
             <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
@@ -223,7 +225,7 @@ export default function Proceed() {
                 value={research}
                 onChange={(e) => setResearch(e.target.value)}
                 className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
-                               border-secondary"
+                                border-secondary"
               />
             </div>
 
@@ -259,14 +261,25 @@ export default function Proceed() {
             </div>
 
             <div className="flex w-full md:w-1/3 flex-col mt-4 space-y-1 md:space-y-1">
-              <button
-                type="submit"
-                className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded
+              {!loader ? (
+                <button
+                  type="submit"
+                  className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded
                                   hover:bg-primary  text-xl md:text-xl text-white text-center 
                                   p-4 md:px-4 md:py-2"
-              >
-                Submit
-              </button>
+                >
+                  Submit
+                </button>
+              ) : (
+                <button
+                  disabled
+                  className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded
+                hover:bg-primary  text-xl md:text-xl text-white text-center 
+                p-4 md:px-4 md:py-2"
+                >
+                  Submit ..
+                </button>
+              )}
             </div>
           </form>
         </div>
