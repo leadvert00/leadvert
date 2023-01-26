@@ -1,11 +1,12 @@
 import React from 'react';
 import Nav from './Nav';
+import { AnimatePresence } from 'framer-motion';
 
 const Layout = ({ children }: any) => {
   return (
-    <div>
+    <div className="layout">
       <Nav />
-      {children}
+      <AnimatePresence exitBeforeEnter>{children}</AnimatePresence>
       <footer>..</footer>
     </div>
   );

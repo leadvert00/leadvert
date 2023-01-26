@@ -4,6 +4,11 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-y: hidden;
+}
+.layout {
+  overflow-y: auto;
+  height: 100vh;
 }
 
 .nav-container {
@@ -170,7 +175,17 @@ html {
     padding-top: 2.5rem;
   }
 }
-
+.signup-container {
+  width: 100%;
+  padding: 4rem 4rem;
+}
+@media only screen and (max-width: 768px) {
+  .signup-container {
+    padding: 3rem 1.2rem;
+  }
+}
+.b1 {
+}
 .slug-container {
   width: 100%;
   padding: 2rem 6rem;
@@ -441,4 +456,16 @@ html {
   padding: 30px;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.1);
   transform: rotateZ(-1deg);
+}
+.signup-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  overflow-y: hidden;
+  /* height: 70vh; */
+}
+@media only screen and (max-width: 768px) {
+  .signup-container {
+    overflow-y: auto;
+  }
 }
