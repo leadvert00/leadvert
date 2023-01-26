@@ -11,7 +11,7 @@ const Nav = () => {
     { title: 'Write For Us', link: '/' }
   ];
   return (
-    <nav className="nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md">
+    <nav className="z-50 nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md">
       <Link
         className="navbar-brand text-2xl"
         href="/"
