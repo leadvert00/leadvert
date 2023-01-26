@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect, useId } from 'react';
+import React, { useEffect } from 'react';
 import { BLOCKS } from '@contentful/rich-text-types';
 import { createClient } from 'contentful';
 import Image from 'next/image';
@@ -16,7 +16,6 @@ const client = createClient({
 });
 
 const RICHTEXT_OPTIONS = {
-  // lg:max-w-md
   renderNode: {
     [BLOCKS.DOCUMENT]: (node: any, children: any) => children,
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
@@ -138,7 +137,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
     tag,
     author
   } = blog.fields;
-  console.log(blog);
+ 
 
   const otherTags = tags.filter(
     (t: any) =>
@@ -168,8 +167,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
     };
   });
   selectTags.push({ value: '/', label: 'Blog Home' });
-  console.log(selectTags);
-  console.log(blogs);
+  
   const otherBlogs = blogs.filter(
     (bl: any) =>
       bl.fields.slug != blog.fields.slug &&

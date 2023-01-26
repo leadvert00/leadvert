@@ -3,7 +3,6 @@ import BlogCard from './BlogCard';
 import CircleButtonLink from './CircleButtonLink';
 import { motion as m } from 'framer-motion';
 export default function BlogPosts({ blogs }: any) {
-  // console.log(BlogPosts);
   return (
     <div className="blog-container   bg-white space-y-6 md:space-y-12 ">
       <m.div

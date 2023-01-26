@@ -32,9 +32,9 @@ function Blog({ blogs, tags }: any) {
   });
   selectTags.push({ value: '/', label: 'Blog Home' });
 
-  console.log(tags);
+
   function sendTag(q: any, tag: any) {
-    console.log(q, tag);
+   
     if (q === tag.trim().toLowerCase()) {
       setTimeout(() => {
         router.push('/blog');

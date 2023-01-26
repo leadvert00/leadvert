@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion as m } from 'framer-motion';
 import { Router, useRouter } from 'next/router';
-import Nav from '@/components/Nav';
 function Done() {
   const router = useRouter();
 

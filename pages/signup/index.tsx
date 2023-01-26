@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import { motion as m } from 'framer-motion';
-import Link from 'next/link';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
@@ -41,11 +40,7 @@ export default function Home() {
         `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca`,
         data
       )
-      .then((response: any) => {
-        console.log(response);
-      });
-
-    // alert(`The name you entered was: ${email}`);
+      .then((response: any) => {});
   };
   const d = new Date();
   const styles = {

@@ -82,7 +82,7 @@ export default function Proceed() {
       research,
       country: country.value
     };
-    console.log(data);
+
     fetch(
       `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca/search?email=${email}`
     )
@@ -95,7 +95,6 @@ export default function Proceed() {
               data
             )
             .then((response: any) => {
-              console.log(response);
               setDone(true);
             });
         } else {
@@ -108,11 +107,8 @@ export default function Proceed() {
               setDone(true);
             });
         }
-        console.log(data);
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch((error) => {});
   };
 
   useEffect(() => {

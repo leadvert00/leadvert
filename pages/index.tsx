@@ -16,7 +16,7 @@ export async function getStaticProps() {
   const res = await client.getEntries({
     content_type: 'blogPost'
   });
-  console.log(res);
+
   return {
     props: { blogs: res.items },
     revalidate: 2
@@ -24,7 +24,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({ blogs }: any) {
-  console.log(blogs);
+
   return (
     <>
       <Head>
