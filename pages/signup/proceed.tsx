@@ -461,7 +461,7 @@ export default function Proceed() {
                 hover:bg-primary  text-xl md:text-xl text-white text-center 
                 p-4 md:px-4 md:py-2"
                   >
-                    Submit ..
+                    Submitting ..
                   </button>
                 )}
               </div>
