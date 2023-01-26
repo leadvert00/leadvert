@@ -96,6 +96,9 @@ export default function Proceed() {
             )
             .then((response: any) => {
               setDone(true);
+            })
+            .catch((err) => {
+              console.log(err);
             });
         } else {
           axios
@@ -105,6 +108,9 @@ export default function Proceed() {
             )
             .then((response: any) => {
               setDone(true);
+            })
+            .catch((err) => {
+              console.log(err);
             });
         }
       })
