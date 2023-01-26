@@ -42,17 +42,14 @@ export default function Proceed() {
   const [country, setCountry] = useState<any>('');
   const [countryArr, setCountryArr] = useState<any>([]);
   useEffect(() => {
-    let cnt;
     fetch('https://restcountries.com/v3.1/all')
       .then((res) => res.json())
       .then((resp) => {
-        if (resp) {
-          setCountryArr(
-            resp.map((r: any) => {
-              return { label: r.name.common, value: r.name.common };
-            })
-          );
-        }
+        setCountryArr(
+          resp.map((r: any) => {
+            return { label: r.name.common, value: r.name.common };
+          })
+        );
       });
 
     if (em) {
@@ -99,7 +96,7 @@ export default function Proceed() {
         transition={{ delay: 0.5, duration: 0.5 }}
         className=" w-full flex justify-center pt-5"
       >
-        <div className="max-w-screen-xl flex flex-col space-y-8 bg-white p-4 md:p-12 ">
+        <div className="max-w-screen-xl flex flex-col mt-16 md:mt-0 space-y-8 bg-white p-4 md:p-12 ">
           <div className="flex w-full">
             <h1 className="leading-tight text-3xl md:text-5xl text-black dark:text-white">
               Some basic info to remember you.

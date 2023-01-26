@@ -14,7 +14,7 @@ const Nav = () => {
     <m.nav
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.2, ease: 'easeOut' }}
+      transition={{ duration: 0.5 }}
       className="nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md"
     >
       <Link
