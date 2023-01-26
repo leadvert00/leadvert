@@ -69,11 +69,8 @@ export default function Home() {
                   Get Started with Leadvert
                 </h1>
                 <form className="w-full space-y-4" onSubmit={handleSubmit}>
-                  <div className="flex flex-col space-y-1 md:space-y-2">
-                    <label
-                      className=" tracking-wide text-gray-600 text-lg
-                                  text-gray-800 font-bold"
-                    >
+                  <div className="flex flex-col space-y-1 md:space-y-1">
+                    <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
                       Email address
                     </label>
                     <input
@@ -81,15 +78,15 @@ export default function Home() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
-                      className="w-11/12 p-4 bg-white outline-none border-2
+                      className="w-11/12 p-4 bg-white  text-lg outline-none border-2 font-medium
                                 border-primary"
                     />
                   </div>
                   <div>
                     <button
                       type="submit"
-                      className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded
-                                  hover:bg-primary  text-xl md:text-xl text-white text-center 
+                      className="focus-ring bg-gray-900 w-7/12 md:w-2/5 rounded 
+                                  hover:bg-primary  text-xl md:text-xl text-white  
                                   p-4 md:px-4 md:py-2"
                     >
                       Submit

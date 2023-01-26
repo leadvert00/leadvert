@@ -172,7 +172,7 @@ export default function Proceed() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="w-11/12 p-3 focus:border-gray-800 bg-gray-100 outline-none
-                              border-2 rounded tracking-wider
+                              border-2 rounded tracking-wider font-medium
                               border-secondary "
               />
             </div>
@@ -234,6 +234,7 @@ export default function Proceed() {
                 Country of Residence
               </label>
               <Select
+                defaultValue={{ label: 'Nigeria', value: 'Nigeria' }}
                 onChange={handleCountry}
                 instanceId={useId()}
                 styles={{
