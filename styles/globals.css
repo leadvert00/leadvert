@@ -27,7 +27,7 @@ html {
   z-index: 1000;
 }
 .main-nav-container {
-  width: 50%;
+  width: 27%;
   display: flex;
   justify-content: space-between;
 }
@@ -192,6 +192,7 @@ html {
 .signup-container {
   width: 100%;
   padding: 4rem 4rem;
+  background-color: transparent;
 }
 @media only screen and (max-width: 768px) {
   .signup-container {

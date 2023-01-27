@@ -5,6 +5,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import Image from 'next/image';
 import { Magic } from 'magic-sdk';
+import LoaderOnButton from '@/components/LoaderOnButton';
 
 export async function getStaticProps() {
   return {
@@ -130,7 +131,7 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
                                   hover:bg-primary  text-xl md:text-xl text-white  
                                   p-4 md:px-4 md:py-2  opacity-50"
                       >
-                        Submitting..
+                        Submitting.. <LoaderOnButton />
                       </button>
                     )}
                   </div>

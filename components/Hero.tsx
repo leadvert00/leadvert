@@ -55,7 +55,7 @@ const Hero = () => {
           width={500}
           height={200}
           priority={true}
-          src={heroImageUrl}
+          src={`/hero.png`}
         />
       </div>
     </m.div>
