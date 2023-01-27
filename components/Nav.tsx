@@ -32,7 +32,7 @@ const Nav = () => {
       )}
 
       <div className="main-nav-container items-center justify-between ">
-        <ul className="nav-links space-x-12">
+        <ul className="nav-links space-x-10">
           {linksData.map((nl, index) => (
             <li key={index}>
               <Link
