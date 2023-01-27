@@ -57,12 +57,26 @@ export default function Proceed() {
 
     if (em) {
       setEmail(em);
+
+      fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${em}`)
+        .then((data) => data.json())
+        .then((data) => {
+          console.log(data);
+          if (data.length > 0) {
+            setCareer({ value: data[0].career, label: data[0].career });
+            setName(data[0].name);
+            setAffliation(data[0].affliation);
+            setResearch(data[0].research);
+            setCountry({ value: data[0].country, label: data[0].country });
+            console.log(data);
+          }
+        });
     } else {
       setTimeout(() => {
         router.push('/signup');
       }, 1000);
     }
-  }, [em, setEmail, setCountryArr, router]);
+  }, [em, email, setEmail, setName, setCountryArr, router]);
 
   const handleCareer = (selectedOption: any) => {
     setCareer(selectedOption);
@@ -164,6 +178,7 @@ export default function Proceed() {
                 </label>
                 <input
                   type="text"
+                  value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
                               border-secondary"
@@ -187,8 +202,10 @@ export default function Proceed() {
                   Career Stage
                 </label>
                 <Select
+                  defaultValue={career}
                   onChange={handleCareer}
                   instanceId={useId()}
+                  value={{ label: career.label, value: career.value }}
                   styles={{
                     control: (baseStyles, state) => ({
                       ...baseStyles,
@@ -338,6 +355,7 @@ export default function Proceed() {
                   Last name
                 </label>
                 <input
+                  value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
                               border-secondary"
@@ -361,6 +379,7 @@ export default function Proceed() {
                   Career Stage
                 </label>
                 <Select
+                  value={{ label: career.label, value: career.value }}
                   onChange={handleCareer}
                   instanceId={useId()}
                   styles={{

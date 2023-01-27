@@ -140,6 +140,16 @@ html {
     padding: 3rem 1.2rem;
   }
 }
+.contact-container {
+  width: 100%;
+  padding: 4rem 4rem;
+  padding-top: 5rem;
+}
+@media only screen and (max-width: 768px) {
+  .contact-container {
+    padding: 3rem 1.2rem;
+  }
+}
 @media only screen and (min-width: 768px) and (max-width: 880px) {
   .stm {
     overflow: hidden;

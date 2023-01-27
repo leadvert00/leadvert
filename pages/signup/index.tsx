@@ -5,16 +5,6 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import Image from 'next/image';
 import { Magic } from 'magic-sdk';
-export const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      delayChildren: 0.5,
-      staggerChildren: 0.2
-    }
-  }
-};
 
 export async function getStaticProps() {
   return {
@@ -46,23 +36,22 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
       research: '',
       country: ''
     };
-    // fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
-    //   .then((resCheck) => resCheck.json())
-    //   .then((resCheck) => {
-    //     if (resCheck.length == 0) {
-    //       axios
-    //         .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
-    //         .then((response: any) => {
-    //           console.log(response);
-    //         });
-    //     }
-    //     setTimeout(() => {
-    //       router.push(`/signup/proceed?email=${email}`);
-    //     }, 1000);
-    //   });
-    // setTimeout(() => {
-    //   router.push(`/signup/proceed?email=${email}`);
-    // }, 1000);
+  };
+
+  const login = async (data: any) => {
+    const magic = new Magic(MAGIC_API_KEY);
+    const didToken = await magic.auth.loginWithMagicLink({ email });
+    if (didToken) {
+      axios
+        .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
+        .then((response: any) => {
+          console.log(response);
+        });
+
+      setTimeout(() => {
+        router.push(`/signup/proceed?email=${email}`);
+      }, 1000);
+    }
   };
 
   const handleSubmit = async (event: any) => {
@@ -77,37 +66,25 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
       country: ''
     };
 
-    const magic = new Magic(MAGIC_API_KEY);
-    const didToken = await magic.auth.loginWithMagicLink({ email });
-    if (didToken) {
-      await fetch(
-        `https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`
-      )
-        .then((resCheck) => resCheck.json())
-        .then((resCheck) => {
-          if (resCheck.length == 0) {
-            axios
-              .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
-              .then((response: any) => {
-                console.log(response);
-              });
-          }
+    await fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
+      .then((checker) => checker.json())
+      .then((checker) => {
+        if (checker.length === 0) {
+          login(data);
+        } else {
           setTimeout(() => {
             router.push(`/signup/proceed?email=${email}`);
           }, 1000);
-        });
-      setTimeout(() => {
-        router.push(`/signup/proceed?email=${email}`);
-      }, 1000);
-    }
+        }
+      });
   };
   return (
     <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
-      className=" absolute top-0 left-0 right-0 w-full h-full signup-container xx
-      bg-purple-50"
+      className=" absolute top-0 left-0 right-0 w-full h-full signup-container
+      bg-white"
     >
       <Head>
         <title>Get Started with Leadvert</title>
@@ -122,17 +99,16 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
                 <h1 className="leading-tight text-3xl md:text-5xl text-black ">
                   Get Started with Leadvert
                 </h1>
-                <form className="w-full space-y-4" onSubmit={handleSubmit}>
+                <form className="w-full space-y-6" onSubmit={handleSubmit}>
                   <div className="flex flex-col space-y-1 md:space-y-1">
-                    <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                      Email address
-                    </label>
                     <input
+                      placeholder="Email address"
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
-                      className="w-11/12 p-4 bg-white  text-lg outline-none border-2 font-medium
+                      className="w-11/12 p-4  text-xl bg-gray-200
+                                outline-none font-medium rounded
                                 border-primary"
                     />
                   </div>

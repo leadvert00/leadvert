@@ -7,8 +7,7 @@ const Nav = () => {
   const [sideBar, setSideBar] = useState<boolean>(false);
   let linksData = [
     { title: 'Blog', link: '/blog' },
-    { title: 'About', link: '/' },
-    { title: 'Write For Us', link: '/' }
+    { title: 'About', link: '/' }
   ];
   return (
     <nav className="z-50 nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md">
@@ -47,13 +46,13 @@ const Nav = () => {
           ))}
         </ul>
         <div className="flex">
-          <a
-            href=""
+          <Link
+            href="/contact"
             className="flex nav-btn bg-gray-900 rounded hover:bg-primary
                           text-white  text-lg px-4 py-2 "
           >
             Contact Us
-          </a>
+          </Link>
         </div>
       </div>
       {sideBar && (
@@ -77,7 +76,7 @@ const Nav = () => {
                 ))}
               </ul>
               <Link
-                href=""
+                href="/contact"
                 className="flex nav-btn bg-gray-900 rounded font-semibold
                             hover:bg-primary
                           text-white w-7/12 text-2xl px-4 py-2 "
