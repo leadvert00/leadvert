@@ -5,10 +5,7 @@ import Select from 'react-select';
 import React, { useEffect, useId, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
-const SteinStore = require('stein-js-client');
-const store = new SteinStore(
-  'https://api.steinhq.com/v1/storages/63d30e9bd27cdd09f0df1d3a'
-);
+
 export const container = {
   hidden: { opacity: 0 },
   show: {
@@ -85,38 +82,40 @@ export default function Proceed() {
       research,
       country: country.value
     };
-    if (typeof data.country === 'undefined') {
-      data.country = 'Nigeria';
-    }
 
-    console.log(data);
-    store
-      .read('Sheet1', { search: { email: email } })
-      .then((response1: any) => {
-        if (response1.length > 0) {
-          store
-            .edit('Sheet1', {
-              search: { email: email },
-              set: {
-                name: data.name,
-                career: data.career,
-                affliation: data.affliation,
-                research: data.research,
-                country: data.country
-              }
-            })
-            .then((response2: any) => {
+    fetch(
+      `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca/search?email=${email}`
+    )
+      .then((resCheck) => resCheck.json())
+      .then((resCheck) => {
+        if (resCheck.length == 0) {
+          axios
+            .post(
+              `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca`,
+              data
+            )
+            .then((response: any) => {
+              setDone(true);
+            });
+        } else {
+          axios
+            .patch(
+              `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca/email/*${email}`,
+              data
+            )
+            .then((response: any) => {
               setDone(true);
             });
         }
-      });
+      })
+      .catch((error) => {});
   };
 
   useEffect(() => {
     if (done) {
       router.push('/signup/done');
     }
-  }, [done, router]);
+  }, [done]);
   return (
     <div>
       <m.div
@@ -277,7 +276,7 @@ export default function Proceed() {
                 {!loader ? (
                   <button
                     type="submit"
-                    className="focus-ring bg-gray-900 w-7/12 md:w-4/5 rounded
+                    className="focus-ring bg-gray-900 w-7/12 md:w-3/5 rounded
                                   hover:bg-primary  text-xl md:text-xl text-white text-center 
                                   p-4 md:px-4 md:py-2"
                   >
@@ -286,7 +285,7 @@ export default function Proceed() {
                 ) : (
                   <button
                     disabled
-                    className="focus-ring bg-gray-900 w-7/12 md:w-4/5 rounded
+                    className="focus-ring bg-gray-900 w-7/12 md:w-3/5 rounded
                             hover:bg-primary  text-xl md:text-xl text-white text-center 
                             p-4 md:px-4 md:py-2  opacity-50"
                   >

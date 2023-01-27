@@ -20,6 +20,7 @@
     "contentful": "^9.2.19",
     "eslint-config-next": "13.1.5",
     "framer-motion": "^8.5.2",
+    "isomorphic-fetch": "^3.0.0",
     "moment": "^2.29.4",
     "next": "13.1.5",
     "react": "18.2.0",
