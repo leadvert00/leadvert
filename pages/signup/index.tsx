@@ -4,6 +4,10 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Image from 'next/image';
+const SteinStore = require('stein-js-client');
+const store = new SteinStore(
+  'https://api.steinhq.com/v1/storages/63d30e9bd27cdd09f0df1d3a'
+);
 
 export const container = {
   hidden: { opacity: 0 },
@@ -29,7 +33,7 @@ export default function Home() {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     setLoader(true);
-    router.push(`/signup/proceed?email=${email}`);
+
     let data = {
       email,
       name: '',
@@ -38,19 +42,14 @@ export default function Home() {
       research: '',
       country: ''
     };
-    axios
-      .post(
-        `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca`,
-        data
-      )
-      .then((response: any) => {});
+    store.read('Sheet1', { search: { email: email } }).then((res1: any) => {
+      if (res1.length == 0) {
+        store.append('Sheet1', [data]).then((res: any) => {});
+      }
+      router.push(`/signup/proceed?email=${email}`);
+    });
   };
-  const d = new Date();
-  const styles = {
-    myComponent: {
-      fontSize: 200
-    }
-  };
+
   return (
     <m.div
       initial={{ opacity: 0 }}

@@ -30,6 +30,7 @@
     "react-moment": "^1.1.3",
     "react-select": "^5.7.0",
     "sass": "^1.57.1",
+    "stein-js-client": "^0.0.2",
     "typescript": "4.9.4"
   },
   "devDependencies": {
