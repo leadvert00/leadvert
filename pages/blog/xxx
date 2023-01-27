@@ -137,6 +137,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
     tag,
     author
   } = blog.fields;
+ 
 
   const otherTags = tags.filter(
     (t: any) =>
@@ -166,7 +167,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
     };
   });
   selectTags.push({ value: '/', label: 'Blog Home' });
-
+  
   const otherBlogs = blogs.filter(
     (bl: any) =>
       bl.fields.slug != blog.fields.slug &&
