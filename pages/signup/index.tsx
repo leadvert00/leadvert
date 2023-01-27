@@ -16,22 +16,21 @@ export const container = {
   }
 };
 
-// export async function getStaticProps() {
-//   return {
-//     props: {
-//       MAGIC_API_KEY: process.env.MAGIC_API_KEY,
-//       MAGIC_SECRET_KEY: process.env.MAGIC_SECRET_KEY
-//     }
-//   };
-// }
+export async function getStaticProps() {
+  return {
+    props: {
+      MAGIC_API_KEY: process.env.MAGIC_API_KEY || null,
+      MAGIC_SECRET_KEY: process.env.MAGIC_SECRET_KEY || null
+    }
+  };
+}
 
 export const item = {
   hidden: { y: '100%' },
   show: { y: '0%', transition: { duration: 0.5 } }
 };
 
-// export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
-export default function Home() {
+export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [loader, setLoader] = useState(false);
@@ -77,32 +76,29 @@ export default function Home() {
       research: '',
       country: ''
     };
-    let MAGIC_API_KEY: any = process.env.MAGIC_API_KEY;
-    let MAGIC_SECRET_KEY: any = process.env.MAGIC_SECRET_KEY;
-    if (typeof MAGIC_API_KEY !== undefined) {
-      const magic = new Magic(MAGIC_API_KEY);
-      const didToken = await magic.auth.loginWithMagicLink({ email });
-      if (didToken) {
-        await fetch(
-          `https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`
-        )
-          .then((resCheck) => resCheck.json())
-          .then((resCheck) => {
-            if (resCheck.length == 0) {
-              axios
-                .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
-                .then((response: any) => {
-                  console.log(response);
-                });
-            }
-            setTimeout(() => {
-              router.push(`/signup/proceed?email=${email}`);
-            }, 1000);
-          });
-        setTimeout(() => {
-          router.push(`/signup/proceed?email=${email}`);
-        }, 1000);
-      }
+
+    const magic = new Magic(MAGIC_API_KEY);
+    const didToken = await magic.auth.loginWithMagicLink({ email });
+    if (didToken) {
+      await fetch(
+        `https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`
+      )
+        .then((resCheck) => resCheck.json())
+        .then((resCheck) => {
+          if (resCheck.length == 0) {
+            axios
+              .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
+              .then((response: any) => {
+                console.log(response);
+              });
+          }
+          setTimeout(() => {
+            router.push(`/signup/proceed?email=${email}`);
+          }, 1000);
+        });
+      setTimeout(() => {
+        router.push(`/signup/proceed?email=${email}`);
+      }, 1000);
     }
   };
   return (
