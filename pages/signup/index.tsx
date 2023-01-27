@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import Image from 'next/image';
-
+import { Magic } from 'magic-sdk';
 export const container = {
   hidden: { opacity: 0 },
   show: {
@@ -26,7 +26,7 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [loader, setLoader] = useState(false);
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit1 = (event: any) => {
     event.preventDefault();
     setLoader(true);
     let data = {
@@ -51,15 +51,24 @@ export default function Home() {
     //       router.push(`/signup/proceed?email=${email}`);
     //     }, 1000);
     //   });
-    setTimeout(() => {
-      router.push(`/signup/proceed?email=${email}`);
-    }, 1000);
+    // setTimeout(() => {
+    //   router.push(`/signup/proceed?email=${email}`);
+    // }, 1000);
   };
-  const d = new Date();
-  const styles = {
-    myComponent: {
-      fontSize: 200
-    }
+
+  const handleSubmit = async (event: any) => {
+    event.preventDefault();
+    setLoader(true);
+    let data = {
+      email,
+      name: '',
+      career: '',
+      affliation: '',
+      research: '',
+      country: ''
+    };
+
+    alert(process.env.MAGIC_API_KEY);
   };
   return (
     <m.div
