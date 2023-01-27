@@ -112,7 +112,7 @@ export default function Proceed() {
     if (done) {
       router.push('/signup/done');
     }
-  }, [done]);
+  }, [done, router]);
   return (
     <div>
       <m.div
