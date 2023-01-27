@@ -10,10 +10,55 @@ import BlogCard from '@/components/BlogCard';
 import { useRouter } from 'next/router';
 import { motion as m } from 'framer-motion';
 import Select from 'react-select';
-const client = createClient({
-  space: process.env.CONTENTFUL_SPACE_ID!,
-  accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!
-});
+
+let client: any;
+
+export async function getStaticProps({ params }: any) {
+  client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!
+  });
+  const { items } = await client.getEntries({
+    content_type: 'blogPost',
+    'fields.slug': params.slug
+  });
+  const resT = await client.getEntries({
+    content_type: 'tags'
+  });
+  const res = await client.getEntries({
+    content_type: 'blogPost'
+  });
+
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    };
+  }
+  return {
+    props: { blog: items[0], tags: resT.items, blogs: res.items },
+    revalidate: 2
+  };
+}
+
+export const getStaticPaths = async () => {
+  client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!
+  });
+  const res = await client.getEntries({ content_type: 'blogPost' });
+  const paths = res.items.map((item: any) => {
+    return {
+      params: { slug: item.fields.slug }
+    };
+  });
+  return {
+    paths,
+    fallback: true
+  };
+};
 
 const RICHTEXT_OPTIONS = {
   renderNode: {
@@ -77,45 +122,6 @@ const RICHTEXT_OPTIONS = {
     [BLOCKS.HR]: () => <hr />
   }
 };
-
-export const getStaticPaths = async () => {
-  const res = await client.getEntries({ content_type: 'blogPost' });
-  const paths = res.items.map((item: any) => {
-    return {
-      params: { slug: item.fields.slug }
-    };
-  });
-  return {
-    paths,
-    fallback: true
-  };
-};
-
-export async function getStaticProps({ params }: any) {
-  const { items } = await client.getEntries({
-    content_type: 'blogPost',
-    'fields.slug': params.slug
-  });
-  const resT = await client.getEntries({
-    content_type: 'tags'
-  });
-  const res = await client.getEntries({
-    content_type: 'blogPost'
-  });
-
-  if (!items.length) {
-    return {
-      redirect: {
-        destination: '/',
-        permanent: false
-      }
-    };
-  }
-  return {
-    props: { blog: items[0], tags: resT.items, blogs: res.items },
-    revalidate: 2
-  };
-}
 
 export default function BlogDetails({ blog, blogs, tags }: any) {
   const router = useRouter();
