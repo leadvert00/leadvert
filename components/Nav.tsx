@@ -6,6 +6,7 @@ import { motion as m } from 'framer-motion';
 const Nav = () => {
   const [sideBar, setSideBar] = useState<boolean>(false);
   let linksData = [
+    { title: 'Home', link: '/' },
     { title: 'Blog', link: '/blog' },
     { title: 'About', link: '/' }
   ];
