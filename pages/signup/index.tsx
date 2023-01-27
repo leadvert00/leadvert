@@ -29,7 +29,6 @@ export default function Home() {
   const handleSubmit = (event: any) => {
     event.preventDefault();
     setLoader(true);
-    router.push(`/signup/proceed?email=${email}`);
     let data = {
       email,
       name: '',
@@ -38,12 +37,20 @@ export default function Home() {
       research: '',
       country: ''
     };
-    axios
-      .post(
-        `https://sheet.best/api/sheets/53fac95b-414c-4bf0-a179-b0f33cceb5ca`,
-        data
-      )
-      .then((response: any) => {});
+    fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
+      .then((resCheck) => resCheck.json())
+      .then((resCheck) => {
+        if (resCheck.length == 0) {
+          axios
+            .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
+            .then((response: any) => {
+              console.log(response);
+            });
+        }
+        setTimeout(() => {
+          router.push(`/signup/proceed?email=${email}`);
+        }, 1000);
+      });
   };
   const d = new Date();
   const styles = {
