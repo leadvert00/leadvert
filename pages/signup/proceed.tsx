@@ -85,27 +85,29 @@ export default function Proceed() {
     if (typeof data.country === 'undefined') {
       data.country = 'Nigeria';
     }
-    fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
-      .then((resCheck) => resCheck.json())
-      .then((resCheck) => {
-        if (resCheck.length == 0) {
-          axios
-            .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
-            .then((response: any) => {
-              setDone(true);
-            });
-        } else {
-          axios
-            .patch(
-              `https://sheetdb.io/api/v1/3yko7v0zohb8v/email/*${email}`,
-              data
-            )
-            .then((response: any) => {
-              setDone(true);
-            });
-        }
-      })
-      .catch((error) => {});
+    // fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
+    //   .then((resCheck) => resCheck.json())
+    //   .then((resCheck) => {
+    //     if (resCheck.length == 0) {
+    //       axios
+    //         .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
+    //         .then((response: any) => {
+    //           setDone(true);
+    //         });
+    //     } else {
+    //       axios
+    //         .patch(
+    //           `https://sheetdb.io/api/v1/3yko7v0zohb8v/email/*${email}`,
+    //           data
+    //         )
+    //         .then((response: any) => {
+    //           setDone(true);
+    //         });
+    //     }
+    //   })
+    //   .catch((error) => {});
+
+    setDone(true);
   };
 
   useEffect(() => {

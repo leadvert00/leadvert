@@ -37,20 +37,23 @@ export default function Home() {
       research: '',
       country: ''
     };
-    fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
-      .then((resCheck) => resCheck.json())
-      .then((resCheck) => {
-        if (resCheck.length == 0) {
-          axios
-            .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
-            .then((response: any) => {
-              console.log(response);
-            });
-        }
-        setTimeout(() => {
-          router.push(`/signup/proceed?email=${email}`);
-        }, 1000);
-      });
+    // fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
+    //   .then((resCheck) => resCheck.json())
+    //   .then((resCheck) => {
+    //     if (resCheck.length == 0) {
+    //       axios
+    //         .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
+    //         .then((response: any) => {
+    //           console.log(response);
+    //         });
+    //     }
+    //     setTimeout(() => {
+    //       router.push(`/signup/proceed?email=${email}`);
+    //     }, 1000);
+    //   });
+    setTimeout(() => {
+      router.push(`/signup/proceed?email=${email}`);
+    }, 1000);
   };
   const d = new Date();
   const styles = {
