@@ -16,21 +16,22 @@ export const container = {
   }
 };
 
-export async function getStaticProps() {
-  return {
-    props: {
-      MAGIC_API_KEY: process.env.MAGIC_API_KEY,
-      MAGIC_SECRET_KEY: process.env.MAGIC_SECRET_KEY
-    }
-  };
-}
+// export async function getStaticProps() {
+//   return {
+//     props: {
+//       MAGIC_API_KEY: process.env.MAGIC_API_KEY,
+//       MAGIC_SECRET_KEY: process.env.MAGIC_SECRET_KEY
+//     }
+//   };
+// }
 
 export const item = {
   hidden: { y: '100%' },
   show: { y: '0%', transition: { duration: 0.5 } }
 };
 
-export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
+// export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
+export default function Home() {
   const router = useRouter();
   const [email, setEmail] = useState('');
   const [loader, setLoader] = useState(false);
@@ -76,6 +77,8 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
       research: '',
       country: ''
     };
+    let MAGIC_API_KEY: any = process.env.MAGIC_API_KEY;
+    let MAGIC_SECRET_KEY: any = process.env.MAGIC_SECRET_KEY;
     if (typeof MAGIC_API_KEY !== undefined) {
       const magic = new Magic(MAGIC_API_KEY);
       const didToken = await magic.auth.loginWithMagicLink({ email });
