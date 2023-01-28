@@ -64,7 +64,7 @@ const RICHTEXT_OPTIONS = {
   renderNode: {
     [BLOCKS.DOCUMENT]: (node: any, children: any) => children,
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
-      <p className="break-words mb-2 md:mb-5">{children}</p>
+      <p className="break-words mb-3 md:mb-5">{children}</p>
     ),
     [BLOCKS.HEADING_1]: (node: any, children: any) => (
       <h1 className="font-medium text-2xl md:text-3xl mt-6 md:mt-8  ">
