@@ -2,8 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { motion as m } from 'framer-motion';
+import { useTheme } from 'next-themes';
 
 const Hero = () => {
+  const { theme, setTheme } = useTheme();
+
   const heroImageUrl =
     'https://images.unsplash.com/photo-1609348445429-8cf379ff9bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80';
   return (
@@ -11,7 +14,10 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.95, ease: 'easeOut' }}
-      className="hero w-full flex flex-col space-y-8 md:space-y-0 md:flex-row"
+      className={`w-full flex flex-col space-y-8 md:space-y-0 md:flex-row
+      ${theme === 'dark' ? '' : 'hero'}
+      
+      `}
     >
       <div className="hero-content w-full md:w-3/5 flex flex-col space-y-4 mb-3 md:mb-0 md:space-y-8">
         <div>
@@ -19,7 +25,11 @@ const Hero = () => {
             <span>Enhance your</span>
             <span className="scrolling-words-container">
               <span className="scrolling-words-box">
-                <ul className="text-primary">
+                <ul
+                  className={` ${
+                    theme === 'dark' ? 'text-slate-500' : 'text-primary'
+                  } `}
+                >
                   <li></li>
                   <li>Strategic guidance</li>
                   <li>Academic writing</li>
@@ -40,9 +50,15 @@ const Hero = () => {
           <div>
             <Link
               href="/signup"
-              className="bg-gray-800 px-6 py-3 text-white text-lg font-semibold 
+              className={` px-6 py-3  text-lg font-semibold 
                         md:text-xl rounded
-                        hover:bg-secondary"
+                        hover:bg-secondary
+                        ${
+                          theme === 'dark'
+                            ? 'bg-gray-800 hover:bg-gray-900 '
+                            : 'bg-gray-900 text-white hover:bg-primary'
+                        }
+                        `}
             >
               Get Started With Us
             </Link>

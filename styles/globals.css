@@ -52,6 +52,12 @@ html {
     background-image: linear-gradient(270deg, #fffffffe 0%, #e9ecff 100%);
     height: 100%;
   }
+  .sidebar-container-dark {
+    padding: 0 1.2rem;
+    background-color: transparent;
+    background-image: linear-gradient(270deg, #130b03fe 0%, #080808 100%);
+    height: 100%;
+  }
 
   .sidebar-links {
     padding-top: 8rem;
@@ -161,11 +167,13 @@ html {
   }
 }
 
+.blog-container-theme {
+  background-color: transparent;
+  background-image: linear-gradient(270deg, #ffffff 0%, #f6f7fcfb 100%);
+}
 .blog-container {
   width: 100%;
   padding: 2rem 4rem;
-  background-color: transparent;
-  background-image: linear-gradient(270deg, #ffffff 0%, #f6f7fcfb 100%);
 }
 @media only screen and (max-width: 768px) {
   .blog-container {
@@ -339,6 +347,71 @@ html {
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
   color: #370070;
+}
+
+.button-link-dark {
+  max-width: 50%;
+  line-height: 65px;
+  display: flex;
+  -webkit-perspective: 50em;
+  perspective: 50em;
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .button-link-dark {
+    max-width: 100%;
+  }
+}
+
+.circle {
+  position: relative;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle:after {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border: 2px solid #e6e6e6;
+  content: '';
+  z-index: -1;
+  border-radius: 50%;
+}
+
+.circle:before {
+  color: #fff;
+}
+
+.circle:before,
+.circle:after {
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.circle:hover:after,
+.circle:active:after,
+.circle.hover:after {
+  /* border-color: red transparent red transparent; */
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #94a3b8;
+}
+
+.button-link-dark:hover {
+  color: #94a3b8;
+}
+
+.button-link-dark:hover .circle:after {
+  border-color: #94a3b8 #94a3b8 #94a3b8 white;
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #94a3b8;
 }
 
 .b-heading span {

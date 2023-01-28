@@ -41,7 +41,7 @@ function Team({ member }: any) {
           <div className="w-full md:w-2/5">
             <a
               target="_blank"
-              className="tracking-wide w-24 text-xs text-blue-800 hover:underline"
+              className="tracking-wide w-24 text-xs text-blue-800 dark:text-slate-50 hover:underline"
               href={linkedin}
               rel="noopener noreferrer"
             >

@@ -3,6 +3,7 @@ import { useAnimation, motion as m } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CircleButtonLink from './CircleButtonLink';
 import { BsArrowRight } from 'react-icons/bs';
+import { useTheme } from 'next-themes';
 
 const squareVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
@@ -10,6 +11,8 @@ const squareVariants = {
 };
 
 const Quote = () => {
+  const { theme, setTheme } = useTheme();
+  console.log(theme);
   const controls = useAnimation();
   const [ref, inView] = useInView();
   useEffect(() => {
@@ -26,7 +29,11 @@ const Quote = () => {
     >
       <div className="text-center w-full flex flex-col space-y-4  items-center">
         <div className="flex flex-col md:w-9/12 items-center space-y-0 md:space-y-2">
-          <sup className="flex-none w-36 text-sm  bg-brand font-medium p-1 tracking-wide">
+          <sup
+            className={`flex-none w-36 text-sm  text-gray-800   font-medium p-1 tracking-wide
+                        bg-brand dark:bg-gray-100
+           `}
+          >
             Robert A. Heinlein
           </sup>
           <h1 className="text-2xl md:text-5xl font-semibold">

@@ -4,7 +4,7 @@ import CircleButtonLink from './CircleButtonLink';
 import { motion as m } from 'framer-motion';
 export default function BlogPosts({ blogs }: any) {
   return (
-    <div className="blog-container space-y-6 md:space-y-12 ">
+    <div className="blog-container dark:blog-container-theme space-y-6 md:space-y-12 ">
       <m.div
         initial={{ opacity: 0 }}
         whileInView={{ y: [50, 0], opacity: 1 }}
@@ -18,7 +18,7 @@ export default function BlogPosts({ blogs }: any) {
         </div>
         <div className="md:w-9/12 text-lg flex flex-col space-y-3">
           <div>
-            <span className="font-medium text-primary">
+            <span className="font-medium text-secondary">
               Research inspires us to continually improve.{' '}
             </span>{' '}
             Each post is handpicked for the most relevant and actionable tips,
@@ -42,7 +42,7 @@ export default function BlogPosts({ blogs }: any) {
       >
         <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:justify-between items-center py-2">
           <div className="space-y-2 lg:space-y-2">
-            <h2 className="leading-tight text-2xl md:text-4xl text-black">
+            <h2 className="leading-tight text-2xl md:text-4xl">
               Blog recommendations
             </h2>
             <p className="leading-tight text-xl md:text-2xl text-gray-400 dark:text-slate-500">

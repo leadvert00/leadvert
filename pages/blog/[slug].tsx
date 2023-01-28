@@ -11,6 +11,7 @@ import BlogCard from '@/components/BlogCard';
 import { useRouter } from 'next/router';
 import { motion as m } from 'framer-motion';
 import Select from 'react-select';
+import { useTheme } from 'next-themes';
 
 let client: any;
 
@@ -125,6 +126,8 @@ const RICHTEXT_OPTIONS = {
 };
 
 export default function BlogDetails({ blog, blogs, tags }: any) {
+  const { theme, setTheme } = useTheme();
+
   const router = useRouter();
   useEffect(() => {
     window.scroll({
@@ -203,7 +206,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
         className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2"
       >
         <div className="hidden md:flex md:flex-col">
-          <div className="hidden md:flex tag-container items-center h-14 bg-gray-100 space-x-8">
+          <div className="hidden md:flex tag-container items-center h-14 space-x-8">
             <Link
               href="/blog"
               className={`uppercase tracking-wide  hover:text-primary`}
@@ -272,22 +275,26 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                     </div>
                     <Link
                       href={`/blog?q=${tag.fields.label.toLowerCase()}`}
-                      className="capitalize hover:underline text-purple-700"
+                      className={`capitalize hover:underline 
+                      ${
+                        theme === 'dark' ? 'text-orange-500' : 'text-purple-700'
+                      }
+                      `}
                     >
                       {tag.fields.label}
                     </Link>
                   </div>
                   <div className="flex flex-col  space-y-2">
                     <div className="uppercase tracking-wider text-sm">
-                      Topics
+                      Topics..
                     </div>
                     <div className="flex">
                       {otherTags.map((ot: any, index: any) => (
                         <Link
                           href={`/blog?q=${ot.fields.label.toLowerCase()}`}
                           key={index}
-                          className="px-4 py-2 mr-2 bg-gray-200 rounded-full 
-                                  tracking-wider border capitalize
+                          className="px-4 py-2 mr-2 rounded-full 
+                                  tracking-wider border capitalize dark:border-slate-500
                                   hover:border-secondary text-sm"
                         >
                           {ot.fields.label}
@@ -317,8 +324,8 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                       <Link
                         href={`/blog?q=${ot.fields.label.toLowerCase()}`}
                         key={index}
-                        className="px-4 py-2 mr-2 bg-gray-100 rounded-full font-medium 
-                                tracking-wider border 
+                        className="px-4 py-2 mr-2 rounded-full font-medium 
+                                tracking-wider border dark:border-slate-500 
                                 hover:border-secondary text-sm"
                       >
                         {ot.fields.label}
@@ -330,7 +337,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                   initial={{ opacity: 0 }}
                   whileInView={{ y: [30, 0], opacity: 1 }}
                   transition={{ duration: 0.5, ease: 'easeOut' }}
-                  className="border-t border-b py-4 flex items-center"
+                  className="border-t border-b py-4 dark:border-slate-500 flex items-center"
                 >
                   <div className="w-2/12">
                     <Image
@@ -347,7 +354,8 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                       <p className="text-sm">{author.fields.shortBio}</p>
                       <a
                         target="_blank"
-                        className="tracking-wide w-24 text-xs text-blue-800 hover:underline"
+                        className="tracking-wide w-24 text-xs dark:text-white
+                                   text-blue-800 hover:underline"
                         href={author.fields.linkedin}
                         rel="noopener noreferrer"
                       >

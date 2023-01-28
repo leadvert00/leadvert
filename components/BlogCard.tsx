@@ -2,8 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
+import { useTheme } from 'next-themes';
 
 const BlogCard = ({ blog }: any) => {
+  const { theme, setTheme } = useTheme();
+
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
 
   const [pubDate, setPubDate] = useState(null);
@@ -20,7 +23,8 @@ const BlogCard = ({ blog }: any) => {
                     md:my-0 md:border-transparent
                     md:hover:shadow-2xl
                     md:hover:border-gray-200
-                    md:transform md:transition md:duration-500"
+                    md:transform md:transition md:duration-500
+                    bg-transparent dark:bg-transparent dark:hover:bg-gray-800"
         >
           <Image
             src={`https:${heroImage.fields.file.url}`}
@@ -33,15 +37,16 @@ const BlogCard = ({ blog }: any) => {
 
           <div className="px-4 py-3 space-y-1.5 flex flex-col">
             <span
-              className="text-primary block uppercase tracking-wide
-                        text-sm "
+              className={` block uppercase tracking-wide text-sm
+                        ${theme === 'dark' ? 'text-slate-200' : 'text-primary '}
+                      `}
             >
               {tag.fields.label}
             </span>
 
             <div
-              className="text-black  hover:text-primary 
-                      text-lg md:text-xl"
+              className={`text-slate-800 dark:text-slate-50
+                      text-lg md:text-xl`}
             >
               <span className="line-clamp-2 hover:underline tracking-tight font-medium">
                 {title}

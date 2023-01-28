@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer
       role="navigation"
-      className="w-full bg-gray-100 border-t p-2 text-sm md:text-base flex justify-center space-x-1 md:space-x-4"
+      className="w-full  border-t dark:border-slate-500 p-2 text-sm md:text-base flex justify-center space-x-1 md:space-x-4"
     >
       <span>
         {' '}

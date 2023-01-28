@@ -25,7 +25,6 @@ export async function getStaticProps() {
 }
 
 function About({ members, about }: any) {
- 
   return (
     <div className="about-container mt-16 flex-col space-y-6 md:space-y-10">
       {about.map((ab: any, index: any) => {
@@ -65,8 +64,8 @@ function About({ members, about }: any) {
         className="flex flex flex-col space-y-8"
       >
         <p
-          className="text-xl md:text-2xl tracking-wide bg-purple-50 p-2 leading-loose
-         underline underline-offset-8"
+          className="text-xl md:text-2xl tracking-wide  p-2 leading-loose
+         underline underline-offset-8 "
         >
           The world is changing, and innovators are needed. That is one reason
           why we have to assist you in obtaining the education you actually

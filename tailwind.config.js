@@ -1,10 +1,18 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'class',
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    typography: (theme) => ({
+      dark: {
+        css: {
+          color: 'red',
+        },
+      },
+    }),
     extend: {
       colors: {
         primary: '#370070',
@@ -15,6 +23,7 @@ module.exports = {
     },
   },
   plugins: [
-    require('@tailwindcss/line-clamp')
+    require('@tailwindcss/line-clamp'),
+    require('@tailwindcss/typography')
   ],
 }

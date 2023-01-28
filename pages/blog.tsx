@@ -106,7 +106,7 @@ function Blog({ blogs, tags }: any) {
         transition={{ duration: 0.95, ease: 'easeOut' }}
         className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2"
       >
-        <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
+        <div className="hidden md:flex tag-container items-center h-16  space-x-8">
           <Link
             href="/blog"
             className={`uppercase tracking-wide  hover:text-primary
@@ -132,7 +132,7 @@ function Blog({ blogs, tags }: any) {
             );
           })}
         </div>
-        <div className="md:hidden bg-gray-50  tag-container">
+        <div className="md:hidden   tag-container">
           <Select
             instanceId={useId()}
             classNames={{

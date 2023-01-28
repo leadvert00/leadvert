@@ -43,7 +43,7 @@ const arr = [
 ];
 const Services = () => {
   return (
-    <div className="service-container  space-y-4 md:space-y-6 bg-white">
+    <div className="service-container  space-y-4 md:space-y-6 ">
       <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 ">
         <m.div
           initial={{ opacity: 0 }}
@@ -51,7 +51,7 @@ const Services = () => {
           transition={{ duration: 0.5, ease: 'easeOut' }}
           className="w-full md:w-3/12 stm"
         >
-          <sup className="text-secondary font-medium tracking-wider text-lg">
+          <sup className="text-secondary dark:text-gray-100 font-medium tracking-wider text-lg">
             Why Choose Us?
           </sup>
           <h2 className="text-2xl md:text-5xl font-semibold w-full ">
@@ -64,7 +64,7 @@ const Services = () => {
               initial={{ opacity: 0 }}
               whileInView={{ y: [30, 0], opacity: 1 }}
               transition={{ duration: 0.5, ease: 'easeOut' }}
-              className="service-card hover:opacity-80 py-4 px-2 space-y-2 shadow-md border flex flex-col items-center 
+              className="service-card hover:opacity-80 py-4 px-2 space-y-2 shadow-md border border-gray-100 dark:border-slate-500 flex flex-col items-center 
               justify-center m-1"
               key={index}
             >
