@@ -3,6 +3,7 @@ import { BLOCKS } from '@contentful/rich-text-types';
 import React from 'react';
 import { BsLinkedin } from 'react-icons/bs';
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { motion as m } from 'framer-motion';
 
 const RICHTEXT_OPTIONS = {
   renderNode: {
@@ -14,7 +15,12 @@ const RICHTEXT_OPTIONS = {
 function Team({ member }: any) {
   const { image, name, coach, longBio, linkedin } = member.fields;
   return (
-    <div className="flex border-t  py-4 flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-8 ">
+    <m.div
+      initial={{ opacity: 0 }}
+      whileInView={{ y: [30, 0], opacity: 1 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className="flex border-t  py-4 flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-8 "
+    >
       <div className="w-7/12 md:w-3/12">
         <Image
           src={`https:${image.fields.file.url}`}
@@ -45,7 +51,7 @@ function Team({ member }: any) {
           {documentToReactComponents(longBio, RICHTEXT_OPTIONS)}
         </div>
       </div>
-    </div>
+    </m.div>
   );
 }
 

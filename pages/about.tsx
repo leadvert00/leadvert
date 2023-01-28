@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
-import { BsLinkedin } from 'react-icons/bs';
 import { createClient } from 'contentful';
 import Team from '@/components/Team';
+import { motion as m } from 'framer-motion';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -29,12 +29,18 @@ function About({ members, about }: any) {
       {about.map((ab: any, index: any) => {
         const { heading, body } = ab.fields;
         return (
-          <div key={index} className="flex flex-col space-y-3 py-4">
+          <m.div
+            initial={{ opacity: 0 }}
+            whileInView={{ y: [30, 0], opacity: 1 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+            key={index}
+            className="flex flex-col space-y-3 py-4"
+          >
             <div>
               <h1 className="text-3xl md:text-5xl font-semibold">{heading}</h1>
             </div>
             <div className="text-lg">{body}</div>
-          </div>
+          </m.div>
         );
       })}
 
