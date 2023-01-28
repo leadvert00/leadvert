@@ -19,7 +19,7 @@ html {
   z-index: 1000;
 }
 .main-nav-container {
-  width: 32%;
+  min-width: 32%;
   display: flex;
   justify-content: space-between;
 }

@@ -55,7 +55,7 @@ const Nav = () => {
             </li>
           ))}
         </ul>
-        <div className="flex">
+        <div className="flex ml-4">
           <Link
             href="/contact"
             className="flex nav-btn bg-gray-900 rounded hover:bg-primary
