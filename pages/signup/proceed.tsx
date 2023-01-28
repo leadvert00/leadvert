@@ -58,19 +58,18 @@ export default function Proceed() {
 
     if (em) {
       setEmail(em);
-
-      fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${em}`)
-        .then((data) => data.json())
-        .then((data) => {
-          // console.log(data);
-          if (data.length > 0) {
-            setCareer({ value: data[0].career, label: data[0].career });
-            setName(data[0].name);
-            setAffliation(data[0].affliation);
-            setResearch(data[0].research);
-            setCountry({ value: data[0].country, label: data[0].country });
-          }
-        });
+      // fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${em}`)
+      //   .then((data) => data.json())
+      //   .then((data) => {
+      //     // console.log(data);
+      //     if (data.length > 0) {
+      //       setCareer({ value: data[0].career, label: data[0].career });
+      //       setName(data[0].name);
+      //       setAffliation(data[0].affliation);
+      //       setResearch(data[0].research);
+      //       setCountry({ value: data[0].country, label: data[0].country });
+      //     }
+      //   });
     } else {
       setTimeout(() => {
         router.push('/signup');
