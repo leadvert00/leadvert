@@ -138,7 +138,7 @@ export default function Contact({
               rel="noopener noreferrer nofollow"
               href="tel:+234 701 411 1757"
             >
-              +234 701 411 1757
+              +234 701 481 1757
             </a>
           </div>
         </div>
