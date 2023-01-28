@@ -27,7 +27,7 @@ function Done() {
               transition={{ delay: 0.8, duration: 0.5 }}
               className="w-full"
             >
-              <Image alt="" width="400" height="400" src={`/done.png`} />
+              <Image alt="done" width="400" height="400" src={`/done.png`} />
             </m.div>{' '}
             <m.div
               initial={{ opacity: 0 }}
