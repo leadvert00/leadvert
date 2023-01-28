@@ -195,7 +195,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
       className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2"
     >
       <div className="hidden md:flex md:flex-col">
-        <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
+        <div className="hidden md:flex tag-container items-center h-14 bg-gray-100 space-x-8">
           <Link
             href="/blog"
             className={`uppercase tracking-wide  hover:text-primary`}
@@ -207,7 +207,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
               <Link
                 key={index}
                 href={`/blog?q=${t.fields.label.trim().toLowerCase()}`}
-                className={`uppercase tracking-wide  hover:text-primary
+                className={`uppercase text-sm tracking-wider  hover:text-primary
                 ${
                   t.fields.label.trim().toLowerCase() ===
                   tag.fields.label.trim().toLowerCase()
@@ -220,7 +220,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             );
           })}
         </div>
-        <div className="w-full hidden md:flex flex-col space-y-10 slug-container flex ">
+        <div className="w-full hidden md:flex flex-col space-y-8 slug-container flex ">
           <div className="flex w-full space-x-12">
             <div className="slug-1 ">
               <h1 className="text-3xl md:text-4xl leading-loose font-medium">
@@ -355,7 +355,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
             transition={{ duration: 1, ease: 'easeOut' }}
             className="flex flex-col space-y-3"
           >
-            <h3 className="text-4xl uppercase font-semibold w-full b-heading">
+            <h3 className="text-2xl md:text-3xl  uppercase font-semibold w-full b-heading">
               <span className="">Discover more Blog..</span>
             </h3>
             <div className="relative bc">
