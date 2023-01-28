@@ -90,6 +90,7 @@ const Nav = () => {
               </ul>
               <Link
                 href="/contact"
+                onClick={() => setSideBar(false)}
                 className="flex nav-btn bg-gray-900 rounded font-semibold
                             hover:bg-primary
                           text-white w-7/12 text-2xl px-4 py-2 "
