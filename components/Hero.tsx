@@ -30,7 +30,7 @@ const Hero = () => {
             </span>
           </h1>
         </div>
-        <div className="space-y-8  md:space-y-10">
+        <div className="space-y-6  md:space-y-10">
           <p className="text-lg w-full w-full md:w-11/12">
             Leadvert is research and academic business startup led by founders
             who live, think and research in academia. We are open to students,

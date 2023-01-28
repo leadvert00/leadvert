@@ -42,10 +42,10 @@ export default function BlogPosts({ blogs }: any) {
       >
         <div className="flex flex-col md:flex-row md:justify-between items-center py-2">
           <div className="space-y-2 lg:space-y-2">
-            <h2 className="leading-tight text-3xl md:text-4xl text-black dark:text-white">
+            <h2 className="leading-tight text-2xl md:text-4xl text-black">
               Blog recommendations
             </h2>
-            <p className="leading-tight text-2xl md:text-4xl text-gray-400 dark:text-slate-500">
+            <p className="leading-tight text-xl md:text-2xl text-gray-400 dark:text-slate-500">
               Prepared exclusively for you.
             </p>
           </div>
