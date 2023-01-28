@@ -24,7 +24,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ blogs }: any) {
-
   return (
     <>
       <Head>
@@ -33,7 +32,7 @@ export default function Home({ blogs }: any) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className="font-medium">
         <Hero />
         <Quote />
         <Services />

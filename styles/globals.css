@@ -4,6 +4,7 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: 'Montserrat', sans-serif;
 }
 
 .nav-container {
@@ -204,10 +205,10 @@ html {
   }
 }
 .slug-1 {
-  width: 65%;
+  width: 70%;
 }
 .slug-2 {
-  width: 35%;
+  width: 30%;
 }
 
 .slug-hero-image {
@@ -255,7 +256,7 @@ html {
   color: #370070;
 }
 .service-card {
-  width: 30%;
+  width: 31%;
 }
 .icon-dot {
   position: absolute;

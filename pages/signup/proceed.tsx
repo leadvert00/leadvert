@@ -5,6 +5,7 @@ import Select from 'react-select';
 import React, { useEffect, useId, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import LoaderOnButton from '@/components/LoaderOnButton';
 
 export const container = {
   hidden: { opacity: 0 },
@@ -303,7 +304,7 @@ export default function Proceed() {
                             hover:bg-primary  text-xl md:text-xl text-white text-center 
                             p-4 md:px-4 md:py-2  opacity-50"
                   >
-                    Submitting ..
+                    Submitting .. <LoaderOnButton />
                   </button>
                 )}
               </div>
@@ -343,7 +344,7 @@ export default function Proceed() {
           <div className="max-w-screen-xl flex flex-col mt-4 md:mt-0 space-y-8 bg-white p-4 md:p-12 ">
             <div className="flex w-full">
               <h1 className="leading-tight text-3xl md:text-5xl text-black">
-                Let us have some basic info to remember you.
+                Let us have some basic about you.
               </h1>
             </div>
             <form
@@ -474,10 +475,10 @@ export default function Proceed() {
                   <button
                     disabled
                     className="focus-ring bg-gray-900 w-7/12 md:w-3/5 rounded
-                hover:bg-primary  text-xl md:text-xl text-white text-center 
-                p-4 md:px-4 md:py-2"
+                        hover:bg-primary  text-xl md:text-xl text-white text-center 
+                        p-4 md:px-4 md:py-2 opacity-50"
                   >
-                    Submitting ..
+                    Submitting .. <LoaderOnButton />
                   </button>
                 )}
               </div>

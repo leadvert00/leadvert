@@ -58,7 +58,7 @@ const Services = () => {
             We are connected because...
           </h2>
         </m.div>
-        <div className="w-full md:w-9/12 flex space-y-4 md:space-y-0 flex-wrap md:gap-4 md:gap-y-5">
+        <div className="w-full md:w-9/12 flex space-y-4 md:space-y-0 flex-wrap md:gap-3 md:gap-y-5">
           {arr.map((x, index) => (
             <m.div
               initial={{ opacity: 0 }}
