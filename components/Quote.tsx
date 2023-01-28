@@ -26,7 +26,7 @@ const Quote = () => {
     >
       <div className="text-center w-full flex flex-col space-y-4  items-center">
         <div className="flex flex-col md:w-9/12 items-center space-y-0 md:space-y-2">
-          <sup className="flex-none w-36 text-sm  bg-purple-100 p-1 tracking-wide">
+          <sup className="flex-none w-36 text-sm  bg-brand font-medium p-1 tracking-wide">
             Robert A. Heinlein
           </sup>
           <h1 className="text-2xl md:text-5xl font-semibold">
@@ -48,7 +48,7 @@ const Quote = () => {
       </div>
       <div className="flex w-full justify-center ">
         <CircleButtonLink
-          to=""
+          to="/signup"
           classNames="justify-center"
           icon={<BsArrowRight />}
         >

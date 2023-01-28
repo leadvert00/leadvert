@@ -51,7 +51,8 @@ $item-count: 5;
 
 @media only screen and (max-width: 768px) {
   .hero {
-    background-image: linear-gradient(145deg, #e9ecff 60%, #e1cbf0 40%);
+    background-image: linear-gradient(150deg, #e9ecff 60%, #eedac8 40%);
+    padding-bottom: 1rem;
   }
   .hero-content {
     display: flex;

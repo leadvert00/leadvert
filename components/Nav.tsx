@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { BiMenuAltRight, BiX } from 'react-icons/bi';
 import { TfiClose } from 'react-icons/tfi';
 import Link from 'next/link';
-import { motion as m } from 'framer-motion';
+import { useRouter } from 'next/router';
+
 const Nav = () => {
+  const router = useRouter();
+
   const [sideBar, setSideBar] = useState<boolean>(false);
   let linksData = [
     { title: 'Home', link: '/' },
     { title: 'Blog', link: '/blog' },
-    { title: 'About', link: '/' }
+    { title: 'About', link: '/about' }
   ];
   return (
     <nav className="z-50 nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md">
@@ -38,10 +41,14 @@ const Nav = () => {
               <Link
                 key={index}
                 href={nl.link}
-                className="nav-link text-base tracking-wide
-                      font-normal hover:text-primary"
+                className={`nav-link text-base tracking-wide
+                       hover:text-primary
+                      ${
+                        router.pathname == nl.link ? 'font-bold text-primary' : ''
+                      }
+                      `}
               >
-                {nl.title}
+                <span> {nl.title}</span>
               </Link>
             </li>
           ))}

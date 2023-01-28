@@ -9,6 +9,7 @@ module.exports = {
       colors: {
         primary: '#370070',
         secondary: '#FF9737',
+        brand: '#eedac8',
         sidenavBg: 'linear-gradient(270deg, #fffffffe 0%, #e9ecff 100%)'
       }
     },

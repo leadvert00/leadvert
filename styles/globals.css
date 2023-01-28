@@ -172,6 +172,8 @@ html {
 .blog-container {
   width: 100%;
   padding: 2rem 4rem;
+  background-color: transparent;
+  background-image: linear-gradient(270deg, #ffffff 0%, #f6f7fcfb 100%);
 }
 @media only screen and (max-width: 768px) {
   .blog-container {
@@ -347,17 +349,13 @@ html {
   color: #370070;
 }
 
-.blog-post {
-  background-color: transparent;
-  background-image: linear-gradient(270deg, #ffffff 0%, #f6f7fcfb 100%);
-}
 .b-heading span {
   background-image: linear-gradient(
     -180deg,
     transparent 0%,
     transparent 64%,
-    rgb(255, 216, 95) 14%,
-    rgb(255, 216, 95) 87%,
+    #eedac8 14%,
+    #ff9737 87%,
     transparent 87%,
     transparent 100%
   );

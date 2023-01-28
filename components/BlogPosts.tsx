@@ -4,7 +4,7 @@ import CircleButtonLink from './CircleButtonLink';
 import { motion as m } from 'framer-motion';
 export default function BlogPosts({ blogs }: any) {
   return (
-    <div className="blog-container   bg-white space-y-6 md:space-y-12 ">
+    <div className="blog-container space-y-6 md:space-y-12 ">
       <m.div
         initial={{ opacity: 0 }}
         whileInView={{ y: [50, 0], opacity: 1 }}
@@ -38,9 +38,9 @@ export default function BlogPosts({ blogs }: any) {
         initial={{ opacity: 0 }}
         whileInView={{ y: [50, 0], opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className=" bg-white flex flex-col space-y-12"
+        className=" flex flex-col space-y-12"
       >
-        <div className="flex flex-col md:flex-row md:justify-between items-center">
+        <div className="flex flex-col md:flex-row md:justify-between items-center py-2">
           <div className="space-y-2 lg:space-y-2">
             <h2 className="leading-tight text-3xl md:text-4xl text-black dark:text-white">
               Blog recommendations
