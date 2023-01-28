@@ -38,7 +38,7 @@ const arr = [
   {
     title: `Strategic Guidiance`,
     icon: <RiGuideLine />,
-    description: `We give information on the right strategy you need to accomplish your academic mission. `
+    description: `We provide information on the best academic strategy to accomplish your mission. `
   }
 ];
 const Services = () => {
@@ -58,7 +58,7 @@ const Services = () => {
             We are connected because...
           </h2>
         </m.div>
-        <div className="w-full md:w-9/12 flex space-y-4 md:space-y-0 flex-wrap md:gap-3 md:gap-y-5">
+        <div className="w-full md:w-9/12 flex space-y-4 md:space-y-0 flex-wrap md:gap-2 md:gap-y-5">
           {arr.map((x, index) => (
             <m.div
               initial={{ opacity: 0 }}
