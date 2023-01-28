@@ -40,7 +40,7 @@ export default function BlogPosts({ blogs }: any) {
         transition={{ duration: 0.5 }}
         className=" flex flex-col space-y-12"
       >
-        <div className="flex flex-col md:flex-row md:justify-between items-center py-2">
+        <div className="flex flex-col space-y-4 md:space-y-0 md:flex-row md:justify-between items-center py-2">
           <div className="space-y-2 lg:space-y-2">
             <h2 className="leading-tight text-2xl md:text-4xl text-black">
               Blog recommendations
