@@ -26,10 +26,10 @@ function About({ members, about }: any) {
   console.log(about);
   return (
     <div className="about-container mt-16 flex-col space-y-6 md:space-y-10">
-      {about.map((ab: any) => {
+      {about.map((ab: any, index: any) => {
         const { heading, body } = ab.fields;
         return (
-          <div className="flex flex-col space-y-3 py-4">
+          <div key={index} className="flex flex-col space-y-3 py-4">
             <div>
               <h1 className="text-3xl md:text-5xl font-semibold">{heading}</h1>
             </div>
