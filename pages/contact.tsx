@@ -44,13 +44,13 @@ export default function Contact({
   };
   const form: any = useRef();
   return (
-    <div className="contact-container flex flex-col space-y-10 md:space-y-0 md:flex-row mt-12 md:mt-12 md:space-x-16">
+    <div className="contact-container flex flex-col space-y-10 md:space-y-0 md:flex-row mt-12 md:mt-10 md:space-x-16">
       <div className="w-full md:w-8/12 flex flex-col space-y-8">
         <div className="space-y-4  text-2xl">
           <h1 className="leading-tight font-semibold text-3xl md:text-5xl text-black">
             Get In Touch
           </h1>
-          <p className="w-full md:w-10/12">
+          <p className="w-full ">
             Fill in this form, we will be in touch with you shortly.
           </p>
         </div>
@@ -86,7 +86,8 @@ export default function Contact({
               required
               name="message"
               placeholder="Your message"
-              className="w-full p-3 py-5 focus:border-gray-800 bg-gray-100 
+              rows={5}
+              className="w-full p-3 focus:border-gray-800 bg-gray-100 
                             outline-none placeholder-gray-500 border-2 rounded"
             />
           </div>
@@ -136,7 +137,7 @@ export default function Contact({
               className="text-2xl"
               target="_blank"
               rel="noopener noreferrer nofollow"
-              href="tel:+234 701 411 1757"
+              href="tel:+234 701 481 1757"
             >
               +234 701 481 1757
             </a>
