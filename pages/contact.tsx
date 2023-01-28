@@ -57,9 +57,9 @@ export default function Contact({
         <form
           ref={form}
           onSubmit={handleSubmit}
-          className="flex flex-wrap md:gap-2 text-lg space-y-2"
+          className="flex flex-wrap md:gap-2 text-lg space-y-3"
         >
-          <div className="flex flex-col md:flex-row w-full space-y-6 md:space-y-0 md:space-x-8">
+          <div className="flex flex-col md:flex-row w-full space-y-3 md:space-y-0 md:space-x-8">
             <div className="w-full md:w-1/2 flex flex-col space-y-1">
               <input
                 placeholder="Name"
