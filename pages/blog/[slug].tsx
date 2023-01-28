@@ -334,12 +334,12 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                     <h4 className="font-semibold">{author.fields.name}</h4>
                     <p className="text-sm">{author.fields.shortBio}</p>
                     <a
-                      target="_blank" 
+                      target="_blank"
                       className="tracking-wide w-24 text-xs text-blue-800 hover:underline"
                       href={author.fields.linkedin}
                       rel="noopener noreferrer"
                     >
-                      LINKEDIN 
+                      LINKEDIN
                     </a>
                   </div>
                 </div>
@@ -440,7 +440,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                   href={author.fields.linkedin}
                   rel="noopener noreferrer"
                 >
-                  LINKEDIN 
+                  LINKEDIN
                 </a>
               </div>
             </div>
