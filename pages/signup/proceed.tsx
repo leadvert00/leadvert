@@ -38,10 +38,10 @@ export default function Proceed() {
   let em = router.query.email;
   const [email, setEmail] = useState<any>('');
   const [name, setName] = useState<any>('');
-  const [career, setCareer] = useState<any>('');
+  const [career, setCareer] = useState<any>({});
   const [affliation, setAffliation] = useState<any>('');
   const [research, setResearch] = useState<any>('');
-  const [country, setCountry] = useState<any>('');
+  const [country, setCountry] = useState<any>();
   const [countryArr, setCountryArr] = useState<any>([]);
   const [done, setDone] = useState<any>(false);
   const [loader, setLoader] = useState(false);
@@ -62,14 +62,13 @@ export default function Proceed() {
       fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${em}`)
         .then((data) => data.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           if (data.length > 0) {
             setCareer({ value: data[0].career, label: data[0].career });
             setName(data[0].name);
             setAffliation(data[0].affliation);
             setResearch(data[0].research);
             setCountry({ value: data[0].country, label: data[0].country });
-            console.log(data);
           }
         });
     } else {
@@ -97,30 +96,17 @@ export default function Proceed() {
       research,
       country: country.value
     };
-    if (typeof data.country === 'undefined') {
+    console.log(data.country);
+    if (typeof data.country === 'undefined' || data.country === '') {
       data.country = 'Nigeria';
     }
-    fetch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`)
-      .then((resCheck) => resCheck.json())
-      .then((resCheck) => {
-        if (resCheck.length == 0) {
-          axios
-            .post(`https://sheetdb.io/api/v1/3yko7v0zohb8v`, data)
-            .then((response: any) => {
-              setDone(true);
-            });
-        } else {
-          axios
-            .patch(
-              `https://sheetdb.io/api/v1/3yko7v0zohb8v/email/*${email}`,
-              data
-            )
-            .then((response: any) => {
-              setDone(true);
-            });
-        }
-      })
-      .catch((error) => {});
+    console.log(data);
+
+    axios
+      .patch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/email/*${email}`, data)
+      .then((response: any) => {
+        setDone(true);
+      });
   };
 
   useEffect(() => {
@@ -291,7 +277,7 @@ export default function Proceed() {
                 {!loader ? (
                   <button
                     type="submit"
-                    className="focus-ring bg-gray-900 w-8/12 md:w-3/5 rounded
+                    className="focus-ring bg-gray-900 w-11/12 md:w-3/5 rounded
                                   hover:bg-primary  text-xl md:text-xl text-white text-center 
                                   p-4 md:px-4 md:py-2"
                   >
@@ -300,7 +286,7 @@ export default function Proceed() {
                 ) : (
                   <button
                     disabled
-                    className="focus-ring bg-gray-900 w-8/12 md:w-3/5 rounded
+                    className="focus-ring bg-gray-900 w-11/12 md:w-3/5 rounded
                             hover:bg-primary  text-xl md:text-xl text-white text-center 
                             p-4 md:px-4 md:py-2  opacity-50"
                   >
