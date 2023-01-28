@@ -44,7 +44,7 @@ export default function Contact({
   };
   const form: any = useRef();
   return (
-    <div className="contact-container flex flex-col md:flex-row mt-12 md:mt-2 md:space-x-6">
+    <div className="contact-container flex flex-col space-y-10 md:space-y-0 md:flex-row mt-12 md:mt-12 md:space-x-16">
       <div className="w-full md:w-8/12 flex flex-col space-y-8">
         <div className="space-y-4  text-2xl">
           <h1 className="leading-tight font-semibold text-3xl md:text-5xl text-black">
@@ -83,6 +83,7 @@ export default function Contact({
           </div>
           <div className="w-full  flex flex-col space-y-1">
             <textarea
+              required
               name="message"
               placeholder="Your message"
               className="w-full p-3 py-5 focus:border-gray-800 bg-gray-100 
@@ -90,12 +91,12 @@ export default function Contact({
             />
           </div>
 
-          <div className="w-full flex md:w-1/2">
+          <div className="w-full flex ">
             {!loader ? (
               <button
                 type="submit"
-                className="focus-ring bg-gray-900 w-1/2 rounded 
-                            hover:bg-primary  text-xl md:text-xl text-white text-center 
+                className="focus-ring bg-gray-900 w-full rounded 
+                            hover:bg-primary  md:w-72  text-xl md:text-xl text-white text-center 
                             capitalize  p-3 "
               >
                 Send message
@@ -104,7 +105,7 @@ export default function Contact({
               <button
                 type="submit"
                 disabled
-                className="focus-ring bg-gray-900 w-1/2 rounded 
+                className="focus-ring bg-gray-900  md:w-72  rounded 
                             hover:bg-primary  text-xl md:text-xl text-white text-center 
                             capitalize  p-3  opacity-50"
               >
@@ -119,7 +120,43 @@ export default function Contact({
           )}
         </form>
       </div>
-      <div className="w-4/12"></div>
+      <div className="w-full md:w-4/12 flex flex-col space-y-10">
+        <div className="w-full flex-col space-y-3">
+          <div className="text-slate-600">Phones:</div>
+          <div className="flex flex-col space-y-5">
+            <a
+              className="text-2xl"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="tel:+234 816 246 4393"
+            >
+              +234 816 246 4393
+            </a>
+            <a
+              className="text-2xl"
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+              href="tel:+234 701 411 1757"
+            >
+              +234 701 411 1757
+            </a>
+          </div>
+        </div>
+        <div className="w-full flex-col space-y-3">
+          <div className="text-slate-600">Email:</div>
+          <div className="flex flex-col space-y-5">
+            <a
+              className="text-2xl underline hover:no-underline underline-offset-8"
+              href="mailto:hi@leadvert.org"
+            >
+              hi@leadvert.org
+            </a>
+          </div>
+        </div>
+        <div className="w-full flex-col space-y-3">
+          <div className="text-slate-600">Follow:</div>
+        </div>
+      </div>
     </div>
   );
 }
