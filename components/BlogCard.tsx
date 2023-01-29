@@ -17,7 +17,7 @@ const BlogCard = ({ blog }: any) => {
                     md:hover:border-gray-200
                     md:transform md:transition md:duration-500"
         >
-          <Image
+          {/* <Image
             src={`https:${heroImage.fields.file.url}`}
             width={400}
             height={400}
@@ -47,7 +47,7 @@ const BlogCard = ({ blog }: any) => {
               <div className="text-slate-600">*</div>
               <div className="text-sm ">By {author.fields.name}</div>
             </div>
-          </div>
+          </div> */}
         </Link>
       )}
     </>
