@@ -1,8 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import Moment from 'react-moment';
-import 'moment-timezone';
+// import Moment from 'moment';
+// import 'moment-timezone';
+import { compareAsc, format } from 'date-fns';
 
 const BlogCard = ({ blog }: any) => {
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
@@ -48,8 +49,8 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  <Moment>{publishDate.toString()}</Moment>
-                  {/* {publishDate.toString()} */}
+                  {format(publishDate, 'yyyy')}
+                  {publishDate.toString()}
                   {/* {Moment(publishDate).format('MM-DD-YYY')} */}
                   {/* <Moment format="MMMM D, YYYY"Moment>{dateToFormat}</Moment> */}
                 </div>

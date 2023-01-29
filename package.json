@@ -19,6 +19,7 @@
     "@types/react-dom": "18.0.10",
     "axios": "^1.2.4",
     "contentful": "^9.2.19",
+    "date-fns": "^2.29.3",
     "email-js": "^2.0.2",
     "eslint-config-next": "13.1.5",
     "framer-motion": "^8.5.2",
