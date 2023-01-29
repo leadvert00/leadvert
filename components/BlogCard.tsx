@@ -7,6 +7,7 @@ import { compareAsc, format } from 'date-fns';
 
 const BlogCard = ({ blog }: any) => {
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
+  console.log(blog.fields);
   const dateToFormat = new Date(publishDate);
 
   return (
@@ -48,7 +49,7 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  {format(dateToFormat, 'MMMM, yyyy')}
+                  {format(dateToFormat, 'MMMM d, yyyy')}
                   {/* {publishDate.toString()} */}
                   {/* {Moment(publishDate).format('MM-DD-YYY')} */}
                   {/* <Moment format="MMMM D, YYYY"Moment>{dateToFormat}</Moment> */}
