@@ -25,7 +25,7 @@ export async function getStaticProps() {
 }
 
 function About({ members, about }: any) {
-  console.log(about);
+ 
   return (
     <div className="about-container mt-16 flex-col space-y-6 md:space-y-10">
       {about.map((ab: any, index: any) => {
