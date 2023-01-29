@@ -17,7 +17,7 @@ const BlogCard = ({ blog }: any) => {
                     md:hover:border-gray-200
                     md:transform md:transition md:duration-500"
         >
-          {/* <Image
+          <Image
             src={`https:${heroImage.fields.file.url}`}
             width={400}
             height={400}
@@ -25,7 +25,7 @@ const BlogCard = ({ blog }: any) => {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
             placeholder="blur"
           />
-
+          {/* 
           <div className="px-4 py-3 space-y-1 flex flex-col">
             <span
               className="text-primary block uppercase tracking-wide
