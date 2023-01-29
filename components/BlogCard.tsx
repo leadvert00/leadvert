@@ -48,7 +48,7 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  {publishDate.toString()}
+                  {publishDate.toString().format('YYY')}
                   {/* {Moment(publishDate).format('MM-DD-YYY')} */}
                   {/* <Moment format="MMMM D, YYYY"Moment>{dateToFormat}</Moment> */}
                 </div>
