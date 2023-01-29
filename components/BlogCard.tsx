@@ -6,6 +6,7 @@ import Moment from 'react-moment';
 const BlogCard = ({ blog }: any) => {
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
   const dateToFormat = new Date(publishDate);
+  console.log(dateToFormat.getFullYear);
   console.log(dateToFormat);
   return (
     <>
@@ -46,7 +47,7 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  <Moment format="MMMM D, YYYY">{dateToFormat}</Moment>
+                  {/* <Moment format="MMMM D, YYYY">{dateToFormat}</Moment> */}
                 </div>
               )}
               <div className="text-slate-600">*</div>
