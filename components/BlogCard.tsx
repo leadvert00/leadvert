@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 
 const BlogCard = ({ blog }: any) => {
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
+  console.log(publishDate);
   return (
     <>
       {slug && (
