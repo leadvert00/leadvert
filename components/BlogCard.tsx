@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Moment from 'moment';
 // import 'moment-timezone';
 
@@ -10,7 +10,10 @@ const BlogCard = ({ blog }: any) => {
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
   // console.log(blog.fields);
   const dateToFormat = new Date(publishDate);
-
+  const [pubDate, setPubDate] = useState(null);
+  useEffect(() => {
+    setPubDate(publishDate);
+  }, [setPubDate, publishDate]);
   return (
     <>
       {slug && (
@@ -52,7 +55,7 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  {Moment(publishDate).format('MMMM-D-Y')}
+                  {Moment(pubDate).format('MMMM-D-Y')}
                   {/* {isValid(dateToFormat) && (
                     <> {format(dateToFormat, 'MMMM dd, yyyy')}</>
                   )} */}
