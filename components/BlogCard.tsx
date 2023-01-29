@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
-import Moment from 'moment';
+import Moment from 'react-moment';
 import 'moment-timezone';
 
 const BlogCard = ({ blog }: any) => {
@@ -48,7 +48,8 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  {publishDate.toString().getFullYear()}
+                  <Moment>{publishDate.toString()}</Moment>
+                  {/* {publishDate.toString()} */}
                   {/* {Moment(publishDate).format('MM-DD-YYY')} */}
                   {/* <Moment format="MMMM D, YYYY"Moment>{dateToFormat}</Moment> */}
                 </div>
