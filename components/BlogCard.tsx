@@ -7,7 +7,7 @@ import { compareAsc, format } from 'date-fns';
 
 const BlogCard = ({ blog }: any) => {
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
-  console.log(blog.fields);
+  // console.log(blog.fields);
   const dateToFormat = new Date(publishDate);
 
   return (
