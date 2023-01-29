@@ -3,7 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 // import Moment from 'moment';
 // import 'moment-timezone';
-import { compareAsc, format } from 'date-fns';
+import { compareAsc, format, isValid } from 'date-fns';
 
 const BlogCard = ({ blog }: any) => {
   const { title, slug, tag, author, heroImage, publishDate } = blog.fields;
@@ -40,7 +40,7 @@ const BlogCard = ({ blog }: any) => {
             </span>
 
             <div
-              className="text-black  hover:text-primary leading-relaxed
+              className="text-black  hover:text-primary 
                       text-lg md:text-xl"
             >
               <span className="line-clamp-2 hover:underline tracking-tight font-medium">
@@ -51,7 +51,10 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  {format(dateToFormat, 'MMMM dd, yyyy')}
+                  {isValid(dateToFormat) && (
+                    <> {format(dateToFormat, 'MMMM dd, yyyy')}</>
+                  )}
+
                   {/* {publishDate.toString()} */}
                   {/* {Moment(publishDate).format('MM-DD-YYY')} */}
                   {/* <Moment format="MMMM D, YYYY"Moment>{dateToFormat}</Moment> */}
