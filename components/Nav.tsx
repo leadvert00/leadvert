@@ -44,7 +44,8 @@ const Nav = () => {
                 className={`nav-link text-base tracking-wide
                        hover:text-primary
                       ${
-                        router.pathname == nl.link
+                        router.pathname == nl.link ||
+                        router.pathname.includes(nl.link)
                           ? 'font-bold text-primary'
                           : ''
                       }
@@ -79,7 +80,12 @@ const Nav = () => {
                     <Link
                       href={nl.link}
                       className={`sidebar-link tracking-wide text-2xl focus:text-primary font-medium
-                      ${router.pathname == nl.link ? 'font-bold underline' : ''}
+                      ${
+                        router.pathname == nl.link ||
+                        router.pathname.includes(nl.link)
+                          ? 'font-bold underline'
+                          : ''
+                      }
                       
                       `}
                     >
