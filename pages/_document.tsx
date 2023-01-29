@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
-
+        <meta name="description" content="Education Consultant" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"

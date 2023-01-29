@@ -58,13 +58,18 @@ export default function BlogPosts({ blogs }: any) {
           </CircleButtonLink>
         </div>
         <div>
-          <div className="relative bc">
+          <m.div
+            className="relative bc"
+            initial={{ opacity: 0 }}
+            whileInView={{ y: [30, 0], opacity: 1 }}
+            transition={{ duration: 0.5, ease: 'easeOut' }}
+          >
             <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-2 md:gap-8 auto-rows-min  ">
               {blogs.slice(0, 3).map((blog: any, index: any) => {
                 return <BlogCard key={index} blog={blog} />;
               })}
             </div>
-          </div>
+          </m.div>
         </div>
       </m.div>
     </div>

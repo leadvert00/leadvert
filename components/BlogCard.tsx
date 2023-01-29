@@ -51,4 +51,3 @@ const BlogCard = ({ blog }: any) => {
 };
 
 export default BlogCard;
-
