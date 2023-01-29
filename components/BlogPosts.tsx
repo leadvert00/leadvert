@@ -67,7 +67,8 @@ export default function BlogPosts({ blogs }: any) {
             >
               <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-2 md:gap-8 auto-rows-min  ">
                 {blogs.slice(0, 3).map((blog: any, index: any) => {
-                  return <BlogCard key={index} blog={blog} />;
+                  <div>{blog.fields.title}</div>;
+                  // return <BlogCard key={index} blog={blog} />;
                 })}
               </div>
             </m.div>
