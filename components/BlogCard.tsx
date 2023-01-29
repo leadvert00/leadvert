@@ -25,7 +25,7 @@ const BlogCard = ({ blog }: any) => {
             blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
             placeholder="blur"
           />
-          {/*           
+
           <div className="px-4 py-3 space-y-1 flex flex-col">
             <span
               className="text-primary block uppercase tracking-wide
@@ -34,7 +34,7 @@ const BlogCard = ({ blog }: any) => {
               {tag.fields.label}
             </span>
 
-            <div
+            {/* <div
               className="text-black  hover:text-primary leading-relaxed
                       text-lg md:text-xl  font-medium"
             >
@@ -46,8 +46,8 @@ const BlogCard = ({ blog }: any) => {
               </div>
               <div className="text-slate-600">*</div>
               <div className="text-sm ">By {author.fields.name}</div>
-            </div>
-          </div> */}
+            </div> */}
+          </div>
         </Link>
       )}
     </>
