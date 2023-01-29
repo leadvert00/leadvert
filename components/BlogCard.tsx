@@ -44,7 +44,7 @@ const BlogCard = ({ blog }: any) => {
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  <Moment format="MMMM D, YYYY">{publishDate}</Moment>
+                  {/* <Moment format="MMMM D, YYYY">{publishDate}</Moment> */}
                 </div>
               )}
               <div className="text-slate-600">*</div>
