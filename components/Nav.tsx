@@ -43,12 +43,12 @@ const Nav = () => {
                 href={nl.link}
                 className={`nav-link text-base tracking-wide
                        hover:text-primary
-                      ${
-                        router.pathname == nl.link ||
-                        router.pathname.includes(nl.link)
-                          ? 'font-bold text-primary'
-                          : ''
-                      }
+                       ${
+                         router.pathname == nl.link ||
+                         (router.pathname.includes(nl.link) && nl.link !== '/')
+                           ? 'font-bold underline'
+                           : ''
+                       }
                       `}
               >
                 <span> {nl.title}</span>
@@ -82,7 +82,7 @@ const Nav = () => {
                       className={`sidebar-link tracking-wide text-2xl focus:text-primary font-medium
                       ${
                         router.pathname == nl.link ||
-                        router.pathname.includes(nl.link)
+                        (router.pathname.includes(nl.link) && nl.link !== '/')
                           ? 'font-bold underline'
                           : ''
                       }
