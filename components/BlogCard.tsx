@@ -31,7 +31,7 @@ const BlogCard = ({ blog }: any) => {
             placeholder="blur"
           />
 
-          <div className="px-4 py-3 space-y-1 flex flex-col">
+          <div className="px-4 py-3 space-y-1.5 flex flex-col">
             <span
               className="text-primary block uppercase tracking-wide
                         text-sm "
@@ -41,15 +41,17 @@ const BlogCard = ({ blog }: any) => {
 
             <div
               className="text-black  hover:text-primary leading-relaxed
-                      text-lg md:text-xl  font-medium"
+                      text-lg md:text-xl"
             >
-              <span className="line-clamp-2 hover:underline">{title}</span>
+              <span className="line-clamp-2 hover:underline tracking-tight font-medium">
+                {title}
+              </span>
             </div>
 
             <div className="flex items-center space-x-2 ">
               {publishDate && (
                 <div className="text-sm ">
-                  {format(dateToFormat, 'MMMM, yyyy')}
+                  {format(dateToFormat, 'MMMM dd, yyyy')}
                   {/* {publishDate.toString()} */}
                   {/* {Moment(publishDate).format('MM-DD-YYY')} */}
                   {/* <Moment format="MMMM D, YYYY"Moment>{dateToFormat}</Moment> */}
