@@ -40,14 +40,16 @@ const BlogCard = ({ blog }: any) => {
             >
               <span className="line-clamp-2 hover:underline">{title}</span>
             </div>
-            {/*
+
             <div className="flex items-center space-x-2 ">
+              {/*
               <div className="text-sm ">
                 <Moment format="MMMM D, YYYY">{publishDate}</Moment>
               </div>
+              */}
               <div className="text-slate-600">*</div>
               <div className="text-sm ">By {author.fields.name}</div>
-            </div> */}
+            </div>
           </div>
         </Link>
       )}
