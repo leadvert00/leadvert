@@ -5,7 +5,7 @@ import { createClient } from 'contentful';
 import Hero from '@/components/Hero';
 import Quote from '@/components/Quote';
 import Services from '@/components/Services';
-// import BlogPosts from '@/components/BlogPosts';
+import BlogPosts from '@/components/BlogPosts';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -37,7 +37,8 @@ export default function Home({ blogs }: any) {
         <Hero />
         <Quote />
         <Services />
-        {/*  <BlogPosts blogs={blogs} /> */}
+
+        <BlogPosts blogs={blogs} />
       </main>
     </>
   );
