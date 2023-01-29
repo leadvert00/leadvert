@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import { createClient } from 'contentful';
 import React, { useEffect, useId, useState } from 'react';
 import { useRouter } from 'next/router';
@@ -32,9 +33,7 @@ function Blog({ blogs, tags }: any) {
   });
   selectTags.push({ value: '/', label: 'Blog Home' });
 
-
   function sendTag(q: any, tag: any) {
-   
     if (q === tag.trim().toLowerCase()) {
       setTimeout(() => {
         router.push('/blog');
@@ -94,67 +93,75 @@ function Blog({ blogs, tags }: any) {
   }, [q, blogs]);
 
   return (
-    <m.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.95, ease: 'easeOut' }}
-      className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2"
-    >
-      <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
-        <Link
-          href="/blog"
-          className={`uppercase tracking-wide  hover:text-primary
+    <>
+      <Head>
+        <title>Leadvert Blog </title>
+        <meta name="description" content="Leadvert Blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <m.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.95, ease: 'easeOut' }}
+        className="mt-8 md:mt-16 flex flex-col space-y-2 md:space-y-2"
+      >
+        <div className="hidden md:flex tag-container items-center h-16 bg-gray-100 space-x-8">
+          <Link
+            href="/blog"
+            className={`uppercase tracking-wide  hover:text-primary
                 ${typeof q === 'undefined' ? 'underline font-medium' : ''}`}
-        >
-          Blog Home
-        </Link>
-        {tags.map((tag: any, index: any) => {
-          return (
-            <Link
-              key={index}
-              href={`/blog?q=${tag.fields.label.trim().toLowerCase()}`}
-              onClick={() => sendTag(q, `${tag.fields.label}`)}
-              className={`uppercase tracking-wide  hover:text-primary
+          >
+            Blog Home
+          </Link>
+          {tags.map((tag: any, index: any) => {
+            return (
+              <Link
+                key={index}
+                href={`/blog?q=${tag.fields.label.trim().toLowerCase()}`}
+                onClick={() => sendTag(q, `${tag.fields.label}`)}
+                className={`uppercase tracking-wide  hover:text-primary
                 ${
                   tag.fields.label.trim().toLowerCase() === q
                     ? 'underline font-medium'
                     : ''
                 }`}
-            >
-              {tag.fields.label}
-            </Link>
-          );
-        })}
-      </div>
-      <div className="md:hidden bg-gray-50  tag-container">
-        <Select
-          instanceId={useId()}
-          classNames={{
-            control: (state) =>
-              state.isFocused
-                ? ' h-14 tracking-wide underline underline-offset-4'
-                : ' tracking-wide h-14  underline underline-offset-4'
-          }}
-          options={selectTags}
-          styles={styles}
-          onChange={handleTag}
-          value={defaultTag}
-        ></Select>
-      </div>
-      <div className="slug-container flex flex-col space-y-4">
-        <h1 className="text-2xl md:text-3xl font-semibold w-full b-heading">
-          <span className="">Most Recent writings here..</span>
-        </h1>
+              >
+                {tag.fields.label}
+              </Link>
+            );
+          })}
+        </div>
+        <div className="md:hidden bg-gray-50  tag-container">
+          <Select
+            instanceId={useId()}
+            classNames={{
+              control: (state) =>
+                state.isFocused
+                  ? ' h-14 tracking-wide underline underline-offset-4'
+                  : ' tracking-wide h-14  underline underline-offset-4'
+            }}
+            options={selectTags}
+            styles={styles}
+            onChange={handleTag}
+            value={defaultTag}
+          ></Select>
+        </div>
+        <div className="slug-container flex flex-col space-y-4">
+          <h1 className="text-2xl md:text-3xl font-semibold w-full b-heading">
+            <span className="">Most Recent writings here..</span>
+          </h1>
 
-        <div className="relative bc">
-          <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-2 md:gap-8 auto-rows-min ">
-            {blogsList.map((blog: any, index: any) => {
-              return <BlogCard key={index} blog={blog} />;
-            })}
+          <div className="relative bc">
+            <div className="w-full flex flex-col md:flex-row flex-wrap  gap-y-2 md:gap-8 auto-rows-min ">
+              {blogsList.map((blog: any, index: any) => {
+                return <BlogCard key={index} blog={blog} />;
+              })}
+            </div>
           </div>
         </div>
-      </div>
-    </m.div>
+      </m.div>
+    </>
   );
 }
 
