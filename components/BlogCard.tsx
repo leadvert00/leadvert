@@ -34,12 +34,13 @@ const BlogCard = ({ blog }: any) => {
               {tag.fields.label}
             </span>
 
-            {/* <div
+            <div
               className="text-black  hover:text-primary leading-relaxed
                       text-lg md:text-xl  font-medium"
             >
               <span className="line-clamp-2 hover:underline">{title}</span>
             </div>
+            {/*
             <div className="flex items-center space-x-2 ">
               <div className="text-sm ">
                 <Moment format="MMMM D, YYYY">{publishDate}</Moment>
