@@ -3,6 +3,8 @@ import React from 'react';
 import { createClient } from 'contentful';
 import Team from '@/components/Team';
 import { motion as m } from 'framer-motion';
+import CircleButtonLink from '@/components/CircleButtonLink';
+import { BsArrowRight } from 'react-icons/bs';
 
 export async function getStaticProps() {
   const client = createClient({
@@ -55,6 +57,30 @@ function About({ members, about }: any) {
           ))}
         </div>
       </div>
+
+      <m.div
+        initial={{ opacity: 0 }}
+        whileInView={{ y: [30, 0], opacity: 1 }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+        className="flex flex flex-col space-y-8"
+      >
+        <p
+          className="text-xl md:text-2xl tracking-wide bg-purple-50 p-2 leading-loose
+         underline underline-offset-8"
+        >
+          The world is changing, and innovators are needed. That is one reason
+          why we have to assist you in obtaining the education you actually
+          desire and deserve.
+        </p>
+        <div className="flex  flex-col md:flex-row md:space-x-12">
+          <CircleButtonLink to="/signup" icon={<BsArrowRight />}>
+            Continue with Us
+          </CircleButtonLink>
+          <CircleButtonLink to="/contact" icon={<BsArrowRight />}>
+            Contact Us Today
+          </CircleButtonLink>
+        </div>
+      </m.div>
     </div>
   );
 }
