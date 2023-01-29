@@ -37,8 +37,7 @@ export default function Home({ blogs }: any) {
         <Hero />
         <Quote />
         <Services />
-
-        <BlogPosts blogs={blogs} />
+        {blogs && blogs.length > 0 && <BlogPosts blogs={blogs} />}
       </main>
     </>
   );
