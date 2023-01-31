@@ -54,6 +54,8 @@ const Hero = () => {
           alt="hero Image"
           width={500}
           height={200}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
           priority={true}
           src={`/hero.png`}
         />
