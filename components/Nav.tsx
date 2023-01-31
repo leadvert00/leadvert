@@ -14,7 +14,10 @@ const Nav = () => {
     { title: 'About', link: '/about' }
   ];
   return (
-    <nav className="z-50 nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md">
+    <nav
+      role="navigation"
+      className="z-50 nav-container fixed top-0 left-0 right-0 border bg-white  shadow-md"
+    >
       <Link
         className="navbar-brand text-2xl"
         href="/"
