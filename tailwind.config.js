@@ -9,7 +9,7 @@ module.exports = {
     typography: (theme) => ({
       dark: {
         css: {
-          color: 'red',
+          color: '',
         },
       },
     }),

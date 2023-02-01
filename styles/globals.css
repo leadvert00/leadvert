@@ -335,83 +335,18 @@ html {
   /* border-color: red transparent red transparent; */
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  color: #370070;
+  color: #ff9737;
 }
 
 .button-link:hover {
-  color: #370070;
+  color: #ff9737;
 }
 
 .button-link:hover .circle:after {
-  border-color: #370070 #370070 #370070 white;
+  border-color: #ff9737 #ff9737 #ff9737 white;
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  color: #370070;
-}
-
-.button-link-dark {
-  max-width: 50%;
-  line-height: 65px;
-  display: flex;
-  -webkit-perspective: 50em;
-  perspective: 50em;
-  text-decoration: none;
-}
-
-@media only screen and (max-width: 768px) {
-  .button-link-dark {
-    max-width: 100%;
-  }
-}
-
-.circle {
-  position: relative;
-  width: 3.5rem;
-  height: 3.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.circle:after {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border: 2px solid #e6e6e6;
-  content: '';
-  z-index: -1;
-  border-radius: 50%;
-}
-
-.circle:before {
-  color: #fff;
-}
-
-.circle:before,
-.circle:after {
-  -webkit-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-}
-.circle:hover:after,
-.circle:active:after,
-.circle.hover:after {
-  /* border-color: red transparent red transparent; */
-  -webkit-transform: rotate(360deg);
-  transform: rotate(360deg);
-  color: #94a3b8;
-}
-
-.button-link-dark:hover {
-  color: #94a3b8;
-}
-
-.button-link-dark:hover .circle:after {
-  border-color: #94a3b8 #94a3b8 #94a3b8 white;
-  -webkit-transform: rotate(360deg);
-  transform: rotate(360deg);
-  color: #94a3b8;
+  color: #ff9737;
 }
 
 .b-heading span {
