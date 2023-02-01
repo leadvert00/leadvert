@@ -11,7 +11,7 @@ function ThemeToggler() {
   if (!mounted) return <></>;
   return (
     <button
-      className="text-primary p-1 rounded-xl hover:border-secondary border-2 shadow mr-10"
+      className="text-primary p-2 rounded-xl hover:border-secondary border-2 shadow mr-10"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
     >
       <>
