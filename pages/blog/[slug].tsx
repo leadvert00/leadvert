@@ -435,7 +435,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                   key={index}
                   className="px-4 py-2 mr-2 bg-gray-200 rounded-full font-medium 
                   tracking-wider border 
-                  hover:border-secondary text-sm"
+                  hover:border-secondary text-sm dark:bg-gray-800"
                 >
                   {ot.fields.label}
                 </Link>
@@ -456,7 +456,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                   <p className="text-sm">{author.fields.shortBio}</p>
                   <a
                     target="_blank"
-                    className="tracking-wide font-semibold text-blue-800 hover:underline"
+                    className="tracking-wide font-semibold text-blue-800 dark:text-gray-400 hover:underline"
                     href={author.fields.linkedin}
                     rel="noopener noreferrer"
                   >
