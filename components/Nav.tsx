@@ -21,7 +21,7 @@ const Nav = () => {
       role="navigation"
       className="z-50 nav-container fixed top-0 left-0 right-0 dark:border bg-white dark:bg-black dark:border-t-0 dark:border-l-0 dark:border-r-0 dark:border-slate-500   shadow-md"
     >
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-6">
         <Link
           className="navbar-brand text-2xl"
           href="/"
