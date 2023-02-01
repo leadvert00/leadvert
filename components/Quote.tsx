@@ -12,7 +12,6 @@ const squareVariants = {
 
 const Quote = () => {
   const { theme, setTheme } = useTheme();
-  console.log(theme);
   const controls = useAnimation();
   const [ref, inView] = useInView();
   useEffect(() => {

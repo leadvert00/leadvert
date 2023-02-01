@@ -15,14 +15,13 @@ const Hero = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.95, ease: 'easeOut' }}
       className={`w-full flex flex-col space-y-8 md:space-y-0 md:flex-row
-      ${theme === 'dark' ? '' : 'hero'}
-      
+      hero      
       `}
     >
       <div className="hero-content w-full md:w-3/5 flex flex-col space-y-4 mb-3 md:mb-0 md:space-y-8">
         <div>
           <h1 className="flex flex-col text-3xl md:text-6xl font-bold space-y-3 md:space-y-4">
-            <span>Enhance your</span>
+            <span className="dark:text-gray-900">Enhance your</span>
             <span className="scrolling-words-container">
               <span className="scrolling-words-box">
                 <ul
@@ -41,7 +40,7 @@ const Hero = () => {
           </h1>
         </div>
         <div className="space-y-6  md:space-y-10">
-          <p className="text-lg w-full w-full md:w-11/12">
+          <p className="text-lg w-full w-full md:w-11/12 text-gray-900">
             Leadvert is research and academic business startup led by founders
             who live, think and research in academia. We are open to students,
             academics, and early career researchers interested in making
