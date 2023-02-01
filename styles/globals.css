@@ -275,7 +275,7 @@ html {
   border: 3px solid #fff;
   top: 0;
   right: 0;
-  background: #ff9737;
+  background: rgb(124 45 18);
 }
 
 @media only screen and (max-width: 768px) {
@@ -335,18 +335,18 @@ html {
   /* border-color: red transparent red transparent; */
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  color: #ff9737;
+  color: rgb(124 45 18);
 }
 
 .button-link:hover {
-  color: #ff9737;
+  color: rgb(124 45 18);
 }
 
 .button-link:hover .circle:after {
-  border-color: #ff9737 #ff9737 #ff9737 white;
+  border-color: rgb(124 45 18) rgb(124 45 18) rgb(124 45 18) white;
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  color: #ff9737;
+  color: rgb(124 45 18);
 }
 
 .b-heading span {
@@ -355,7 +355,7 @@ html {
     transparent 0%,
     transparent 64%,
     #eedac8 14%,
-    #ff9737 87%,
+    rgb(124 45 18) 87%,
     transparent 87%,
     transparent 100%
   );
