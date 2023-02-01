@@ -30,13 +30,13 @@ const Nav = () => {
           Leadvert
         </Link>
         <button
-          className="md:hidden text-primary p-2 rounded-xl hover:bg-secondary border-2 shadow mr-10"
+          className="md:hidden text-primary p-1 rounded-xl  hover:bg-secondary border-2 shadow mr-10"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         >
           {theme === 'dark' ? (
             <FiSun className="text-white text-2xl" />
           ) : (
-            <FiMoon className="text-2xl  text-white" />
+            <FiMoon className="text-2xl   text-gray-900" />
           )}
         </button>
       </div>
@@ -55,7 +55,7 @@ const Nav = () => {
 
       <div className="main-nav-container items-center justify-between ">
         <button
-          className="text-primary p-2 rounded-xl border-2 shadow mr-10 hover:border-secondary"
+          className="text-primary p-1 rounded-xl  border-2 shadow mr-10 hover:border-secondary"
           onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
         >
           {theme === 'dark' ? (
@@ -88,7 +88,7 @@ const Nav = () => {
         <div className="flex ml-4">
           <Link
             href="/contact"
-            className={`flex nav-btn rounded 
+            className={`flex nav-btn rounded-xl 
                           text-white  text-lg px-4 py-2
                           bg-gray-900 text-white hover:bg-primary
                           dark:bg-secondary  dark:hover:bg-orange-500
@@ -136,7 +136,7 @@ const Nav = () => {
               <Link
                 href="/contact"
                 onClick={() => setSideBar(false)}
-                className="flex nav-btn bg-gray-900 rounded font-semibold
+                className="flex nav-btn bg-gray-900 rounded-xl font-semibold
                             hover:bg-primary
                           text-white w-7/12 text-2xl px-4 py-2 "
               >

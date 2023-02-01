@@ -46,7 +46,7 @@ const Hero = () => {
             <Link
               href="/signup"
               className={` px-6 py-3  text-lg font-semibold 
-                        md:text-xl rounded bg-gray-900 text-white
+                        md:text-xl rounded-xl bg-gray-900 text-white
                         hover:bg-secondary
                         dark:bg-secondary  dark:hover:bg-orange-500
                         `}

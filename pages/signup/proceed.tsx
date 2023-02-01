@@ -160,7 +160,7 @@ export default function Proceed() {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded-xl font-medium
                               border-secondary"
                 />
               </div>
@@ -171,7 +171,7 @@ export default function Proceed() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 outline-none
-                              border-2 rounded tracking-wider font-medium
+                              border-2 rounded-xl tracking-wider font-medium
                               border-secondary "
                 />
               </div>
@@ -209,7 +209,7 @@ export default function Proceed() {
                     }
                   })}
                   options={options}
-                  className="w-11/12 border-secondary  bg-gray-200 rounded text-white"
+                  className="w-11/12 border-secondary  bg-gray-200 rounded-xl text-white"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
@@ -218,7 +218,7 @@ export default function Proceed() {
                   type="text"
                   value={affliation}
                   onChange={(e) => setAffliation(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded-xl font-medium
                                 border-secondary"
                 />
               </div>
@@ -228,7 +228,7 @@ export default function Proceed() {
                   type="text"
                   value={research}
                   onChange={(e) => setResearch(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded-xl font-medium
                                 border-secondary"
                 />
               </div>
@@ -268,7 +268,7 @@ export default function Proceed() {
                     }
                   })}
                   options={countryArr}
-                  className="w-11/12 border-secondary   bg-gray-200 rounded text-white"
+                  className="w-11/12 border-secondary   bg-gray-200 rounded-xl text-white"
                 />
               </div>
 
@@ -345,7 +345,7 @@ export default function Proceed() {
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded-xl font-medium
                               border-secondary dark:focus:border-gray-300"
                 />
               </div>
@@ -356,7 +356,7 @@ export default function Proceed() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800  outline-none
-                              border-2 rounded tracking-wider font-medium
+                              border-2 rounded-xl tracking-wider font-medium
                               border-secondary "
                 />
               </div>
@@ -393,7 +393,7 @@ export default function Proceed() {
                     }
                   })}
                   options={options}
-                  className="w-11/12 border-secondary bg-gray-200 rounded text-white"
+                  className="w-11/12 border-secondary bg-gray-200 rounded-xl text-white"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
@@ -401,7 +401,7 @@ export default function Proceed() {
                 <input
                   value={affliation}
                   onChange={(e) => setAffliation(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded-xl font-medium
                                 border-secondary"
                 />
               </div>
@@ -410,7 +410,7 @@ export default function Proceed() {
                 <input
                   value={research}
                   onChange={(e) => setResearch(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded-xl font-medium
                                 border-secondary  dark:focus:border-gray-300"
                 />
               </div>
@@ -450,7 +450,7 @@ export default function Proceed() {
                     }
                   })}
                   options={countryArr}
-                  className="w-11/12 border-secondary bg-gray-200 rounded text-white"
+                  className="w-11/12 border-secondary bg-gray-200 rounded-xl text-white"
                 />
               </div>
 

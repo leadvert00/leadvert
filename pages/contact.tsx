@@ -103,7 +103,7 @@ export default function Contact({
             {!loader ? (
               <button
                 type="submit"
-                className={`focus-ring w-full rounded 
+                className={`focus-ring w-full rounded-xl 
                               md:w-72  text-xl md:text-xl 
                              text-center text-white
                             capitalize  p-3 
@@ -119,7 +119,7 @@ export default function Contact({
               <button
                 type="submit"
                 disabled
-                className="focus-ring bg-gray-900  md:w-72  rounded 
+                className="focus-ring bg-gray-900  md:w-72  rounded-xl 
                             hover:bg-primary  text-xl md:text-xl text-white text-center 
                             capitalize  p-3  opacity-50"
               >
