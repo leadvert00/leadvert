@@ -71,6 +71,7 @@ export default function Contact({
                 className={`w-full p-3 focus:border-gray-800   outline-none 
                               placeholder-gray-500  dark:placeholder-slate-300 rounded
                               ${theme === 'dark' ? '' : 'bg-gray-200'} 
+                             
                               `}
               />
             </div>
@@ -106,11 +107,10 @@ export default function Contact({
                               md:w-72  text-xl md:text-xl 
                              text-center text-white
                             capitalize  p-3 
-                            ${
-                              theme === 'dark'
-                                ? 'bg-gray-700 hover:bg-gray-800 '
-                                : 'bg-gray-900 text-white hover:bg-primary'
-                            }  
+                            
+                              bg-gray-900 hover:bg-primary
+                               dark:bg-secondary  dark:hover:bg-orange-500
+                           
                             `}
               >
                 Send message

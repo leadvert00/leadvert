@@ -3,7 +3,6 @@ import { useAnimation, motion as m } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import CircleButtonLink from './CircleButtonLink';
 import { BsArrowRight } from 'react-icons/bs';
-import { useTheme } from 'next-themes';
 
 const squareVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 1 } },
@@ -11,7 +10,6 @@ const squareVariants = {
 };
 
 const Quote = () => {
-  const { theme, setTheme } = useTheme();
   const controls = useAnimation();
   const [ref, inView] = useInView();
   useEffect(() => {

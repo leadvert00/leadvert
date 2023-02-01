@@ -24,11 +24,7 @@ const Hero = () => {
             <span className="dark:text-gray-900">Enhance your</span>
             <span className="scrolling-words-container">
               <span className="scrolling-words-box">
-                <ul
-                  className={` ${
-                    theme === 'dark' ? 'text-slate-500' : 'text-primary'
-                  } `}
-                >
+                <ul className="text-primary dark:text-slate-500 ">
                   <li></li>
                   <li>Strategic guidance</li>
                   <li>Academic writing</li>

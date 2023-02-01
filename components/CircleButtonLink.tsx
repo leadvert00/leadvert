@@ -10,7 +10,7 @@ const CircleButtonLink = (prop: any) => {
       href={prop.to}
       className={`${
         prop.classNames
-      } flex space-x-4 md:space-x-6  font-medium text-xl items-center
+      } flex space-x-4 md:space-x-6  font-medium text-xl items-center button-link dark:button-link-dark
       ${theme === 'dark' ? 'button-link-dark' : 'button-link'}`}
     >
       <span>{prop.children}</span>
