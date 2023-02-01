@@ -28,6 +28,8 @@ function Team({ member }: any) {
           alt="jimoh"
           width="500"
           height="500"
+          blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADA..."
+          placeholder="blur"
         />
       </div>
       <div className="w-full md:w-9/12 space-y-4">
