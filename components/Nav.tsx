@@ -4,7 +4,8 @@ import { TfiClose } from 'react-icons/tfi';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-
+import { BsFillSunFill, BsMoonFill, BsSunFill } from 'react-icons/bs';
+import { FiMoon, FiSun } from 'react-icons/fi';
 const Nav = () => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
@@ -20,19 +21,26 @@ const Nav = () => {
       role="navigation"
       className="z-50 nav-container fixed top-0 left-0 right-0 dark:border bg-white dark:bg-black dark:border-t-0 dark:border-l-0 dark:border-r-0 dark:border-slate-500   shadow-md"
     >
-      <Link
-        className="navbar-brand text-2xl"
-        href="/"
-        onClick={() => setSideBar(false)}
-      >
-        Leadvert
-      </Link>
-      <button
-        className="text-primary"
-        onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      >
-        toggle
-      </button>
+      <div className="flex items-center space-x-4">
+        <Link
+          className="navbar-brand text-2xl"
+          href="/"
+          onClick={() => setSideBar(false)}
+        >
+          Leadvert
+        </Link>
+        <button
+          className="md:hidden text-primary p-2 rounded-xl hover:bg-secondary border-2 shadow mr-10"
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          {theme === 'dark' ? (
+            <FiSun className="text-white text-2xl" />
+          ) : (
+            <FiMoon className="text-2xl  text-white" />
+          )}
+        </button>
+      </div>
+
       {!sideBar ? (
         <BiMenuAltRight
           className="cursor-pointer text-4xl lg:hidden"
@@ -46,6 +54,16 @@ const Nav = () => {
       )}
 
       <div className="main-nav-container items-center justify-between ">
+        <button
+          className="text-primary p-2 rounded-xl border-2 shadow mr-10 hover:border-secondary"
+          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+        >
+          {theme === 'dark' ? (
+            <FiSun className="text-white text-2xl" />
+          ) : (
+            <FiMoon className="text-2xl text-gray-900 " />
+          )}
+        </button>
         <ul className="nav-links space-x-10">
           {linksData.map((nl, index) => (
             <li key={index}>
