@@ -68,8 +68,10 @@ export default function Contact({
                 type="text"
                 required
                 name="user_name"
-                className="w-full p-3 focus:border-gray-800   bg-gray-100 dark:bg-gray-700
-                              placeholder-gray-500  dark:placeholder-slate-300  border rounded"
+                className={`w-full p-3 focus:border-gray-800   outline-none 
+                              placeholder-gray-500  dark:placeholder-slate-300 rounded
+                              ${theme === 'dark' ? '' : 'bg-gray-200'} 
+                              `}
               />
             </div>
             <div className="w-full md:w-1/2  flex flex-col space-y-1">
@@ -78,8 +80,9 @@ export default function Contact({
                 placeholder="Email Address"
                 required
                 name="user_email"
-                className="w-full p-3 focus:border-gray-800   bg-gray-100 dark:bg-gray-700
-                            placeholder-gray-500  dark:placeholder-slate-300  border rounded"
+                className={`w-full p-3 focus:border-gray-800  outline-none
+                            placeholder-gray-500  dark:placeholder-slate-300 rounded
+                            ${theme === 'dark' ? '' : 'bg-gray-200'}   `}
               />
             </div>
           </div>
@@ -89,8 +92,9 @@ export default function Contact({
               name="message"
               placeholder="Your message"
               rows={5}
-              className="w-full p-3 focus:border-gray-800 bg-gray-100 dark:bg-gray-700
-                            outline-none placeholder-gray-500  dark:placeholder-slate-300 border-2 rounded"
+              className={`w-full p-3 focus:border-gray-800
+                            outline-none placeholder-gray-500  dark:placeholder-slate-300  rounded
+                            ${theme === 'dark' ? '' : 'bg-gray-200'}   `}
             />
           </div>
 
@@ -104,7 +108,7 @@ export default function Contact({
                             capitalize  p-3 
                             ${
                               theme === 'dark'
-                                ? 'bg-gray-800 hover:bg-gray-900 '
+                                ? 'bg-gray-700 hover:bg-gray-800 '
                                 : 'bg-gray-900 text-white hover:bg-primary'
                             }  
                             `}

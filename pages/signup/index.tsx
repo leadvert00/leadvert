@@ -6,6 +6,7 @@ import axios from 'axios';
 import Image from 'next/image';
 import { Magic } from 'magic-sdk';
 import LoaderOnButton from '@/components/LoaderOnButton';
+import { useTheme } from 'next-themes';
 
 export async function getStaticProps() {
   return {
@@ -95,13 +96,14 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
       setLoader(false);
     }
   };
+  const { theme, setTheme } = useTheme();
   return (
     <m.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.75, ease: 'easeOut' }}
       className=" absolute top-0 left-0 right-0 w-full h-full signup-container
-      bg-white"
+      "
     >
       <Head>
         <title>Get Started with Leadvert</title>
@@ -110,10 +112,10 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
       </Head>
       <main className="overflow-hidden w-full">
         <div className=" flex flex-col space-y-4 md:space-y-6 ">
-          <div className="flex flex-col md:flex-row w-full">
+          <div className="flex flex-col md:flex-row w-full justify-center items-center">
             <div className="flex w-full md:w-1/2">
               <div className="w-full my-16  space-y-6 md:space-y-12">
-                <h1 className="leading-tight text-3xl md:text-5xl text-black ">
+                <h1 className="leading-tight text-3xl md:text-5xl ">
                   Get Started with Leadvert
                 </h1>
                 <form className="w-full space-y-6" onSubmit={handleSubmit}>
@@ -124,18 +126,25 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       type="email"
-                      className="w-11/12 p-4  text-xl bg-gray-200
+                      className={`w-11/12 p-4  text-xl 
                                 outline-none font-medium rounded
-                                border-primary"
+                                border-primary 
+                                ${theme === 'dark' ? '' : 'bg-gray-200'}  
+                                
+                                `}
                     />
                   </div>
                   <div>
                     {!loader ? (
                       <button
                         type="submit"
-                        className="focus-ring bg-gray-900 w-11/12 md:w-2/5 rounded 
-                                  hover:bg-primary  text-xl md:text-xl text-white  
-                                  p-4 md:px-4 md:py-2"
+                        className={`focus-ring w-11/12 md:w-2/5 rounded 
+                                    text-xl md:text-xl text-white  
+                                  p-4 md:px-4 md:py-
+                                  bg-gray-900 text-white hover:bg-primary
+                                  dark:bg-secondary 
+                                  dark:hover:bg-orange-500
+                                `}
                       >
                         Submit
                       </button>
@@ -167,7 +176,7 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
-              className="w-full md:w-1/2 bg-white  right-0 md:h-screen sign"
+              className="w-full md:w-1/2  right-0 md:h-screen sign"
             >
               {/* */}
             </m.div>

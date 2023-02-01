@@ -6,6 +6,7 @@ import React, { useEffect, useId, useState } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import LoaderOnButton from '@/components/LoaderOnButton';
+import { useTheme } from 'next-themes';
 
 export const container = {
   hidden: { opacity: 0 },
@@ -60,7 +61,7 @@ export default function Proceed() {
       setEmail(em);
     } else {
       setTimeout(() => {
-        router.push('/signup');
+        // router.push('/signup');
       }, 1000);
     }
   }, [em, email, setEmail, setName, setCountryArr, router]);
@@ -101,6 +102,8 @@ export default function Proceed() {
       router.push('/signup/done');
     }
   }, [done, router]);
+  const { theme, setTheme } = useTheme();
+
   return (
     <div>
       <m.div
@@ -139,9 +142,11 @@ export default function Proceed() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className=" w-full flex justify-center pt-5"
         >
-          <div className="max-w-screen-xl flex flex-col mt-4 md:mt-0 space-y-8 bg-white p-4 md:p-12 ">
+          <div
+            className={`max-w-screen-xl flex flex-col mt-4 md:mt-0 space-y-8  p-4 md:p-12 `}
+          >
             <div className="flex w-full">
-              <h1 className="leading-tight text-3xl md:text-5xl text-black">
+              <h1 className="leading-tight text-3xl md:text-5xl">
                 Let us have some basic info to remember you.
               </h1>
             </div>
@@ -150,42 +155,43 @@ export default function Proceed() {
               className="flex w-full flex-wrap gap-y-6"
             >
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Last name
-                </label>
+                <label className="inline-block text-lg ">Last name</label>
                 <input
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded font-medium
                               border-secondary"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Email
-                </label>
+                <label className="inline-block text-lg">Email</label>
                 <input
                   disabled
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-gray-100 outline-none
+                  className="w-11/12 p-3 focus:border-gray-800 outline-none
                               border-2 rounded tracking-wider font-medium
                               border-secondary "
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Career Stage
-                </label>
+                <label className="inline-block text-lg ">Career Stage..</label>
                 <Select
                   defaultValue={career}
                   onChange={handleCareer}
                   instanceId={useId()}
                   value={{ label: career.label, value: career.value }}
                   styles={{
+                    option: (baseStyles, state) => ({
+                      ...baseStyles,
+                      backgroundColor: state.isSelected ? 'grey' : 'white',
+                      color: 'black'
+                    }),
                     control: (baseStyles, state) => ({
                       ...baseStyles,
+                      backgroundColor: theme == 'dark' ? '' : 'white',
+
                       borderColor: state.isFocused ? 'grey' : '#FF9737',
                       padding: '0.45rem',
                       borderRadius: '0.25rem',
@@ -203,30 +209,26 @@ export default function Proceed() {
                     }
                   })}
                   options={options}
-                  className="w-11/12 border-secondary"
+                  className="w-11/12 border-secondary  bg-gray-200 rounded text-white"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Affiliation
-                </label>
+                <label className="inline-block text-lg">Affiliation</label>
                 <input
                   type="text"
                   value={affliation}
                   onChange={(e) => setAffliation(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded font-medium
                                 border-secondary"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Research Field
-                </label>
+                <label className="inline-block text-lg">Research Field</label>
                 <input
                   type="text"
                   value={research}
                   onChange={(e) => setResearch(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded font-medium
                                 border-secondary"
                 />
               </div>
@@ -240,8 +242,15 @@ export default function Proceed() {
                   onChange={handleCountry}
                   instanceId={useId()}
                   styles={{
+                    option: (baseStyles, state) => ({
+                      ...baseStyles,
+                      backgroundColor: state.isSelected ? 'grey' : 'white',
+                      color: 'black'
+                    }),
                     control: (baseStyles, state) => ({
                       ...baseStyles,
+                      backgroundColor: theme == 'dark' ? '' : 'white',
+
                       borderColor: state.isFocused ? 'grey' : '#FF9737',
                       padding: '0.45rem',
                       borderRadius: '0.25rem',
@@ -259,7 +268,7 @@ export default function Proceed() {
                     }
                   })}
                   options={countryArr}
-                  className="w-11/12 border-secondary"
+                  className="w-11/12 border-secondary   bg-gray-200 rounded text-white"
                 />
               </div>
 
@@ -269,7 +278,8 @@ export default function Proceed() {
                     type="submit"
                     className="focus-ring bg-gray-900 w-11/12 md:w-3/5 rounded
                                   hover:bg-primary  text-xl md:text-xl text-white text-center 
-                                  p-4 md:px-4 md:py-2"
+                                  p-4 md:px-4 md:py-2
+                                  dark:bg-secondary  dark:hover:bg-orange-500"
                   >
                     Submit
                   </button>
@@ -293,7 +303,7 @@ export default function Proceed() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.75, ease: 'easeOut' }}
         className="hidden md:flex absolute top-0 left-0 right-0 bottom-0 w-full h-full signup-container xx
-                  bg-orange-50"
+                  "
       >
         <Head>
           <title>Get Started with Leadvert</title>
@@ -320,9 +330,9 @@ export default function Proceed() {
           transition={{ delay: 0.5, duration: 0.5 }}
           className=" w-full flex justify-center pt-5"
         >
-          <div className="max-w-screen-xl flex flex-col mt-4 md:mt-0 space-y-8 bg-white p-4 md:p-12 ">
+          <div className="max-w-screen-xl flex flex-col mt-4 md:mt-0 space-y-8 p-4 md:p-12 ">
             <div className="flex w-full">
-              <h1 className="leading-tight text-3xl md:text-5xl text-black">
+              <h1 className="leading-tight text-3xl md:text-5xl">
                 Let us have some basic about you.
               </h1>
             </div>
@@ -331,40 +341,41 @@ export default function Proceed() {
               className="flex w-full flex-wrap gap-y-6"
             >
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Last name
-                </label>
+                <label className="inline-block text-lg">Last name</label>
                 <input
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
-                              border-secondary"
+                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded font-medium
+                              border-secondary dark:focus:border-gray-300"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Email
-                </label>
+                <label className="inline-block text-lg ">Email</label>
                 <input
                   disabled
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-gray-100 outline-none
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none
                               border-2 rounded tracking-wider font-medium
                               border-secondary "
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Career Stage
-                </label>
+                <label className="inline-block text-lg">Career Stage</label>
                 <Select
                   value={{ label: career.label, value: career.value }}
                   onChange={handleCareer}
                   instanceId={useId()}
                   styles={{
+                    option: (baseStyles, state) => ({
+                      ...baseStyles,
+                      backgroundColor: state.isSelected ? 'grey' : 'white',
+                      color: 'black'
+                    }),
                     control: (baseStyles, state) => ({
                       ...baseStyles,
+                      backgroundColor: theme == 'dark' ? '' : 'white',
+
                       borderColor: state.isFocused ? 'grey' : '#FF9737',
                       padding: '0.45rem',
                       borderRadius: '0.25rem',
@@ -382,29 +393,25 @@ export default function Proceed() {
                     }
                   })}
                   options={options}
-                  className="w-11/12 border-secondary"
+                  className="w-11/12 border-secondary bg-gray-200 rounded text-white"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Affiliation
-                </label>
+                <label className="inline-block text-lg ">Affiliation</label>
                 <input
                   value={affliation}
                   onChange={(e) => setAffliation(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
+                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded font-medium
                                 border-secondary"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
-                <label className="inline-block text-lg text-gray-800 dark:text-slate-500">
-                  Research Field
-                </label>
+                <label className="inline-block text-lg ">Research Field</label>
                 <input
                   value={research}
                   onChange={(e) => setResearch(e.target.value)}
-                  className="w-11/12 p-3 focus:border-gray-800 bg-white outline-none border-2 rounded font-medium
-                                border-secondary"
+                  className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded font-medium
+                                border-secondary  dark:focus:border-gray-300"
                 />
               </div>
 
@@ -417,8 +424,15 @@ export default function Proceed() {
                   onChange={handleCountry}
                   instanceId={useId()}
                   styles={{
+                    option: (baseStyles, state) => ({
+                      ...baseStyles,
+                      backgroundColor: state.isSelected ? 'grey' : 'white',
+                      color: 'black'
+                    }),
                     control: (baseStyles, state) => ({
                       ...baseStyles,
+                      backgroundColor: theme == 'dark' ? '' : 'white',
+
                       borderColor: state.isFocused ? 'grey' : '#FF9737',
                       padding: '0.45rem',
                       borderRadius: '0.25rem',
@@ -436,7 +450,7 @@ export default function Proceed() {
                     }
                   })}
                   options={countryArr}
-                  className="w-11/12 border-secondary"
+                  className="w-11/12 border-secondary bg-gray-200 rounded text-white"
                 />
               </div>
 
@@ -446,7 +460,8 @@ export default function Proceed() {
                     type="submit"
                     className="focus-ring bg-gray-900 w-7/12 md:w-3/5 rounded
                                   hover:bg-primary  text-xl md:text-xl text-white text-center 
-                                  p-4 md:px-4 md:py-2"
+                                  p-4 md:px-4 md:py-2
+                                  dark:bg-secondary  dark:hover:bg-orange-500"
                   >
                     Submit
                   </button>

@@ -256,12 +256,12 @@ html {
 }
 
 .slug-con a {
-  color: #370070;
+  color: red;
   font-weight: 400;
 }
 .slug-con a:hover {
   text-decoration: underline;
-  color: #370070;
+  /* color: #370070; */
 }
 .service-card {
   width: 31.5%;

@@ -72,11 +72,9 @@ const Nav = () => {
             href="/contact"
             className={`flex nav-btn rounded 
                           text-white  text-lg px-4 py-2
-                          ${
-                            theme === 'dark'
-                              ? 'bg-gray-800 hover:bg-gray-900'
-                              : 'bg-gray-900 text-white hover:bg-primary'
-                          }  
+                          bg-gray-900 text-white hover:bg-primary
+                          dark:bg-secondary  dark:hover:bg-orange-500
+                           
                           `}
           >
             Contact Us

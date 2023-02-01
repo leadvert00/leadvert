@@ -51,13 +51,9 @@ const Hero = () => {
             <Link
               href="/signup"
               className={` px-6 py-3  text-lg font-semibold 
-                        md:text-xl rounded
+                        md:text-xl rounded bg-gray-900 text-white
                         hover:bg-secondary
-                        ${
-                          theme === 'dark'
-                            ? 'bg-gray-800 hover:bg-gray-900 '
-                            : 'bg-gray-900 text-white hover:bg-primary'
-                        }
+                        dark:bg-secondary  dark:hover:bg-orange-500
                         `}
             >
               Get Started With Us

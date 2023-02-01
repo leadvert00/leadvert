@@ -390,7 +390,7 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
         </div>
 
         <div className="md:hidden">
-          <div className="bg-gray-50  tag-container">
+          <div className="tag-container">
             <Select
               classNames={{
                 control: (state) =>

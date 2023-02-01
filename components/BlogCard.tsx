@@ -38,7 +38,7 @@ const BlogCard = ({ blog }: any) => {
           <div className="px-4 py-3 space-y-1.5 flex flex-col">
             <span
               className={` block uppercase tracking-wide text-sm
-                        ${theme === 'dark' ? 'text-slate-200' : 'text-primary '}
+                          text-primary dark:text-slate-200
                       `}
             >
               {tag.fields.label}
