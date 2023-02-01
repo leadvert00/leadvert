@@ -125,7 +125,8 @@ const Nav = () => {
                 onClick={() => setSideBar(false)}
                 className="flex nav-btn bg-gray-900 rounded font-semibold
                             hover:bg-primary
-                          text-white w-7/12 text-2xl px-4 py-2 "
+                          text-white w-7/12 text-2xl px-4 py-2
+                          dark:bg-secondary  dark:hover:bg-orange-500 "
               >
                 Contact Us
               </Link>
