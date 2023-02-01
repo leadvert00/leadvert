@@ -4,8 +4,8 @@ import { TfiClose } from 'react-icons/tfi';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useTheme } from 'next-themes';
-import { BsFillSunFill, BsMoonFill, BsSunFill } from 'react-icons/bs';
 import { FiMoon, FiSun } from 'react-icons/fi';
+import ThemeToggler from './ThemeToggler';
 const Nav = () => {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
@@ -29,16 +29,9 @@ const Nav = () => {
         >
           Leadvert
         </Link>
-        <button
-          className="md:hidden text-primary p-1 rounded-xl  hover:bg-secondary border-2 shadow mr-10"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        >
-          {theme === 'dark' ? (
-            <FiSun className="text-white text-2xl" />
-          ) : (
-            <FiMoon className="text-2xl   text-gray-900" />
-          )}
-        </button>
+        <span className="md:hidden">
+          <ThemeToggler />
+        </span>
       </div>
 
       {!sideBar ? (
@@ -54,16 +47,10 @@ const Nav = () => {
       )}
 
       <div className="main-nav-container items-center justify-between ">
-        <button
-          className="text-primary p-1 rounded-xl  border-2 shadow mr-10 hover:border-secondary"
-          onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-        >
-          {theme === 'dark' ? (
-            <FiSun className="text-white text-2xl" />
-          ) : (
-            <FiMoon className="text-2xl text-gray-900 " />
-          )}
-        </button>
+        <span className="hidden md:flex">
+          <ThemeToggler />
+        </span>
+
         <ul className="nav-links space-x-10">
           {linksData.map((nl, index) => (
             <li key={index}>
@@ -88,7 +75,7 @@ const Nav = () => {
         <div className="flex ml-4">
           <Link
             href="/contact"
-            className={`flex nav-btn rounded-xl 
+            className={`flex nav-btn rounded 
                           text-white  text-lg px-4 py-2
                           bg-gray-900 text-white hover:bg-primary
                           dark:bg-secondary  dark:hover:bg-orange-500
@@ -136,7 +123,7 @@ const Nav = () => {
               <Link
                 href="/contact"
                 onClick={() => setSideBar(false)}
-                className="flex nav-btn bg-gray-900 rounded-xl font-semibold
+                className="flex nav-btn bg-gray-900 rounded font-semibold
                             hover:bg-primary
                           text-white w-7/12 text-2xl px-4 py-2 "
               >

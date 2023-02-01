@@ -256,7 +256,7 @@ html {
 }
 
 .slug-con a {
-  color: red;
+  color: #1d4ed8;
   font-weight: 400;
 }
 .slug-con a:hover {
@@ -335,18 +335,18 @@ html {
   /* border-color: red transparent red transparent; */
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  color: rgb(249 115 22);
+  color: #ff9737;
 }
 
 .button-link:hover {
-  color: rgb(249 115 22);
+  color: #ff9737;
 }
 
 .button-link:hover .circle:after {
-  border-color: rgb(249 115 22) rgb(249 115 22) rgb(249 115 22) white;
+  border-color: #ff9737 #ff9737 #ff9737 white;
   -webkit-transform: rotate(360deg);
   transform: rotate(360deg);
-  color: rgb(249 115 22);
+  color: #ff9737;
 }
 
 .b-heading span {
@@ -355,7 +355,7 @@ html {
     transparent 0%,
     transparent 64%,
     #eedac8 14%,
-    rgb(249 115 22) 87%,
+    #ff9737 87%,
     transparent 87%,
     transparent 100%
   );
