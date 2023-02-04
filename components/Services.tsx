@@ -81,7 +81,7 @@ const Services = () => {
 
       <div className="flex w-full  justify-center">
         <CircleButtonLink
-          to="/signup"
+          to="/contact"
           classNames="justify-center"
           icon={<BsArrowRight />}
         >

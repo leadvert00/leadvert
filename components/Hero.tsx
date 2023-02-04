@@ -44,14 +44,14 @@ const Hero = () => {
           </p>
           <div>
             <Link
-              href="/signup"
-              className={` px-6 py-3  text-lg font-semibold 
+              href="/about"
+              className={` px-6 py-3  text-lg 
                         md:text-xl rounded-xl bg-gray-900 text-white
                         hover:bg-secondary
                         dark:bg-secondary  dark:hover:bg-orange-500
                         `}
             >
-              Get Started With Us
+              Learn More
             </Link>
           </div>
         </div>
