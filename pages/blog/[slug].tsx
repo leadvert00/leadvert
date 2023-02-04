@@ -12,6 +12,8 @@ import { useRouter } from 'next/router';
 import { motion as m } from 'framer-motion';
 import Select from 'react-select';
 import { useTheme } from 'next-themes';
+import CircleButtonLink from '@/components/CircleButtonLink';
+import { BsArrowRight } from 'react-icons/bs';
 
 let client: any;
 
@@ -366,7 +368,30 @@ export default function BlogDetails({ blog, blogs, tags }: any) {
                 </m.div>
               </div>
               <div className="slug-2 mt-6 space-y-16">
-                <div className="w-full h-96 bg-purple-50"></div>
+                <div className="w-full h-96 bg-purple-50 p-6 space-y-6 dark:text-black">
+                  <h2 className="text-2xl font-medium">
+                    Feel free to join Leadvert Newsletter
+                  </h2>
+                  <p>
+                    We want to provide you with the best resources and
+                    information for your education! Join our Leadvert Newsletter
+                    for a monthly dose of fresh insights, academia advice, and
+                    updates.
+                  </p>
+
+                  <div>
+                    <Link
+                      href="/signup"
+                      className={` px-6 py-3  text-base
+                        md:text-xl rounded-xl bg-gray-900 text-white
+                        hover:bg-secondary
+                        dark:bg-secondary  dark:hover:bg-orange-500
+                        `}
+                    >
+                      Join Leadvert
+                    </Link>
+                  </div>
+                </div>
               </div>
             </m.div>
             <m.div
