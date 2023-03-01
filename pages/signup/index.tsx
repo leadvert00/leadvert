@@ -56,7 +56,10 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
     }
   };
   function isEmpty(obj: any) {
-    return Object.keys(obj).length === 0;
+    if (obj) {
+      return Object.keys(obj).length === 0;
+    }
+    return true;
   }
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -74,7 +77,7 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
     console.log(checkEmail);
     if (isEmpty(checkEmail)) {
       await fetch(
-        `https://sheetdb.io/api/v1/3yko7v0zohb8v/search?email=${email}`
+        `https://sheetdb.io/api/v1/tgo693jq7vdvw/search?email=${email}`
       )
         .then((checker) => checker.json())
         .then((checker) => {
@@ -98,6 +101,7 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
     }
   };
   const { theme, setTheme } = useTheme();
+
   return (
     <m.div
       initial={{ opacity: 0 }}
@@ -134,17 +138,31 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
                 </div>
                 <form className="w-full space-y-3" onSubmit={handleSubmit}>
                   <div className="flex flex-col">
-                    <input
-                      placeholder="Email address"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      type="email"
-                      className={`w-full md:w-11/12 p-4  text-xl 
-                                outline-none font-medium rounded
-                                border-primary  dark:bg-gray-200
-                                `}
-                    />
+                    {theme && theme == 'dark' ? (
+                      <input
+                        placeholder="Email address"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
+                        className={`w-full md:w-11/12 p-4  text-xl 
+                                outline-none font-medium rounded 
+                                border-primary 
+                               `}
+                      />
+                    ) : (
+                      <input
+                        placeholder="Email address"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        type="email"
+                        className={`w-full md:w-11/12 p-4  text-xl 
+                              outline-none font-medium rounded text-slate-800
+                              border-primary bg-gray-200
+                             `}
+                      />
+                    )}
                   </div>
                   <div>
                     {!loader ? (

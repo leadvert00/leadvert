@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import LoaderOnButton from '@/components/LoaderOnButton';
 import { useTheme } from 'next-themes';
+import { now } from 'moment';
 
 export const container = {
   hidden: { opacity: 0 },
@@ -38,11 +39,16 @@ export default function Proceed() {
 
   let em = router.query.email;
   const [email, setEmail] = useState<any>('');
-  const [name, setName] = useState<any>('');
+  const [lastName, setLastName] = useState<any>('');
+  const [givenNames, setGivenNames] = useState<any>('');
+
   const [career, setCareer] = useState<any>({});
-  const [affliation, setAffliation] = useState<any>('');
+  const [affiliation, setAffilation] = useState<any>('');
   const [research, setResearch] = useState<any>('');
-  const [country, setCountry] = useState<any>();
+  const [country, setCountry] = useState<any>({
+    label: 'Nigeria',
+    value: 'Nigeria'
+  });
   const [countryArr, setCountryArr] = useState<any>([]);
   const [done, setDone] = useState<any>(false);
   const [loader, setLoader] = useState(false);
@@ -64,7 +70,7 @@ export default function Proceed() {
         // router.push('/signup');
       }, 1000);
     }
-  }, [em, email, setEmail, setName, setCountryArr, router]);
+  }, [em, email, setEmail, setCountryArr, router]);
 
   const handleCareer = (selectedOption: any) => {
     setCareer(selectedOption);
@@ -75,29 +81,32 @@ export default function Proceed() {
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
+    console.log(country);
     setLoader(true);
     let data = {
-      email,
-      name,
-      career: career.value,
-      affliation,
-      research,
-      country: country.value
+      Timestamp: new Date().toJSON(),
+      'Email Address': email,
+      Surname: lastName,
+      'Given names': givenNames,
+      'Career stage': career.value,
+      Affiliation: affiliation,
+      'Research field': research,
+      'Country of residence': country.value
     };
-    console.log(data.country);
-    if (typeof data.country === 'undefined' || data.country === '') {
-      data.country = 'Nigeria';
-    }
-    console.log(data);
 
     axios
-      .patch(`https://sheetdb.io/api/v1/3yko7v0zohb8v/email/*${email}`, data)
+      .post(`https://sheetdb.io/api/v1/tgo693jq7vdvw`, data)
       .then((response: any) => {
         setDone(true);
+        sessionStorage.setItem('email_done', email);
       });
   };
 
   useEffect(() => {
+    console.log(em);
+    if (sessionStorage.getItem('email_done') == em) {
+      router.push('/');
+    }
     if (done) {
       router.push('/signup/done');
     }
@@ -158,8 +167,18 @@ export default function Proceed() {
                 <label className="inline-block text-lg ">Last name</label>
                 <input
                   type="text"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded-xl font-medium
+                              border-secondary"
+                />
+              </div>
+              <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
+                <label className="inline-block text-lg ">Given names</label>
+                <input
+                  type="text"
+                  value={givenNames}
+                  onChange={(e) => setGivenNames(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded-xl font-medium
                               border-secondary"
                 />
@@ -216,8 +235,8 @@ export default function Proceed() {
                 <label className="inline-block text-lg">Affiliation</label>
                 <input
                   type="text"
-                  value={affliation}
-                  onChange={(e) => setAffliation(e.target.value)}
+                  value={affiliation}
+                  onChange={(e) => setAffilation(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded-xl font-medium
                                 border-secondary"
                 />
@@ -343,10 +362,20 @@ export default function Proceed() {
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
                 <label className="inline-block text-lg">Last name</label>
                 <input
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded-xl font-medium
                               border-secondary dark:focus:border-gray-300"
+                />
+              </div>
+              <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
+                <label className="inline-block text-lg ">Given names</label>
+                <input
+                  type="text"
+                  value={givenNames}
+                  onChange={(e) => setGivenNames(e.target.value)}
+                  className="w-11/12 p-3 focus:border-gray-800  outline-none border-2 rounded-xl font-medium
+                              border-secondary"
                 />
               </div>
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
@@ -399,8 +428,8 @@ export default function Proceed() {
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
                 <label className="inline-block text-lg ">Affiliation</label>
                 <input
-                  value={affliation}
-                  onChange={(e) => setAffliation(e.target.value)}
+                  value={affiliation}
+                  onChange={(e) => setAffilation(e.target.value)}
                   className="w-11/12 p-3 focus:border-gray-800 outline-none border-2 rounded-xl font-medium
                                 border-secondary"
                 />
