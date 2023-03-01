@@ -70,7 +70,7 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
       country: ''
     };
 
-    const checkEmail = JSON.parse(localStorage.getItem('email') || '{}');
+    const checkEmail = sessionStorage.getItem('email');
     console.log(checkEmail);
     if (isEmpty(checkEmail)) {
       await fetch(
@@ -78,7 +78,8 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
       )
         .then((checker) => checker.json())
         .then((checker) => {
-          localStorage.setItem('email', JSON.stringify(email));
+          sessionStorage.setItem('email', email);
+
           if (checker.length === 0) {
             login(data);
           } else {
@@ -141,9 +142,7 @@ export default function Home({ MAGIC_API_KEY, MAGIC_SECRET_KEY }: any) {
                       type="email"
                       className={`w-full md:w-11/12 p-4  text-xl 
                                 outline-none font-medium rounded
-                                border-primary 
-                                ${theme === 'dark' ? '' : 'bg-gray-200'}  
-                                
+                                border-primary  dark:bg-gray-200
                                 `}
                     />
                   </div>
