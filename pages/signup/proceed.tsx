@@ -109,7 +109,7 @@ export default function Proceed() {
     } else if (sessionStorage.getItem('email_done') == em) {
       router.push('/');
     }
-  }, [done, router]);
+  }, [done, em, router]);
   const { theme, setTheme } = useTheme();
 
   return (

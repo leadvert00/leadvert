@@ -1,9 +1,9 @@
-//robots.txt
-
-# Block all crawlers for /accounts
-User-agent: *
-Disallow: /accounts
-
-# Allow all crawlers
+# *
 User-agent: *
 Allow: /
+
+# Host
+Host: https://leadvert.org
+
+# Sitemaps
+Sitemap: https://leadvert.org/sitemap.xml
