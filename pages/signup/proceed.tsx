@@ -104,11 +104,10 @@ export default function Proceed() {
 
   useEffect(() => {
     console.log(em);
-    if (sessionStorage.getItem('email_done') == em) {
-      router.push('/');
-    }
     if (done) {
       router.push('/signup/done');
+    } else if (sessionStorage.getItem('email_done') == em) {
+      router.push('/');
     }
   }, [done, router]);
   const { theme, setTheme } = useTheme();
@@ -291,7 +290,7 @@ export default function Proceed() {
                 />
               </div>
 
-              <div className="flex w-full md:w-1/3 flex-col mt-4 space-y-1 md:space-y-1">
+              <div className="flex w-full md:w- flex-col mt-4 space-y-1 md:space-y-1">
                 {!loader ? (
                   <button
                     type="submit"
@@ -350,7 +349,10 @@ export default function Proceed() {
           className=" w-full flex justify-center pt-5"
         >
           <div className="max-w-screen-xl flex flex-col mt-4 md:mt-0 space-y-8 p-4 md:p-12 ">
-            <div className="flex w-full">
+            <div className="flex flex-col w-full">
+              <span className="tracking-wider font-bold text-xl">
+                Welcome, {email}
+              </span>
               <h1 className="leading-tight text-3xl md:text-5xl">
                 Let us have some basic about you.
               </h1>
@@ -378,7 +380,7 @@ export default function Proceed() {
                               border-secondary"
                 />
               </div>
-              <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
+              {/* <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
                 <label className="inline-block text-lg ">Email</label>
                 <input
                   disabled
@@ -388,7 +390,7 @@ export default function Proceed() {
                               border-2 rounded-xl tracking-wider font-medium
                               border-secondary "
                 />
-              </div>
+              </div> */}
               <div className="flex w-full md:w-1/3 flex-col  space-y-1 md:space-y-1">
                 <label className="inline-block text-lg">Career Stage</label>
                 <Select
